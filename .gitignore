@@ -1,0 +1,12 @@
+.vs
+debug
+release
+*.aps
+.github
+.vscode
+node_modules
+dist
+*.zip
+bin
+obj
+web.config
