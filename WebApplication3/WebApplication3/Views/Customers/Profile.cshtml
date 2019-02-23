@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container-fluid content-wrapper ">
+    <div class="m-sm-5">
+        <div class=" d-flex justify-content-end mr-6 ">
+            <form class="form-inline md-form ">
+                <input class="form-control-sm " type="search" placeholder="Search" aria-label="Search">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </form>
+        </div>
+        <div class="d-flex justify-content-start ml-sm-5 ">
+            <i class="fas fa-user-circle head-user"></i>
+            <h3 class="m-3" style="font-weight: 500;"> Customer Name</h3>
+        </div>
+    </div>
+    <div class="profile row ml-0 ml-sm-5 mr-5">
+        <form class="col-lg-12 ml-sm-5 ">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row ml-lg-3">
+                        <label  class="col-form-label "><i class="fas fa-user profile-icon"></i></label>
+                        <div class="col-8">
+                            <div class="md-form mt-3">
+                                <input type="text" class="form-control" id="profile_contactPerson" placeholder="Contact Person">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 ml-auto">
+                    <div class="form-group row ml-lg-3">
+                        <label  class="col-form-label "><i class="fas fa-envelope profileMail-icon"></i></label>
+                        <div class="col-8">
+                            <div class="md-form mt-3">
+                                <input type="text" class="form-control" id="profile_mail" placeholder="Email">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row ml-lg-3">
+                        <label  class="col-form-label "><i class="fas fa-map-marker-alt profile-icon"></i></label>
+                        <div class="col-8">
+                            <div class="md-form mt-3">
+                                <input type="text" class="form-control" id="profile_address" placeholder="Address">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 ml-auto">
+                    <div class="form-group row ml-lg-3">
+                        <label  class="col-form-label "><i class="fas fa-mobile-alt profilePhone-icon"></i></label>
+                        <div class="col-8">
+                            <div class="md-form mt-3">
+                                <input type="text" class="form-control" id="profile_Phone" placeholder="Phone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row ml-0 ml-lg-5 mr-6 mt-lg-3">
+        <div class="col-md-12  ml-md-5 ">
+            <div class="table-responsive mr-6">
+                <table class="table  table-sm table-bordered shadow">
+                    <thead class="table-header ">
+                        <tr>
+                            <th>SL.No</th>
+                            <th>IMEI/Device Number</th>
+                            <th>Sim Card No</th>
+                            <th>Location</th>
+                            <th> Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="teble-algin">
+                        <tr>
+                            <td>1</td>
+                            <td> <a href="#">1234567</a> </td>
+                            <td>47</td>
+                            <td><a href="#">Hong Kong</a></td>
+                            <td>
+                                <div class="blue-gradient color-block rounded-circle z-depth-1 m-auto" style="width:20px;height:20px">
+                                </div>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-end mt-md-5  ">
+        <div style="margin-right:9%">
+            <button type="submit" class="btn-other btn-sm" style="width:135px; ">Edit</button>
+            <span style="opacity:0">ertret</span>
+            <button type="submit" class="btn-other btn-sm" style="width:135px;">Save</button>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link href="~/lib/mdbootstrap/css/mdb.css" rel="stylesheet" />
+}

@@ -1,0 +1,9 @@
+li.m-menu__item.m-menu__item--submenu.m-menu__item--open > a {
+    border-left: 4px solid #5867dd;
+}
+.m-portlet.m-portlet--creative.no-sub-header > .m-portlet__body {
+    margin-top: -30px;
+}
+h2.m-portlet__head-label.m-portlet__head-label--warning {
+    color: white !important;
+}

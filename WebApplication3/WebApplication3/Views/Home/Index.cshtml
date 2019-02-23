@@ -1,0 +1,1218 @@
+﻿@{
+    ViewData["Title"] = "Rapphie";
+    Layout = "_Layout";
+    //Layout = "_LoginLayout";
+}
+
+<h2 style="opacity:0">@ViewData["Title"]</h2>
+
+
+
+<div class="container-fluid content-wrapper">
+    <div class="row mr-lg-3">
+        <div class="col-lg-9 ml-lg-5">
+            <div class="d-flex justify-content-between">
+                <div class="col-lg-3">
+                    <h3 class="page-header mt-lg-3">
+                        Dashboard
+                    </h3>
+                </div>
+                <div class="col-6 body_inner_right_heading mt-4">
+                    <h2><strong>26</strong> Alerts <i class="fa fa-exclamation-triangle" aria-hidden="true"></i></h2>
+                </div>
+
+            </div>
+            <div class="d-flex justify-content-start">
+                <div class="col-xl-4">
+                    <div class="device_search_area">
+                        <i class="fa fa-database" aria-hidden="true"></i>
+                        <div class="device_search_inner">
+                            <input type="text" placeholder="Device Search" class="device_search_input" />
+                            <input type="submit" value="" class="device_search_submit" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-lg-3 ">
+                <div class="col-lg-4 col-md-4 mb-3 ">
+                    <div class="panel shadow rounded" style="background:#58E2ED">
+                        <div class="panel-heading">
+                            <div class="d-flex bd-highlight">
+                                <div class="p-2 flex-fill bd-highlight ml-lg-3">
+                                    <div class="h3 text-white ml-2 mb-3">00:00</div>
+                                    <div class="text-white m-2">Pressure</div>
+                                </div>
+                                <div class="p-2 flex-fill mt-2 ">
+                                    <img src="~/images/box_icon1.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <a href="" style="color: #e9edf1;text-align:center">
+                            <div class="panel-footer shadow rounded-bottom" style="background:#3BC4E6;">
+                                <span class="home-icon">More Info</span>
+                                <span class="home-icon"><i class="fa fa-arrow-circle-right"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 mb-3 ">
+                    <div class="panel shadow rounded" style="background:#00A65A;">
+                        <div class="panel-heading">
+                            <div class="d-flex bd-highlight">
+                                <div class="p-2 flex-fill bd-highlight ml-lg-3">
+                                    <div class="h3 text-white ml-2 mb-3">00:00</div>
+                                    <div class="text-white m-2">Temperature</div>
+                                </div>
+                                <div class="p-2 flex-fill ">
+                                    <img src="~/images/box_icon2.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <a href="" style="color: #e9edf1;text-align:center">
+                            <div class="panel-footer shadow rounded-bottom" style="background:#00964F;">
+                                <span class="home-icon">More Info</span>
+                                <span class="home-icon"><i class="fa fa-arrow-circle-right"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 mb-3">
+                    <div class="panel shadow rounded" style="background:#FF8500;">
+                        <div class="panel-heading">
+                            <div class="d-flex bd-highlight">
+                                <div class="p-2 flex-fill bd-highlight ml-lg-3">
+                                    <div class="h3 text-white ml-2 mb-3">00:00</div>
+                                    <div class="text-white m-2">Humidity</div>
+                                </div>
+                                <div class="p-2 flex-fill ">
+                                    <img src="~/images/box_icon3.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <a href="" style="color: #e9edf1;text-align:center">
+                            <div class="panel-footer shadow rounded-bottom" style="background:#cc8b15;">
+                                <span class="home-icon">More Info</span>
+                                <span class="home-icon"><i class="fa fa-arrow-circle-right"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-lg-3 ">
+                <div class="col-lg-4 col-md-4 mb-3 ">
+                    <div class="panel shadow rounded" style="background:#58E2ED">
+                        <div class="panel-heading">
+                            <div class="d-flex bd-highlight">
+                                <div class="p-2 flex-fill bd-highlight ml-lg-3">
+                                    <div class="h3 text-white ml-2 mb-3">00:00</div>
+                                    <div class="text-white m-2">Moisture</div>
+                                </div>
+                                <div class="p-2 flex-fill ">
+                                    <img src="~/images/box_icon4.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <a href="" style="color: #e9edf1;text-align:center">
+                            <div class="panel-footer shadow rounded-bottom" style="background:#3BC4E6;">
+                                <span class="home-icon">More Info</span>
+                                <span class="home-icon"><i class="fa fa-arrow-circle-right"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 mb-3 ">
+                    <div class="panel shadow rounded" style="background:#00A65A;">
+                        <div class="panel-heading">
+                            <div class="d-flex bd-highlight">
+                                <div class="p-2 flex-fill bd-highlight ml-lg-3">
+                                    <div class="h3 text-white ml-2 mb-3">00:00</div>
+                                    <div class="text-white m-2"><span>Liquid</span><span style="opacity:0">1</span><span>flow</span> </div>
+                                </div>
+                                <div class="p-2 flex-fill ">
+                                    <img src="~/images/box_icon5.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <a href="" style="color: #e9edf1;text-align:center">
+                            <div class="panel-footer shadow rounded-bottom" style="background:#00964F;">
+                                <span class="home-icon">More Info</span>
+                                <span class="home-icon"><i class="fa fa-arrow-circle-right"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 mb-3">
+                    <div class="panel shadow rounded" style="background:#FF8500;">
+                        <div class="panel-heading">
+                            <div class="d-flex bd-highlight">
+                                <div class="p-2 flex-fill bd-highlight ml-lg-3">
+                                    <div class="h3 text-white ml-2 mb-3">00:00</div>
+                                    <div class="text-white m-2">CO2</div>
+                                </div>
+                                <div class="p-2 flex-fill ">
+                                    <img src="~/images/box_icon6.png" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <a href="" style="color: #e9edf1;text-align:center">
+                            <div class="panel-footer shadow rounded-bottom" style="background:#cc8b15;">
+                                <span class="home-icon">More Info</span>
+                                <span class="home-icon"><i class="fa fa-arrow-circle-right"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-3 ml-lg-3 mr-lg-1 mt-lg-5">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-bordered shadow">
+                            <thead class="text-white" style="background-color: #45a783;">
+                                <tr>
+                                    <td width="8%" align="center" valign="middle">Alert<br /> No</td>
+                                    <td width="11%" align="center" valign="middle">Location</td>
+                                    <td width="14%" align="center" valign="middle">IMEI / Device Number</td>
+                                    <td width="12%" align="center" valign="middle">Customer Name</td>
+                                    <td width="12%" align="center" valign="middle">Time</td>
+                                    <td width="18%" align="center" valign="middle">Alert Type</td>
+                                    <td width="16%" align="center" valign="middle">Device Command</td>
+                                    <td width="9%" align="center" valign="middle">Server Reply</td>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td align="center" valign="middle">1</td>
+                                    <td align="center" valign="middle"><a href="/location/location">Wyoming</a></td>
+                                    <td align="center" valign="middle"><a href="#">99862471854</a></td>
+                                    <td align="center" valign="middle">Name 1</td>
+                                    <td align="center" valign="middle">12:30:00:12</td>
+                                    <td align="left" valign="middle"><strong>P1   Pressure</strong> <span class="body_inner_left_table_right_text"><i class="fa fa-caret-up red_up_arrow" aria-hidden="true"></i> 3</span></td>
+                                    <td align="center" valign="middle">Switch R1 on <img src="~/images/on.png" style="border: 2px solid #908d8d;" alt="" /></td>
+                                    <td align="center" valign="middle">Failed</td>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="middle">2</td>
+                                    <td align="center" valign="middle"><a href="/location/location">Wyoming</a></td>
+                                    <td align="center" valign="middle"><a href="#">99862471854</a></td>
+                                    <td align="center" valign="middle">Name 2</td>
+                                    <td align="center" valign="middle">12:30:00:12</td>
+                                    <td align="left" valign="middle"><strong>P2   Temperature</strong> <span class="body_inner_left_table_right_text"><i class="fa fa-caret-down blue_down_arrow" aria-hidden="true"></i> 2</span></td>
+                                    <td align="center" valign="middle">Switch R2 on <img src="~/images/on.png" style="border: 2px solid #908d8d;" alt="" /></td>
+                                    <td align="center" valign="middle">Success</td>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="middle">3</td>
+                                    <td align="center" valign="middle"><a href="/location/location">Wyoming</a></td>
+                                    <td align="center" valign="middle"><a href="#">99862471854</a></td>
+                                    <td align="center" valign="middle">Name 3</td>
+                                    <td align="center" valign="middle">12:30:00:12</td>
+                                    <td align="left" valign="middle"><strong>P3    Humidity</strong> <span class="body_inner_left_table_right_text"><i class="fa fa-caret-down blue_down_arrow" aria-hidden="true"></i> 2</span></td>
+                                    <td align="center" valign="middle">Switch R3 on <img src="~/images/on.png " style="border: 2px solid #908d8d;" alt="" /></td>
+                                    <td align="center" valign="middle">Failed</td>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="middle">4</td>
+                                    <td align="center" valign="middle"><a href="/location/location">Wyoming</a></td>
+                                    <td align="center" valign="middle"><a href="#">99862471854</a></td>
+                                    <td align="center" valign="middle">Name 4</td>
+                                    <td align="center" valign="middle">12:30:00:12</td>
+                                    <td align="left" valign="middle"><strong>P2   Temperature</strong> <span class="body_inner_left_table_right_text"><i class="fa fa-caret-up red_up_arrow" aria-hidden="true"></i> 0</span></td>
+                                    <td align="center" valign="middle"> Switch R2 off <img src="~/images/off.png" style="border: 2px solid #908d8d;" alt="" /></td>
+                                    <td align="center" valign="middle">Success</td>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="middle">5</td>
+                                    <td align="center" valign="middle"><a href="/location/location">Wyoming</a></td>
+                                    <td align="center" valign="middle"><a href="#">99862471854</a></td>
+                                    <td align="center" valign="middle">Name 5</td>
+                                    <td align="center" valign="middle">12:30:00:12</td>
+                                    <td align="left" valign="middle"><strong>P3    Humidity</strong> <span class="body_inner_left_table_right_text"><i class="fa fa-caret-down blue_down_arrow" aria-hidden="true"></i> 0</span></td>
+                                    <td align="center" valign="middle"> Switch R3 off <img src="~/images/off.png" style="border: 2px solid #908d8d;" alt="" /></td>
+                                    <td align="center" valign="middle">Failed</td>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="middle">&nbsp;</td>
+                                    <td align="center" valign="middle">&nbsp;</td>
+                                    <td align="center" valign="middle">&nbsp;</td>
+                                    <td align="center" valign="middle">&nbsp;</td>
+                                    <td align="center" valign="middle">&nbsp;</td>
+                                    <td align="left" valign="middle">&nbsp;</td>
+                                    <td align="center" valign="middle">&nbsp;</td>
+                                    <td align="center" valign="middle">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td align="center" valign="middle">&nbsp;</td>
+                                    <td align="center" valign="middle">&nbsp;</td>
+                                    <td align="center" valign="middle">&nbsp;</td>
+                                    <td align="center" valign="middle">&nbsp;</td>
+                                    <td align="center" valign="middle">&nbsp;</td>
+                                    <td align="left" valign="middle">&nbsp;</td>
+                                    <td align="center" valign="middle">&nbsp;</td>
+                                    <td align="center" valign="middle">&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg">
+            <div class="ml-auto mt-3 mb-3 mr-1">
+                <div class="d-inline-block p-2 mr-0 w-50" style="background: indianred; text-align:center; line-height: 2!important; border-color:indianred;">Active: -25</div>
+                <div class="d-inline-block p-2 w-50" style="background: green; line-height: 2!important;text-align:center; border-color:green; margin-left: -5px">Inactive: -3</div>
+            </div>
+
+            <div class="col-12" style="list-style-type:none !important;">
+                <div class="right_manu_area">
+                    <ul class="cd-accordion-menu animated">
+                        <li class="has-children">
+                            <input type="checkbox" name="group-1" id="group-1">
+                            <label for="group-1">Select</label>
+
+                            <ul>
+                                <li class="has-children" style="list-style-type:none;">
+                                    <input type="checkbox" name="sub-group-1" id="sub-group-1">
+                                    <label for="sub-group-1">
+                                        Customer1
+                                        <a href="#" class="customer_map_area"><img src="~/images/map.png" alt="" /></a>
+                                        <a href="#" class="customer_select_area_arrow customer_select_tab1"><img src="~/images/down_arrow.png" alt="" /></a>
+                                        <div class="customer_select_area">
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <ul class="customer_select_list  customer_select_box1">
+                                                <li><a href="#">Select All</a></li>
+                                                <li><a href="#">Select On</a></li>
+                                                <li><a href="#">Select Off</a></li>
+                                            </ul>
+                                        </div>
+                                    </label>
+
+                                    <ul>
+                                        <li class="has-children" style="list-style-type:none;">
+                                            <input type="checkbox" name="sub-group-level-1-1" id="sub-group-level-1-1">
+                                            <label for="sub-group-level-1-1"> <input type="checkbox" class="inner_checkbox" /> 5001</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-1-2" id="sub-group-level-1-2">
+                                            <label for="sub-group-level-1-2"> <input type="checkbox" class="inner_checkbox" /> 5002</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-1-3" id="sub-group-level-1-3">
+                                            <label for="sub-group-level-1-3"> <input type="checkbox" class="inner_checkbox" /> 5003</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-1-4" id="sub-group-level-1-4">
+                                            <label for="sub-group-level-1-4"> <input type="checkbox" class="inner_checkbox" /> 5004</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-1-5" id="sub-group-level-1-5">
+                                            <label for="sub-group-level-1-5"> <input type="checkbox" class="inner_checkbox" /> 5005</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-1-6" id="sub-group-level-1-6">
+                                            <label for="sub-group-level-1-6"> <input type="checkbox" class="inner_checkbox" /> 5006</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-1-7" id="sub-group-level-1-7">
+                                            <label for="sub-group-level-1-7"> <input type="checkbox" class="inner_checkbox" /> 5007</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="has-children" style="list-style-type:none;">
+                                    <input type="checkbox" name="sub-group-1-1" id="sub-group-1-1">
+                                    <label for="sub-group-1-1">
+                                        Customer2
+                                        <a href="#" class="customer_map_area"><img src="~/images/map.png" alt="" /></a>
+                                        <a href="#" class="customer_select_area_arrow customer_select_tab2"><img src="images/down_arrow.png" alt="" /></a>
+                                        <div class="customer_select_area">
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <ul class="customer_select_list customer_select_box2">
+                                                <li><a href="#">Select All</a></li>
+                                                <li><a href="#">Select On</a></li>
+                                                <li><a href="#">Select Off</a></li>
+                                            </ul>
+                                        </div>
+                                    </label>
+
+                                    <ul>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-1-1-1" id="sub-group-level-1-1-1">
+                                            <label for="sub-group-level-1-1-1"> <input type="checkbox" class="inner_checkbox" /> 5001</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-1-2-2" id="sub-group-level-1-2-2">
+                                            <label for="sub-group-level-1-2-2"> <input type="checkbox" class="inner_checkbox" /> 5002</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-1-3-3" id="sub-group-level-1-3-3">
+                                            <label for="sub-group-level-1-3-3"> <input type="checkbox" class="inner_checkbox" /> 5003</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-1-4-4" id="sub-group-level-1-4-4">
+                                            <label for="sub-group-level-1-4-4"> <input type="checkbox" class="inner_checkbox" /> 5004</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-1-5-5" id="sub-group-level-1-5-5">
+                                            <label for="sub-group-level-1-5-5"> <input type="checkbox" class="inner_checkbox" /> 5005</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-1-6-6" id="sub-group-level-1-6-6">
+                                            <label for="sub-group-level-1-6-6"> <input type="checkbox" class="inner_checkbox" /> 5006</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-1-7-7" id="sub-group-level-1-7-7">
+                                            <label for="sub-group-level-1-7-7"> <input type="checkbox" class="inner_checkbox" /> 5007</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="has-children">
+                            <input type="checkbox" name="group-2" id="group-2">
+                            <label for="group-2">Location</label>
+
+                            <ul>
+                                <li class="has-children">
+                                    <input type="checkbox" name="sub-group-2" id="sub-group-2">
+                                    <label for="sub-group-2">
+                                        Customer1
+                                        <a href="#" class="customer_map_area"><img src="images/map.png" alt="" /></a>
+                                        <a href="#" class="customer_select_area_arrow customer_select_tab3"><img src="images/down_arrow.png" alt="" /></a>
+                                        <div class="customer_select_area">
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <ul class="customer_select_list customer_select_box3">
+                                                <li><a href="#">Select All</a></li>
+                                                <li><a href="#">Select On</a></li>
+                                                <li><a href="#">Select Off</a></li>
+                                            </ul>
+                                        </div>
+                                    </label>
+
+                                    <ul>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-1" id="sub-group-level-2-1">
+                                            <label for="sub-group-level-2-1"> <input type="checkbox" class="inner_checkbox" /> 5001</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-2" id="sub-group-level-2-2">
+                                            <label for="sub-group-level-2-2"> <input type="checkbox" class="inner_checkbox" /> 5002</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-3" id="sub-group-level-2-3">
+                                            <label for="sub-group-level-2-3"> <input type="checkbox" class="inner_checkbox" /> 5003</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-4" id="sub-group-level-2-4">
+                                            <label for="sub-group-level-2-4"> <input type="checkbox" class="inner_checkbox" /> 5004</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-5" id="sub-group-level-2-5">
+                                            <label for="sub-group-level-2-5"> <input type="checkbox" class="inner_checkbox" /> 5005</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-6" id="sub-group-level-2-6">
+                                            <label for="sub-group-level-2-6"> <input type="checkbox" class="inner_checkbox" /> 5006</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-7" id="sub-group-level-2-7">
+                                            <label for="sub-group-level-2-7"> <input type="checkbox" class="inner_checkbox" /> 5007</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="has-children">
+                                    <input type="checkbox" name="sub-group-2-2" id="sub-group-2-2">
+                                    <label for="sub-group-2-2">
+                                        Customer2
+                                        <a href="#" class="customer_map_area"><img src="~/images/map.png" alt="" /></a>
+                                        <a href="#" class="customer_select_area_arrow customer_select_tab4"><img src="~/images/down_arrow.png" alt="" /></a>
+                                        <div class="customer_select_area">
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <ul class="customer_select_list  customer_select_box4">
+                                                <li><a href="#">Select All</a></li>
+                                                <li><a href="#">Select On</a></li>
+                                                <li><a href="#">Select Off</a></li>
+                                            </ul>
+                                        </div>
+                                    </label>
+
+                                    <ul>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-1-1" id="sub-group-level-2-1-1">
+                                            <label for="sub-group-level-2-1-1"> <input type="checkbox" class="inner_checkbox" /> 5001</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-2-2" id="sub-group-level-2-2-2">
+                                            <label for="sub-group-level-2-2-2"> <input type="checkbox" class="inner_checkbox" /> 5002</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-3-3" id="sub-group-level-2-3-3">
+                                            <label for="sub-group-level-2-3-3"> <input type="checkbox" class="inner_checkbox" /> 5003</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-4-4" id="sub-group-level-2-4-4">
+                                            <label for="sub-group-level-2-4-4"> <input type="checkbox" class="inner_checkbox" /> 5004</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-5-5" id="sub-group-level-2-5-5">
+                                            <label for="sub-group-level-2-5-5"> <input type="checkbox" class="inner_checkbox" /> 5005</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-6-6" id="sub-group-level-2-6-6">
+                                            <label for="sub-group-level-2-6-6"> <input type="checkbox" class="inner_checkbox" /> 5006</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-7-7" id="sub-group-level-2-7-7">
+                                            <label for="sub-group-level-2-7-7"> <input type="checkbox" class="inner_checkbox" /> 5007</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="has-children">
+                            <input type="checkbox" name="group-3" id="group-3">
+                            <label for="group-3">Device Type</label>
+
+                            <ul>
+                                <li class="has-children">
+                                    <input type="checkbox" name="sub-group-3" id="sub-group-3">
+                                    <label for="sub-group-3">
+                                        Customer1
+                                        <a href="#" class="customer_map_area"><img src="~/images/map.png" alt="" /></a>
+                                        <a href="#" class="customer_select_area_arrow customer_select_tab5"><img src="~/images/down_arrow.png" alt="" /></a>
+                                        <div class="customer_select_area">
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <ul class="customer_select_list customer_select_box5">
+                                                <li><a href="#">Select All</a></li>
+                                                <li><a href="#">Select On</a></li>
+                                                <li><a href="#">Select Off</a></li>
+                                            </ul>
+                                        </div>
+                                    </label>
+
+                                    <ul>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-1" id="sub-group-level-3-1">
+                                            <label for="sub-group-level-3-1"> <input type="checkbox" class="inner_checkbox" /> 5001</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-2" id="sub-group-level-3-2">
+                                            <label for="sub-group-level-3-2"> <input type="checkbox" class="inner_checkbox" /> 5002</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-3" id="sub-group-level-3-3">
+                                            <label for="sub-group-level-3-3"> <input type="checkbox" class="inner_checkbox" /> 5003</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-4" id="sub-group-level-3-4">
+                                            <label for="sub-group-level-3-4"> <input type="checkbox" class="inner_checkbox" /> 5004</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-5" id="sub-group-level-3-5">
+                                            <label for="sub-group-level-3-5"> <input type="checkbox" class="inner_checkbox" /> 5005</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-6" id="sub-group-level-3-6">
+                                            <label for="sub-group-level-3-6"> <input type="checkbox" class="inner_checkbox" /> 5006</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-7" id="sub-group-level-3-7">
+                                            <label for="sub-group-level-3-7"> <input type="checkbox" class="inner_checkbox" /> 5007</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="has-children">
+                                    <input type="checkbox" name="sub-group-3-2" id="sub-group-3-2">
+                                    <label for="sub-group-3-2">
+                                        Customer2
+                                        <a href="#" class="customer_map_area"><img src="~/images/map.png" alt="" /></a>
+                                        <a href="#" class="customer_select_area_arrow customer_select_tab6"><img src="~/images/down_arrow.png" alt="" /></a>
+                                        <div class="customer_select_area">
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <ul class="customer_select_list customer_select_box6">
+                                                <li><a href="#">Select All</a></li>
+                                                <li><a href="#">Select On</a></li>
+                                                <li><a href="#">Select Off</a></li>
+                                            </ul>
+                                        </div>
+                                    </label>
+
+                                    <ul>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-1-1" id="sub-group-level-3-1-1">
+                                            <label for="sub-group-level-3-1-1"> <input type="checkbox" class="inner_checkbox" /> 5001</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-2-2" id="sub-group-level-3-2-2">
+                                            <label for="sub-group-level-3-2-2"> <input type="checkbox" class="inner_checkbox" /> 5002</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-3-3" id="sub-group-level-3-3-3">
+                                            <label for="sub-group-level-3-3-3"> <input type="checkbox" class="inner_checkbox" /> 5003</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-4-4" id="sub-group-level-3-4-4">
+                                            <label for="sub-group-level-3-4-4"> <input type="checkbox" class="inner_checkbox" /> 5004</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-5-5" id="sub-group-level-3-5-5">
+                                            <label for="sub-group-level-3-5-5"> <input type="checkbox" class="inner_checkbox" /> 5005</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-6-6" id="sub-group-level-3-6-6">
+                                            <label for="sub-group-level-3-6-6"> <input type="checkbox" class="inner_checkbox" /> 5006</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-2-7-7" id="sub-group-level-3-7-7">
+                                            <label for="sub-group-level-3-7-7"> <input type="checkbox" class="inner_checkbox" /> 5007</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="has-children">
+                            <input type="checkbox" name="group-4" id="group-4">
+                            <label for="group-4">Customer</label>
+
+                            <ul>
+                                <li class="has-children">
+                                    <input type="checkbox" name="sub-group-4" id="sub-group-4">
+                                    <label for="sub-group-4">
+                                        Customer1
+                                        <a href="#" class="customer_map_area"><img src="~/images/map.png" alt="" /></a>
+                                        <a href="#" class="customer_select_area_arrow  customer_select_tab7"><img src="~/images/down_arrow.png" alt="" /></a>
+                                        <div class="customer_select_area">
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <ul class="customer_select_list customer_select_box7">
+                                                <li><a href="#">Select All</a></li>
+                                                <li><a href="#">Select On</a></li>
+                                                <li><a href="#">Select Off</a></li>
+                                            </ul>
+                                        </div>
+                                    </label>
+
+                                    <ul>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-4-1" id="sub-group-level-4-1">
+                                            <label for="sub-group-level-4-1"> <input type="checkbox" class="inner_checkbox" /> 5001</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-4-2" id="sub-group-level-4-2">
+                                            <label for="sub-group-level-4-2"> <input type="checkbox" class="inner_checkbox" /> 5002</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-3" id="sub-group-level-4-3">
+                                            <label for="sub-group-level-4-3"> <input type="checkbox" class="inner_checkbox" /> 5003</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-3-4" id="sub-group-level-4-4">
+                                            <label for="sub-group-level-4-4"> <input type="checkbox" class="inner_checkbox" /> 5004</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-4-5" id="sub-group-level-4-5">
+                                            <label for="sub-group-level-4-5"> <input type="checkbox" class="inner_checkbox" /> 5005</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-4-6" id="sub-group-level-4-6">
+                                            <label for="sub-group-level-4-6"> <input type="checkbox" class="inner_checkbox" /> 5006</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-4-7" id="sub-group-level-4-7">
+                                            <label for="sub-group-level-4-7"> <input type="checkbox" class="inner_checkbox" /> 5007</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="has-children">
+                                    <input type="checkbox" name="sub-group-4-2" id="sub-group-4-2">
+                                    <label for="sub-group-4-2">
+                                        Customer2
+                                        <a href="#" class="customer_map_area"><img src="~/images/map.png" alt="" /></a>
+                                        <a href="#" class="customer_select_area_arrow customer_select_tab8"><img src="~/images/down_arrow.png" alt="" /></a>
+                                        <div class="customer_select_area">
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <ul class="customer_select_list  customer_select_box8">
+                                                <li><a href="#">Select All</a></li>
+                                                <li><a href="#">Select On</a></li>
+                                                <li><a href="#">Select Off</a></li>
+                                            </ul>
+                                        </div>
+                                    </label>
+
+                                    <ul>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-4-1-1" id="sub-group-level-4-1-1">
+                                            <label for="sub-group-level-4-1-1"> <input type="checkbox" class="inner_checkbox" /> 5001</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-4-2-2" id="sub-group-level-4-2-2">
+                                            <label for="sub-group-level-4-2-2"> <input type="checkbox" class="inner_checkbox" /> 5002</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-4-3-3" id="sub-group-level-4-3-3">
+                                            <label for="sub-group-level-4-3-3"> <input type="checkbox" class="inner_checkbox" /> 5003</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-4-4-4" id="sub-group-level-4-4-4">
+                                            <label for="sub-group-level-4-4-4"> <input type="checkbox" class="inner_checkbox" /> 5004</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-4-5-5" id="sub-group-level-4-5-5">
+                                            <label for="sub-group-level-4-5-5"> <input type="checkbox" class="inner_checkbox" /> 5005</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-4-6-6" id="sub-group-level-4-6-6">
+                                            <label for="sub-group-level-4-6-6"> <input type="checkbox" class="inner_checkbox" /> 5006</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children">
+                                            <input type="checkbox" name="sub-group-level-4-7-7" id="sub-group-level-4-7-7">
+                                            <label for="sub-group-level-4-7-7"> <input type="checkbox" class="inner_checkbox" /> 5007</label>
+
+                                            <ul>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R1<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R2<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R3<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R4<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R5<span><img src="~/images/off_icon.png" alt="" /> Turn On</span></a></li>
+                                                <li><a href="#0"><input type="checkbox" class="inner_checkbox" /> R6<span><img src="~/images/on_icon.png" alt="" /> Turn Off</span></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
