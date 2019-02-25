@@ -1632,7 +1632,7 @@ a {
     color: white !important;
 }
 
-@media (min-width: 1025px) .m-grid.m-grid--ver-desktop.m-grid--desktop>.m-grid__item {
-  
-  
+
+.dash-shadow {
+    box-shadow: 2px 3px darkgrey;
 }
