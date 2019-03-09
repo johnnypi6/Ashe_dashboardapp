@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
+using Microsoft.AspNetCore.Http;
+
 namespace WebApplication3.MyClass
 {
     public class ConDB
@@ -34,6 +36,5 @@ namespace WebApplication3.MyClass
             command.Connection = myConnection;
             command.ExecuteNonQuery();
         }
-
     }
 }

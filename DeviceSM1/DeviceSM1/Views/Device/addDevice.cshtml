@@ -1,0 +1,187 @@
+﻿
+@{
+    ViewData["Title"] = "";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+<div class="container-fluid content-wrapper ">
+    <div class="m-sm-5">
+        <div class="d-flex justify-content-start ml-sm-3 ">
+            <h3 class="" style="font-weight: 500;"> Add<span style="opacity:0">0</span>Device</h3>
+        </div>
+    </div>
+    @*@if (success != null)
+        {
+            @if (success.ToString() == "true")
+            {
+                <div class="alert alert-success alert-dismissible fade show mt-4 m-alert m-alert--square m-alert--air" role="alert" style="font-size : 20px">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                    <strong>
+                        <strong>Create Success!</strong>
+                    </strong>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger alert-dismissible fade show mt-4 m-alert m-alert--square m-alert--air" role="alert" style="font-size : 20px">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                    <strong>
+                        <strong>Create Fail!</strong>
+                    </strong>
+                </div>
+            }
+        }*@
+    <form action="/device/index" class="needs-validation" novalidate>
+        <div class="profile row ml-0 mt-3 ml-sm-5">
+            <div class="col-lg-12 ">
+                <div class="row mt-sm-1">
+                    <div class="col-md-4">
+                        <div class="form-group row m-lg-3">
+                            <label class="col-form-label "><i class="fas fa-assistive-listening-systems profile-icon"></i></label>
+                            <div class="col-10">
+                                <div class="md-form mt-3">
+                                    <input type="text" class="form-control" id="device_IMEI" placeholder="IMEI" required="required">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row m-lg-3">
+                            <label class="col-form-label "><i class="fas fa-user profile-icon"></i></label>
+                            <div class="col-10">
+                                <div class="md-form mt-3">
+                                    <input type="text" class="form-control" id="device_customer" placeholder="Customer" required="required">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 ml-auto">
+                        <div class="form-group row m-lg-3">
+                            <label class="col-form-label "><i class="fas fa-passport profile-icon"></i></label>
+
+                            <div class="col-10">
+                                <div class="md-form mt-3">
+                                    <input type="text" class="form-control" id="device_simNo" placeholder="Sim card" required="required">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-sm-1">
+                    <div class="col-md-4">
+                        <div class="form-group row m-lg-3">
+                            <label class="col-form-label "><i class="fas fa-map-marker-alt profile-icon"></i></label>
+                            <div class="col-10">
+                                <div class="md-form mt-3">
+                                    <input type="text" class="form-control" id="device_location" placeholder="Location" required="required">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group row m-lg-3">
+                            <label class="col-form-label "><i class="fas fa-arrow-circle-right profile-icon"></i></label>
+                            <div class="col-10">
+                                <div class="md-form mt-3">
+                                    <input type="text" class="form-control" id="device_vehicle" placeholder="Vehicle" required="required">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 ml-auto">
+                        <div class="form-group row m-lg-3">
+                            <label class="col-form-label "><i class="fas fa-toggle-on profile-icon"></i></label>
+
+                            <div class="col-10">
+                                <div class="md-form mt-3">
+                                    <input type="text" class="form-control" id="device_status" placeholder="Status" required="required">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row justify-content  editor_table ">
+            <div class="head_sensor_no">SI.So </div>
+            <div class="head_sensor">Type Of Sensor </div>
+            <div class="head_sensor">Serial Number</div>
+            <div class="head_sensor">High Threshold </div>
+            <div class="head_sensor">Low Threshold </div>
+            <div class="head_sensor_no">Relay </div>
+            <div class="table_sensor_no">1 </div>
+            <div class="table_sensor">Pressure</div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="p_no"></div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="p_h"></div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="p_l"></div>
+            <div class="table_sensor_no"> <input type="checkbox" class="form-control" id="p_r"></div>
+            <div class="table_sensor_no">2</div>
+            <div class="table_sensor">Temperature</div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="t_no"></div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="t_h"></div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="t_l"></div>
+            <div class="table_sensor_no"> <input type="checkbox" class="form-control" id="t_r"></div>
+            <div class="table_sensor_no">3</div>
+            <div class="table_sensor">Humidity</div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="h_no"></div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="h_h"></div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="h_l"></div>
+            <div class="table_sensor_no"> <input type="checkbox" class="form-control" id="h_r"></div>
+            <div class="table_sensor_no">4</div>
+            <div class="table_sensor">Moisture</div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="m_no"></div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="m_h"></div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="m_l"></div>
+            <div class="table_sensor_no"> <input type="checkbox" class="form-control" id="m_r"></div>
+            <div class="table_sensor_no">5</div>
+            <div class="table_sensor">Liquid Flow</div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="l_no"></div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="l_h"></div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="l_l"></div>
+            <div class="table_sensor_no"> <input type="checkbox" class="form-control" id="l_r"></div>
+            <div class="table_sensor_no">6</div>
+            <div class="table_sensor">CO2</div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="c_no"></div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="c_h"></div>
+            <div class="table_sensor"> <input type="text" class="form-controll" id="c_l"></div>
+            <div class="table_sensor_no"> <input type="checkbox" class="form-control" id="c_r"></div>
+        </div>
+
+        <div class="row justify-content-end mt-md-5  ">
+            <div style="margin-right:5%">
+                <button id="deviceSave" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-save btn_i"></i>Save</button>
+                <span style="opacity:0">ertret</span>
+                <button id="device_delete" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-eraser btn_i"></i>Cancel</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+@section Styles {
+    <link href="~/plugins/mdbootstrap/css/mdb.css" rel="stylesheet" />
+
+}
+
+
+
+@section Scripts {
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#deviceSave').click(function () {
+
+
+
+            });
+
+        });
+    </script>
+
+}

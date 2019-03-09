@@ -15,16 +15,18 @@ namespace WebApplication3.Controllers
     {        
         public IActionResult Index()
         {
-            return View();
+            //return View();
 
             if (ChkLogin() ==true)
             {
+                string username = HttpContext.Session.GetString("username");
+                ViewData["username"] = username;
                 return View();
             }
             else
             {
-                //return RedirectToAction("Login", "Account", new { area = "area" });
-                return RedirectToAction("Login", "Account");
+                //return RedirectToAction("Login", "Customers", new { area = "area" });
+                return RedirectToAction("Login", "Customers");
             }
             
         }
@@ -56,8 +58,9 @@ namespace WebApplication3.Controllers
         
         private bool ChkLogin()
         {
-            bool result = false;
-            if(HttpContext.Session.GetString("login") != null)
+            //bool result = false;
+            bool result = true;
+            if (HttpContext.Session.GetString("login") != null)
             {
                 if(HttpContext.Session.GetString("login") == "1")
                 {

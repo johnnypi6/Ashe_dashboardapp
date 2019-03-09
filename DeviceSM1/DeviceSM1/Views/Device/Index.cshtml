@@ -1,0 +1,406 @@
+﻿
+@{
+    ViewData["Title"] = "Device";
+}
+
+
+
+<div class="container-fluid content-wrapper ">
+
+    <div class="row justify-content-between m-lg-5">
+        <div class="col-4">
+            <h3 class="m-3" style="font-weight:500"> List<span style="opacity:0">0</span>of<span style="opacity:0">0</span>Devices</h3>
+        </div>
+
+    </div>
+    <div class="row my-3 m-lg-5 ">
+        <div class="col-md-12 ">
+            <div class="table-responsive">
+                <table id="device-list" class="display table-sm table-bordered" style="width:100%">
+                    <thead style="background:#209E93">
+                        <tr>
+                            <th ></th>
+                            <th>SI.So</th>
+                            <th>IMEI</th>
+                            <th>Coutomer</th>
+                            <th>Sim Card</th>
+                            <th>Location</th>
+                            <th>Vehicle</th>
+                            <th>Status</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                            <td>Active</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>Garrett Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>63</td>
+                            <td>2011/07/25</td>
+                            <td>$170,750</td>
+                            <td>Active</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                            <td>Active</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>Garrett Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>63</td>
+                            <td>2011/07/25</td>
+                            <td>$170,750</td>
+                            <td>Active</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                            <td>Active</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>Garrett Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>63</td>
+                            <td>2011/07/25</td>
+                            <td>$170,750</td>
+                            <td>Active</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                            <td>Active</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>Garrett Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>63</td>
+                            <td>2011/07/25</td>
+                            <td>$170,750</td>
+                            <td>Active</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                            <td>Active</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>Garrett Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>63</td>
+                            <td>2011/07/25</td>
+                            <td>$170,750</td>
+                            <td>Active</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>61</td>
+                            <td>2011/04/25</td>
+                            <td>$320,800</td>
+                            <td>Active</td>
+
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" /></td>
+                            <td>Garrett Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>63</td>
+                            <td>2011/07/25</td>
+                            <td>$170,750</td>
+                            <td>Active</td>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-end mt-md-5  ">
+        <div style="margin-right:5%">
+            <a href="/device/addDevice"> <button class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-plus-circle btn_i"></i>Add</button></a>
+            <span style="opacity:0">ertret</span>
+            <a href="/device/addDevice"><button id="device_edit" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-edit btn_i"></i>Edit</button></a>
+            <span style="opacity:0">ertret</span>
+            <button id="device_delete" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-trash-alt btn_i"></i>Delete</button>
+        </div>
+    </div>
+
+</div>
+
+<div id="myModal" class=" modal " role="dialog" style="margin-left:7%;margin-right:7%;">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="table-responsive mt-5 mb-3">
+                    <table class="display table-sm table-bordered" style="width:100%;text-align:center">
+
+                        <thead style="background:#209E93">
+                            <tr>
+                                <th>SI.So</th>
+                                <th>IMEI</th>
+                                <th>Coutomer</th>
+                                <th>Sim Card</th>
+                                <th>Location</th>
+                                <th>Vehicle</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td>2011/04/25</td>
+                                <td>$320,800</td>
+                                <td>Active</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="display table-sm table-bordered" style="width:100%;text-align:center">
+                        <thead style="background:#209E93">
+                            <tr>
+                                <th>SI.So</th>
+                                <th>Type Of Sensor</th>
+                                <th>Serial Number</th>
+                                <th>High Threshold</th>
+                                <th>Low Threshold</th>
+                                <th>Relay</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Pressure</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td>2011/04/25</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Temperature</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td>2011/04/25</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Humidity</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td>2011/04/25</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Moisture</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td>2011/04/25</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Liquid flow</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td>2011/04/25</td>
+                                <td>Active</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>CO2</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+                                <td>2011/04/25</td>
+                                <td>Active</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-add" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal " id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+    <div class="modal-dialog delect">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Remove customer</h5>
+            </div>
+            <div class="modal-body" style="padding:15px;">
+                <h4 style="text-align:center">Do you really want to remove customer?</h4>
+            </div>
+            <div class="modal-footer footer">
+                <button type="button" id="rowDelete" class="modal-btn">Yes</button>
+                <button type="button" class="modal-btn" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="modal " id="editModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+    <div class="modal-dialog delect">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Remove customer</h5>   
+            </div>
+            <div class="modal-body" style="padding:15px;">
+                <h4 style="text-align:center">Do you really want to remove customer?</h4>
+            </div>
+            <div class="modal-footer footer">
+                <button type="button" class="modal-btn">Yes</button>
+                <button type="button" class="modal-btn" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+
+
+@section Styles {
+    <link href="~/plugins/dataTables/jquery.dataTables.min.css" rel="stylesheet" />
+
+}
+
+
+@section Scripts {
+    <script src="~/plugins/jquery3.3.1/dist/jquery.min.js"></script>
+    @*<script src="~/plugins/bootstrap_3.3.7/dist/js/bootstrap.min.js"></script>*@
+    <script src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $('#device-list').DataTable({
+            });
+
+            $('#device-list tbody').on('click', 'tr', function (event) {
+
+                event.preventDefault();
+                $("#myModal").modal();
+                if ($(this).hasClass('selected')) {
+
+
+                    $(this).removeClass('selected');
+                }
+                else {
+                    table.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+                //$('input[type="checkbox"]').on('click', function (event) {
+                //    event.stopPropagation();
+                //}
+            });
+
+            //$('#device_delete').click(function () {
+
+                
+
+                
+            //});
+
+            //$('#rowDelete').click(function () {
+            //    table.row('.selected').remove().draw(false);
+            //});
+            $('input[type="checkbox"]').on('click', function (event) {
+                if (event.target.checked) {
+                    var $tb_deviceList = $("table#device-list");
+                    var $checked_inputs = $tb_deviceList.find("input[type='checkbox']:checked");
+                    for (var i = 0; i < $checked_inputs.length; i++) {
+                        if ($checked_inputs[i] == event.target) {
+                            continue;
+                        }
+
+                        $checked_inputs[i].checked = false;
+                    }
+                }
+
+                event.stopPropagation();
+            });
+            $('#device_delete').click(function () {
+                var $tb_deviceList = $("table#device-list");
+                var $checked_inputs = $tb_deviceList.find("input[type='checkbox']:checked");
+                if ($checked_inputs.length == 0) {
+                    alert("No device is selected!");
+                    return;
+                }
+
+                $("#deleteModal").modal();
+            //    table.row('.selected').remove().draw(false);
+            });
+            $('#rowDelete').click(function () {
+                //    table.row('.selected').remove().draw(false);
+            });
+        });
+    </script>
+
+}
+
