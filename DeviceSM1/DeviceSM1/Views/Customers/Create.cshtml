@@ -32,12 +32,12 @@
         }
     }*@
     <div class="profile row ml-0">
-        <form  class="needs-validation col-lg-12 ml-0 ml-lg-5" novalidate>
+        <form  asp-controller="Customers" asp-action="RegisterUser" class="needs-validation col-lg-12 ml-0 ml-lg-5" novalidate>
             <div class="form-group md-form row m-lg-3">
                 <label class="col-form-label"><i class="fas fa-user profile-icon"></i></label>
                 <div class="col-lg-5">
                     <div class="md-form ml-5">
-                        <input name="name" type="text" class="form-control" id="create_userName" placeholder="User Name" required="required">
+                        <input name="name" type="text" class="form-control" id="create_userName" placeholder="User Name" required="required" aria-describedby="inputGroupPrepend "autofocus="autofocus" >
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                 <label for="create_companyName" class="col-form-label "><i class="fas fa-building profile-icon"></i></label>
                 <div class="col-lg-5">
                     <div class="md-form ml-5">
-                        <input name="company" type="text" class="form-control" id="create_companyName" placeholder="Company Name" aria-describedby="inputGroupPrepend" required="required" autofocus="autofocus">
+                        <input name="company" type="text" class="form-control" id="create_companyName" placeholder="Company Name" required="required" >
                     </div>
                 </div>
                 <div class="invalid-feedback">
@@ -111,6 +111,8 @@
 
             <div class="form-group  d-flex justify-content-end mr-6 ">
                 <button type="submit" class="btn-other btn-sm" style="width:150px;">Save</button>
+                <span style="opacity:0">ddfdfs</span>
+                <button type="submit" class="btn-other btn-sm" style="width:150px;">Cancel</button>
             </div>
 
         </form>

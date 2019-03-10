@@ -126,27 +126,7 @@
                             <td>Hong kong</td>
                             <td>tracking</td>
                             <td>Active</td>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td>11</td>
-                            <td>paulo</td>
-                            <td>345345</td>
-                            <td>23445</td>
-                            <td>Hong kong</td>
-                            <td>tracking</td>
-                            <td>Active</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td>12</td>
-                            <td>yxing</td>
-                            <td>345345</td>
-                            <td>23445</td>
-                            <td>Hong kong</td>
-                            <td>tracking</td>
-                            <td>Active</td>
-
-                        </tr>
+                      
                        
 
                     </tbody>
@@ -205,7 +185,7 @@
                     <table class="display table-sm table-bordered" style="width:100%;text-align:center">
                         <thead style="background:#209E93">
                             <tr>
-                                <th>SI.So</th>
+                                <th>No</th>
                                 <th>Type Of Sensor</th>
                                 <th>Serial Number</th>
                                 <th>High Threshold</th>
@@ -284,7 +264,7 @@
                 <h4 style="text-align:center">Do you really want to remove device?</h4>
             </div>
             <div class="modal-footer footer">
-                <button type="button" id="rowDelete" class="modal-btn">Yes</button>
+                <button type="button" id="rowDelete" class="modal-btn" data-dismiss="modal">Yes</button>
                 <button type="button" class="modal-btn" data-dismiss="modal">Cancel</button>
             </div>
         </div>
@@ -329,15 +309,15 @@
 
                 event.preventDefault();
                 $("#myModal").modal();
-                if ($(this).hasClass('selected')) {
+                //if ($(this).hasClass('selected')) {
 
 
-                    $(this).removeClass('selected');
-                }
-                else {
-                    table.$('tr.selected').removeClass('selected');
-                    $(this).addClass('selected');
-                }
+                //    $(this).removeClass('selected');
+                //}
+                //else {
+                //    table.$('tr.selected').removeClass('selected');
+                //    $(this).addClass('selected');
+                //}
                 //$('input[type="checkbox"]').on('click', function (event) {
                 //    event.stopPropagation();
                 //}
