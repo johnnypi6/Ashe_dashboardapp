@@ -1,0 +1,73 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    ViewData["Title"] = "ComposeMail";
+}
+
+<div class="container-fluid content-wrapper ">
+    <div class="ml-lg-5 ml-sm-0">
+        <div class="h3 d-flex justify-content-start ml-5  mt-5 ">
+            Compose Mail
+        </div>
+    </div>
+    <div class="d-flex justify-content-center  ">
+
+        <div class="col-12 col-lg-5 compose-maile mt-5 mr-3 shadow">
+            <div class="border-bottomss mt-2">
+                <div class="d-flex justify-content-between">
+                    <label class="col-form-label "><i class="fas fa-envelope compose-icon"></i>New Messege</label>
+                    <label class="col-form-label "><i class="fas fa-times compose-icon"></i></label>
+                </div>
+            </div>
+            <div class=" d-flex justify-content-start flex-row border-bottomss">
+                <div class="mt-2"><p>To:</p></div>
+                <form class="mt-1">
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="First name" id="compose_firstName">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Mid name" id="compose_midName">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Last name" id="compose_lastName">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class=" d-flex flex-row border-bottomss">
+                <div class="" style="height:35px;"><p>Subject:</p></div>
+
+            </div>
+            <div class="border-bottomss">
+                <div class="d-flex justify-content-between">
+                    <label for="inputEmail3MD" class="col-form-label "><i class="fas fa-paperclip compose-icon"></i>Attachment</label>
+                    <input type="file" id="fileUpload" style="opacity:0 ; width:20px; " >
+                    <button type="button" class="upload-btn  btn-sm"   onclick="fileUpload()"><i class="fas fa-cloud-upload-alt " ></i>Upload </button>
+                </div>
+            </div>
+            <div class="">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1"></label>
+                    <textarea class="form-control rounded-0" placeholder="Type Message here" id="compose_textarea" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end m-2">
+                <button type="submit" class="btn-add btn-sm">Send</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Styles {
+    <link href="~/lib/mdbootstrap/css/mdb.css" rel="stylesheet" />
+    <script>
+        function fileUpload() {
+            $('#fileUpload').click();
+        }
+
+    </script>
+}
+

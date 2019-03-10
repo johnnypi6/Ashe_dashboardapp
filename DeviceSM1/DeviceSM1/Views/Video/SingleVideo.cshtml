@@ -1,15 +1,19 @@
 ﻿
+@{
+    ViewData["Title"] = "SingleVideo";
+}
 
 <div class="container-fluid content-wrapper ">
     <div class="ml-lg-5 ml-sm-0">
         <div class="h3 d-flex justify-content-start ml-5  mt-5 ">
-            Location
+            Single Video
         </div>
     </div>
+
     <div class="row ml-lg-5 mt-3">
         <div class="col-sm ml-sm-3 ml-lg-5 mr-lg-5 " style="width:80%;">
             <div class="dropdown">
-                <button class="btn btn-secondary btn-sm dropdown-toggle head-dropdown shadow" type="button" id="dropdownMenuButton " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-secondary btn-sm  head-dropdown shadow" type="button" id="dropdownMenuButton " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Customer
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:100%">
@@ -21,7 +25,7 @@
         </div>
         <div class="col-sm ml-sm-3 ml-lg-3 mr-lg-5" style="width:80%;">
             <div class="dropdown">
-                <button class="btn btn-secondary btn-sm dropdown-toggle head-dropdown shadow" type="button" id="dropdownMenuButton " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-secondary btn-sm  head-dropdown shadow" type="button" id="dropdownMenuButton " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Device
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:100%">
@@ -33,7 +37,7 @@
         </div>
         <div class="col-sm ml-sm-3 ml-lg-3 mr-lg-5" style="width:80%;">
             <div class="dropdown">
-                <button class="btn btn-secondary btn-sm dropdown-toggle head-dropdown shadow" type="button" id="dropdownMenuButton " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-secondary btn-sm  head-dropdown shadow" type="button" id="dropdownMenuButton " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Location
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:100%">
@@ -44,18 +48,16 @@
             </div>
         </div>
         <div class="col-sm  ml-lg-3 mr-lg-5">
-            <button type="submit" class="btn  btn-sm shadow search-btn" >Search</button>
+            <button type="submit" class="btn  btn-sm shadow search-btn">Search</button>
         </div>
     </div>
 
-    <div class="row ml-0 ml-lg-5 mr-6 mt-5">
-        <div class="col-md-12  ml-md-5 " style="border:2px solid #d6d6d6;">
-            <div id="map-container" class="z-depth-1-half map-container" style="height: 500px">
-                <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie
-<a href="~/Views/Location/Location.cshtml">~/Views/Location/Location.cshtml</a>=UTF8&iwloc=&output=embed" frameborder="0"
-                        style="border:0" allowfullscreen></iframe>
-            </div>
+    <div class=" d-flex justify-content-center col-lg-10 ml-lg-5 ml-sm-2  mt-5 ">
+        <div class="ml-lg-5 embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
         </div>
+
+
     </div>
 
 

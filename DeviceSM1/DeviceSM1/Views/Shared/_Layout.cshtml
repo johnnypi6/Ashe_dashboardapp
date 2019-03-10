@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="~/css/right_slide_menu.css">
 
 </head>
-<body style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
-    <div style="font-family: Arial, Helvetica, sans-serif">
+<body  style="font-family:Verdana">
+    <div >
         <header id="m_header" class="m-grid__item    m-header " m-minimize-offset="200" m-minimize-mobile-offset="200">
             <div class="m-container m-container--fluid m-container--full-height">
                 <div class="m-stack m-stack--ver m-stack--desktop">
@@ -164,16 +164,16 @@
                                 <span class="m-menu__arrow"></span>
                                 <ul class="m-menu__subnav">
                                     <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="/customers/create" class="m-menu__link ">
+                                        <a href="/customers/index" class="m-menu__link ">
                                             <i class="m-menu__link-bullet m-menu__link-bullet">
                                                 <span></span>
                                             </i>
                                             <span class="m-menu__link-text">
-                                                <span>Create</span><span style="opacity:0">1</span><span>Customer</span>
+                                                <span>Customers</span>
                                             </span>
                                         </a>
                                     </li>
-                                    <li class="m-menu__item " aria-haspopup="true">
+                                    @*<li class="m-menu__item " aria-haspopup="true">
                                         <a href="/customers/profile" class="m-menu__link ">
                                             <i class="m-menu__link-bullet m-menu__link-bullet">
                                                 <span></span>
@@ -183,7 +183,7 @@
 
                                             </span>
                                         </a>
-                                    </li>
+                                    </li>*@
                                 </ul>
                             </div>
                             <div style="border-bottom: 1px solid #1c7563;"></div>
@@ -233,7 +233,7 @@
                                                 <span></span>
                                             </i>
                                             <span class="m-menu__link-text">
-                                                Alret
+                                                Alert
                                             </span>
                                         </a>
                                     </li>
@@ -256,7 +256,7 @@
                             <a href="javascript:;" class="m-menu__link m-menu__toggle">
                                 <i class="m-menu__link-icon fa fa-address-card"></i>
                                 <span class="m-menu__link-text">
-                                    Manage Admin
+                                    <span>Manage</span><span style="opacity:0">0</span><span>Admin</span> 
                                 </span>
                                 <i class="m-menu__ver-arrow fa fa-angle-right" style="color:forestgreen"></i>
                             </a>
@@ -264,25 +264,16 @@
                                 <span class="m-menu__arrow"></span>
                                 <ul class="m-menu__subnav">
                                     <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="/admin/addAdmin" class="m-menu__link ">
+                                        <a href="/admin/index" class="m-menu__link ">
                                             <i class="m-menu__link-bullet m-menu__link-bullet">
                                                 <span></span>
                                             </i>
                                             <span class="m-menu__link-text">
-                                                Add Admin
+                                                Admin
                                             </span>
                                         </a>
                                     </li>
-                                    <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="/admin/adminList" class="m-menu__link ">
-                                            <i class="m-menu__link-bullet m-menu__link-bullet">
-                                                <span></span>
-                                            </i>
-                                            <span class="m-menu__link-text">
-                                                Admin List
-                                            </span>
-                                        </a>
-                                    </li>
+                                    
                                     <li class="m-menu__item " aria-haspopup="true">
                                         <a href="/admin/composeMail" class="m-menu__link ">
                                             <i class="m-menu__link-bullet m-menu__link-bullet">
@@ -310,7 +301,7 @@
                                 <span class="m-menu__arrow"></span>
                                 <ul class="m-menu__subnav">
                                     <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="/location/location" class="m-menu__link ">
+                                        <a href="/location/index" class="m-menu__link ">
                                             <i class="m-menu__link-bullet m-menu__link-bullet">
                                                 <span></span>
                                             </i>
@@ -336,25 +327,26 @@
                                 <span class="m-menu__arrow"></span>
                                 <ul class="m-menu__subnav">
                                     <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="/video/singleVideo" class="m-menu__link ">
+                                        <a href="/video/index" class="m-menu__link ">
                                             <i class="m-menu__link-bullet m-menu__link-bullet">
                                                 <span></span>
                                             </i>
                                             <span class="m-menu__link-text">
-                                                Single Video
+                                                Video
                                             </span>
                                         </a>
                                     </li>
                                     <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="/video/multipleVideo" class="m-menu__link ">
+                                        <a href="/video/SingleVideo" class="m-menu__link ">
                                             <i class="m-menu__link-bullet m-menu__link-bullet">
                                                 <span></span>
                                             </i>
                                             <span class="m-menu__link-text">
-                                                Multiple Video
+                                                SingleVideo
                                             </span>
                                         </a>
                                     </li>
+
 
                                 </ul>
                             </div>
@@ -365,9 +357,8 @@
                 <!-- END: Aside Menu -->
             </div>
             <!-- END: Left Aside -->
-            <div class="container-fluid body-content" style="background-image: linear-gradient(to bottom, #ffffff, #f0f3fa, #dae9f4, #c2e1e8, #add8d6);">
+            <div class="container-fluid body-content" style="background-image: linear-gradient(to bottom, #ffffff, #f0f3fa, #dae9f4, #c2e1e8, #add8d6);height:900px;">
                 @RenderBody()
-
 
             </div>
         </div>

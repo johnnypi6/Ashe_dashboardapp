@@ -1698,10 +1698,10 @@ a {
     width: 20px;
     font-size: 20px !important;
 }
-.delect {
+.delete {
     margin-top: 15%;
-    margin-left: 40%;
-    margin-right: 40%;
+    margin-left: 37%;
+    margin-right: 37%;
   
 }
 .footer {
@@ -1724,4 +1724,26 @@ a {
 }
 .modal-backdrop {
     opacity: 0.7;
+}
+.madiamodal {
+    margin-left: 18%;
+    margin-right: 4%;
+    display: block;
+}
+@media screen and ( max-width:1024px ) {
+    .madiamodal {
+        margin-left: 8%;
+        margin-right: 8%;
+        display: block;
+    }
+    .calendars {
+        width:400px;
+    }
+}
+
+
+
+.alert_sensors {
+    padding-left: 60px !important;
+    width: 200px;
 }
