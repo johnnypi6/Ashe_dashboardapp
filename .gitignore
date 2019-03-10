@@ -1,3 +1,4 @@
+tempNew
 .vs
 debug
 release
@@ -5,8 +6,6 @@ release
 .github
 .vscode
 node_modules
-dist
 *.zip
 bin
 obj
-web.config
