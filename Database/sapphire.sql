@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v12.4.3 (64 bit)
-MySQL - 10.1.37-MariaDB : Database - sapphire
+MySQL - 10.1.38-MariaDB : Database - sapphire
 *********************************************************************
 */
 
@@ -15,6 +15,59 @@ MySQL - 10.1.37-MariaDB : Database - sapphire
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`sapphire` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
 USE `sapphire`;
+
+/*Table structure for table `device` */
+
+DROP TABLE IF EXISTS `device`;
+
+CREATE TABLE `device` (
+  `id` int(128) NOT NULL AUTO_INCREMENT,
+  `user_id` int(123) DEFAULT NULL,
+  `location_id` int(128) DEFAULT NULL,
+  `IMEI` varchar(256) DEFAULT NULL,
+  `sim_card` varchar(256) DEFAULT NULL,
+  `type` int(128) DEFAULT NULL,
+  `vehicle` varchar(256) DEFAULT NULL,
+  `status` int(128) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `device` */
+
+/*Table structure for table `location` */
+
+DROP TABLE IF EXISTS `location`;
+
+CREATE TABLE `location` (
+  `id` int(128) NOT NULL AUTO_INCREMENT,
+  `name` varchar(256) DEFAULT NULL,
+  `latitude` varchar(256) DEFAULT NULL,
+  `longitude` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `location` */
+
+/*Table structure for table `sensor` */
+
+DROP TABLE IF EXISTS `sensor`;
+
+CREATE TABLE `sensor` (
+  `id` int(128) NOT NULL AUTO_INCREMENT,
+  `device_id` int(128) DEFAULT NULL,
+  `type` int(128) DEFAULT NULL,
+  `serial_number` int(128) DEFAULT NULL,
+  `high_threshold` decimal(65,0) DEFAULT NULL,
+  `low_threshold` decimal(65,0) DEFAULT NULL,
+  `relay_operation` int(128) DEFAULT NULL,
+  `status` int(128) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `sensor` */
+
+insert  into `sensor`(`id`,`device_id`,`type`,`serial_number`,`high_threshold`,`low_threshold`,`relay_operation`,`status`) values 
+(1,1,0,12345,23,32,1,1);
 
 /*Table structure for table `user` */
 
@@ -32,14 +85,13 @@ CREATE TABLE `user` (
   `contactperson` varchar(256) DEFAULT NULL,
   `role` enum('admin','superadmin','user') DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
 
 insert  into `user`(`id`,`name`,`password`,`email`,`phone`,`mobile`,`address`,`company`,`contactperson`,`role`) values 
-(1,'YeJing Song1','MQAxADEAMQAxADEA','admin1@motocle.com','111222333444','111111','tokyo shibuya 123','A2ZCreatorz','1','user'),
-(2,'YeJing Song2','MQAxADEAMQAxADEA','valorvalor312@hotmail.com','11122233344','111111','tokyo shibuya 123','A2ZCreatorz','12','user'),
-(3,'YeJing Song12','MQAxADEAMQAxADEA','admin1@motocle.com','12312341234','111111','tokyo shibuya 123','asd','1','user');
+(1,'paulo','admin821116','paulo82116@outlook.com','1953501668','1913501668','Hong Kong','UITC','xiao','user'),
+(2,'xiao','11111','xiao114@hotmail.com','1953501668','1913501668','Hong Kong','UITC','paulo','user');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
