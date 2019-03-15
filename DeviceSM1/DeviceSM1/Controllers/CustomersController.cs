@@ -17,36 +17,33 @@ namespace DeviceSM1.Controllers
         {
             DataTable userInfo = conDB.GetData($"SELECT id, name, email,address,company,contactperson FROM user");
             ViewData["userInfo"] = userInfo;
-
-            return View();
-           
-            //if (ChkLogin() == true)
-            //{
-            //    string username = HttpContext.Session.GetString("username");
-            //    //ViewData["success"] = success;
-            //    ViewData["username"] = username;
-            //    return View();
-            //}
-            //else
-            //{
-            //    return RedirectToAction("Login", "Customers");
-            //}
+            if (ChkLogin() == true)
+            {
+                string username = HttpContext.Session.GetString("username");
+                //ViewData["success"] = success;
+                ViewData["username"] = username;
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Customers");
+            }
         }
 
 
         public IActionResult Create(string success)
         {
-            return View();
-            //if (ChkLogin() == true)
-            //{
-            //    string username = HttpContext.Session.GetString("username");
-            //    ViewData["username"] = username;
-            //    return View();
-            //}
-            //else
-            //{
-            //    return RedirectToAction("Login", "Customers");
-            //}
+            
+            if (ChkLogin() == true)
+            {
+                string username = HttpContext.Session.GetString("username");
+                ViewData["username"] = username;
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Customers");
+            }
         }
         public IActionResult Modal(int id)
         {

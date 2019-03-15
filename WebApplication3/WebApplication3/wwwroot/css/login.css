@@ -1,0 +1,30 @@
+body {    
+    background: url("/images/loginBk.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.card-body{
+    background-color:rgb(12,39,51);
+}
+
+.remember_password {
+    color:rgb(255,255,255);
+}
+
+#btlogin {
+    background-color: rgb(54,195,183);
+    border-color: rgb(54,195,183);
+    border-radius: 25px;
+    width: 74%;
+}
+
+#login_header {
+    background-color: rgb(255,255,255);
+}
+
+.vertical-center {
+    min-height: 100%; /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: center;
+}

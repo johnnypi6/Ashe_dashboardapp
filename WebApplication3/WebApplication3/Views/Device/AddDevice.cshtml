@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewData["Title"] = "AddDevice";
+}
+
+
+<div class="container-fluid content-wrapper ">
+    <div class="m-sm-5">
+         <div class="d-flex justify-content-start ml-sm-3 ">
+            <h3 class=""  style="font-weight: 500;"> Add<span style="opacity:0">0</span>Device</h3>
+        </div>
+    </div>
+    <div class="row my-3 ml-lg-5 mr-6">
+        <div class="col-md-12">
+            <div class="table-responsive" style="font-size: 13px!important;">
+                <table class="table table-sm table-bordered shadow">
+                    <thead class="table-header">
+                        <tr>
+                            <th width="5%" class="th-sm"> SL.No</th">
+                            <th class="th-sm">
+                                <select style="width: 100%;">
+                                    <option>Customer ID </option>
+                                    <option>24324324</option>
+                                </select>
+                            </th>
+                            <th width="17%" class="th-sm">IMEI Number</th>
+                            <th width="17%" class="th-sm">Sim Card No</th>
+                            <th width="17%"class="th-sm">Location</th>
+                            <th class="th-sm">
+                                <select style="width: 100%;">
+                                    <option>Type Of Device</option>
+                                    <option>Monitoring Device</option>
+                                    <option>Tancking Device</option>
+                                </select>
+                            </th>
+                            <th width="17%" class="th-sm">Vehicle Number</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align:center">
+                        <tr>
+                            <td>1</td>
+                            <td>24223455</td>
+                            <td>4743324</td>
+                            <td>2345436</td>
+                            <td>Hong Kong</td>
+                            <td>Tracking Device</td>
+                            <td>2345436656 </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-start mt-md-5 ml-lg-5 ">
+        <div>
+            <span class="m-3" style="font-size:19px;"> Add Sensor Data For</span> <span class=""style="font-size:20px;border-bottom: 2px solid #2da78e; ">IMAIL Number:<a href="#">12345677</a></span>
+        </div>
+    </div>
+    <div class="row  ml-lg-5 mr-6 mt-3">
+        <div class="col-md-12">
+            <div class="table-responsive" style="font-size: 13px!important;">
+                <table class="table table-bordered shadow">
+                    <thead class="table-header">
+                        <tr>
+                            <th width="6%" style="padding:1px!important;">SL.No</th>
+                            <th style="padding:1px!important;">Type Of Sensor </th>
+                            <th  style="padding:1px!important;">Serial Number</th>
+                            <th style="padding:1px!important;">
+                                <div class="table-colDiv">Threshold</div>
+                                <div>
+                                    <span class="table-lrow" >High &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span class="table-rrow">Low</span>
+                                </div>
+                            </th>
+                            <th style="padding:1px!important;">Relay Option</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align:center">
+                        <tr>
+                            <td>1</td>
+                            <td>2424234234234</td>
+                            <td>47</td>
+                            <td>Relay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wqerewr</td>
+                            <td><button class="relay-btn" ><i class="fas fa-times -icon"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2424234234234</td>
+                            <td>47</td>
+                            <td>Relay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wqerewr</td>
+                            <td><button class="relay-btn" ><i class="fas fa-angle-down -icon" style="font-size:15px;"></i></button></td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-end mt-md-5 ml-lg-5 ">
+        <div class="col-lg-4">
+            <button type="submit" class="btn-other btn-sm" style="width:135px; ">Add</button>
+            <span style="opacity:0">ertret</span>
+            <button type="submit" class="btn-other btn-sm" style="width:135px;">Next Device</button>
+        </div>
+    </div>
+</div>
+@section Styles {
+    <link href="~/lib/mdbootstrap/css/mdb.css" rel="stylesheet" />
+}
+

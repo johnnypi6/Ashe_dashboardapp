@@ -43,37 +43,63 @@ namespace DeviceSM1.Controllers
 
 
             string selectLocationIDquery = $"SELECT id FROM location WHERE name = '{location}'";
-            DataTable dt = conDB.GetData(selectLocationIDquery);
-            string locationID = dt.Rows[0]["id"].ToString();  
+            DataTable dt1 = conDB.GetData(selectLocationIDquery);
+            string locationID = dt1.Rows[0]["id"].ToString();  
 
 
             string query = $"INSERT INTO device (user_id, location_id, IMEI, sim_card,  vehicle, status) " +
                                        $"VALUES ('{user_id}', '{locationID}','{IMEI}',  '{sim_card}', '{vehicle}', '{status}')";
 
+            string selectDevice_id = $"SELECT id FROM device ORDER BY id DESC LIMIT 1";
+            DataTable dtDevice = conDB.GetData(selectDevice_id);
+            string device_id = dtDevice.Rows[0]["id"].ToString();
+
             string queryp = $"INSERT INTO sensor (device_id, type, serial_number, high_threshold, low_threshold,  status) " +
-                   $"VALUES ( '1','pressure', '{p_no}', '{p_h}','{p_l}',  '{p_r}')";
+                   $"VALUES ( '{device_id}','1', '{p_no}', '{p_h}','{p_l}',  '{p_r}')";
 
             string queryt = $"INSERT INTO sensor (device_id, type, serial_number, high_threshold, low_threshold, relay_operation, status) " +
-                   $"VALUES ( '1','Temperature', '{t_no}', '{t_h}','{t_l}',  '{t_r}')";
+                   $"VALUES ( '{device_id}','Temperature', '{t_no}', '{t_h}','{t_l}',  '{t_r}')";
 
             string queryh = $"INSERT INTO sensor (device_id, type, serial_number, high_threshold, low_threshold, relay_operation, status) " +
-                   $"VALUES ( '1','Humidity', '{h_no}', '{h_h}','{h_l}',  '{h_r}')";
+                   $"VALUES ( '{device_id}','Humidity', '{h_no}', '{h_h}','{h_l}',  '{h_r}')";
 
             string querym = $"INSERT INTO sensor (device_id, type, serial_number, high_threshold, low_threshold, relay_operation, status) " +
-                   $"VALUES ( '1','Moisture', '{m_no}', '{m_h}','{m_l}',  '{m_r}')";
+                   $"VALUES ( '{device_id}','Moisture', '{m_no}', '{m_h}','{m_l}',  '{m_r}')";
 
             string queryl = $"INSERT INTO sensor (device_id, type, serial_number, high_threshold, low_threshold, relay_operation, status) " +
-                   $"VALUES ( '1','Liquid Flow', '{l_no}', '{l_h}','{l_l}',  '{l_r}')";
+                   $"VALUES ( '{device_id}','Liquid Flow', '{l_no}', '{l_h}','{l_l}',  '{l_r}')";
 
             string queryc = $"INSERT INTO sensor (device_id, type, serial_number, high_threshold, low_threshold, relay_operation, status) " +
-                   $"VALUES ( '1','CO2', '{c_no}', '{c_h}','{c_l}',  '{c_r}')";
+                   $"VALUES ( '{device_id}','CO2', '{c_no}', '{c_h}','{c_l}',  '{c_r}')";
             conDB.ExecuteQuery(query);
                return RedirectToAction("create", "Customers", new { success = "true" });
 
            
 
         }
-        
+        public IActionResult Modal(int id)
+        {
+            DataTable device_Info = conDB.GetData($"SELECT  IMEI, user_id, sim_card, location_id,vehicle, status FROM device WHERE id = {id};");
+
+
+            DataTable sensor_Info = conDB.GetData($"SELECT id,type, serial_number,high_threshold,low_threshold,status FROM sensor WHERE device_id = {id};");
+
+            return new JsonResult(new
+            {
+                device_Info = device_Info,
+                sensor_Info = sensor_Info
+            });
+            //return View();
+        }
+
+
+        public IActionResult Delecte(int id)
+        {
+            DataTable device_Delect = conDB.GetData($"DELETE  FROM device WHERE id = {id};");
+            ViewData["device_Delect"] = device_Delect;
+
+            return View();
+        }
 
     }
 }

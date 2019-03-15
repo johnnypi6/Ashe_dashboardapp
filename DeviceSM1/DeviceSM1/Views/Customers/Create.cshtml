@@ -11,33 +11,33 @@
     </div>
 
     @*@if (success != null)
-    {
-        @if (success.ToString() == "true")
         {
-            <div class="alert alert-success alert-dismissible fade show mt-4 m-alert m-alert--square m-alert--air" role="alert" style="font-size : 20px">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
-                <strong>
-                    <strong>Create Success!</strong>
-                </strong>
-            </div>
-        }
-        else
-        {
-            <div class="alert alert-danger alert-dismissible fade show mt-4 m-alert m-alert--square m-alert--air" role="alert" style="font-size : 20px">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
-                <strong>
-                    <strong>Create Fail!</strong>
-                </strong>
-            </div>
-        }
-    }*@
+            @if (success.ToString() == "true")
+            {
+                <div class="alert alert-success alert-dismissible fade show mt-4 m-alert m-alert--square m-alert--air" role="alert" style="font-size : 20px">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                    <strong>
+                        <strong>Create Success!</strong>
+                    </strong>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger alert-dismissible fade show mt-4 m-alert m-alert--square m-alert--air" role="alert" style="font-size : 20px">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                    <strong>
+                        <strong>Create Fail!</strong>
+                    </strong>
+                </div>
+            }
+        }*@
     <div class="profile row ml-0">
         <form asp-controller="Customers" asp-action="RegisterUser" class="needs-validation col-lg-12 ml-0 ml-lg-5" novalidate>
             <div class="form-group md-form row m-lg-3">
                 <label class="col-form-label"><i class="fas fa-user profile-icon"></i></label>
                 <div class="col-lg-5">
                     <div class="md-form ml-5">
-                        <input name="name" type="text" class="form-control"  placeholder="User Name" required="required" aria-describedby="inputGroupPrepend " autofocus="autofocus">
+                        <input name="name" type="text" class="form-control" placeholder="User Name" required="required" aria-describedby="inputGroupPrepend " autofocus="autofocus">
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                 <label class="col-form-label"><i class="fas fa-lock profile-icon"></i></label>
                 <div class="col-lg-5">
                     <div class="md-form ml-5">
-                        <input name="password" type="password" class="form-control"  placeholder="Password" required="required">
+                        <input name="password" type="password" class="form-control" placeholder="Password" required="required">
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                 <label class="col-form-label "> <i class="fas fa-user profile-icon"></i></label>
                 <div class="col-lg-5">
                     <div class="md-form ml-5">
-                        <input name="contactperson" type="text" class="form-control"  placeholder="Contact Person" required="required">
+                        <input name="contactperson" type="text" class="form-control" placeholder="Contact Person" required="required">
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                 <label class="col-form-label"><i class="fas fa-envelope profile-icon"></i></label>
                 <div class="col-lg-5">
                     <div class="md-form ml-5">
-                        <input name="email" type="email" class="form-control"  placeholder="Email" required="required">
+                        <input name="email" type="email" class="form-control" placeholder="Email" required="required">
                     </div>
                 </div>
             </div>
@@ -101,9 +101,9 @@
                 </div>
             </div>
             <div class="form-group  d-flex justify-content-end mr-6 ">
-                <button class="btn-other btn-sm btn-w"><i class=" fa fa-save btn_i"></i>Save</button>
+                <button id="customer_save" class="btn-other btn-sm btn-w"><i class=" fa fa-save btn_i"></i>Save</button>
                 <span style="opacity:0">0000</span>
-                <button class="btn-other btn-sm btn-w" > <i class=" fa fa-eraser btn_i"></i>Cancel</button>
+                <button id="customer_cancel" class="btn-other btn-sm btn-w"> <i class=" fa fa-eraser btn_i"></i>Cancel</button>
             </div>
         </form>
     </div>
@@ -112,8 +112,24 @@
 
 @section Styles {
     <link href="~/plugins/mdbootstrap/css/mdb.css" rel="stylesheet" />
- 
-   
+
+
 }
 
+@*@section Scripts {
+    <script src="~/plugins/jquery3.3.1/dist/jquery.min.js"></script>
+    <script src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#customer_save').click(function () {
+                window.location = "/customers/index";
+            });
+            $('#customer_cancel').click(function () {
+                window.location = "/customers/index";
+            });
 
+        });
+
+    </script>
+
+}*@

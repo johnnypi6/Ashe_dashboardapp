@@ -33,7 +33,7 @@
                 </div>
             }
         }*@
-    <form  asp-controller="Device" asp-action="RegisterDevice" class="needs-validation" novalidate>
+    <form asp-controller="Device" asp-action="RegisterDevice" class="needs-validation" novalidate>
         <div class="profile row ml-0 mt-3 ml-sm-5">
             <div class="col-md-12 col-sm-10 ">
                 <div class="row mt-sm-1">
@@ -76,7 +76,7 @@
                             <label class="col-form-label "><i class="fas fa-map-marker-alt profile-icon"></i></label>
                             <div class="col-7">
                                 <div class="md-form mt-3">
-                                    <input type="text" name="location"  class="form-control" id="device_location" placeholder="Location" required="required">
+                                    <input type="text" name="location" class="form-control" id="device_location" placeholder="Location" required="required">
                                 </div>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                                         <option value="3">G.H</option>
 
                                     </select>
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -122,10 +122,10 @@
             <div class="head_sensor_no">Relay </div>
             <div class="table_sensor_no">1 </div>
             <div class="table_sensor">Pressure</div>
-            <div class="table_sensor"> <input type="text"  class="form-controll" name="p_no"></div>
-            <div class="table_sensor"> <input type="text"  class="form-controll"name="p_h"></div>
+            <div class="table_sensor"> <input type="text" class="form-controll" name="p_no"></div>
+            <div class="table_sensor"> <input type="text" class="form-controll" name="p_h"></div>
             <div class="table_sensor"> <input type="text" class="form-controll" name="p_l"></div>
-            <div class="table_sensor_no"> <input type="checkbox" class="form-control"name="p_r"></div>
+            <div class="table_sensor_no"> <input type="checkbox" class="form-control" name="p_r"></div>
             <div class="table_sensor_no">2</div>
             <div class="table_sensor">Temperature</div>
             <div class="table_sensor"> <input type="text" class="form-controll" name="t_no"></div>
@@ -160,9 +160,9 @@
 
         <div class="row justify-content-end mt-md-5  ">
             <div style="margin-right:5%">
-                <button id="deviceSave" class="btn-other btn-sm btn-w"> <i class=" fa fa-save btn_i"></i>Save</button>
+                <button id="device_Save" class="btn-other btn-sm btn-w"> <i class=" fa fa-save btn_i"></i>Save</button>
                 <span style="opacity:0">0000</span>
-                <button id="device_delete" class="btn-other btn-sm btn-w"> <i class=" fa fa-eraser btn_i"></i>Cancel</button>
+                <button id="device_Cancel" class="btn-other btn-sm btn-w"> <i class=" fa fa-eraser btn_i"></i>Cancel</button>
             </div>
         </div>
     </form>
@@ -176,5 +176,19 @@
 
 
 @section Scripts {
+    <script src="~/plugins/jquery3.3.1/dist/jquery.min.js"></script>
+    @*<script src="~/plugins/bootstrap_3.3.7/dist/js/bootstrap.min.js"></script>*@
+    <script src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+           
+            $('#device_Save').click(function () {
+                window.location = "/device/index";
+            });
+            $('#device_Cancel').click(function () {
+                window.location = "/device/index";
+            });
+        });
+    </script>
 
 }
