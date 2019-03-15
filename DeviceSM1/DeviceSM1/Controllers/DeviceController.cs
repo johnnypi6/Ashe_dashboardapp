@@ -19,8 +19,8 @@ namespace DeviceSM1.Controllers
             //string selectIDquery = $"SELECT name FROM user WHERE id = '{user_id}'";
             //string selectLocationIDquery = $"SELECT name FROM location WHERE location = '{location_id}'";
 
-            DataTable deviceInfo = conDB.GetData($"SELECT id,user_id,location_id,IMEI,sim_card,vehicle,STATUS FROM device");
-            ViewData["deviceInfo"] = deviceInfo;
+            DataTable device_Info = conDB.GetData($"SELECT id,user_id,location_id,IMEI,sim_card,vehicle,STATUS FROM device");
+            ViewData["device_Info"] = device_Info;
             return View();
         }
         public IActionResult addDevice()
@@ -37,17 +37,18 @@ namespace DeviceSM1.Controllers
          
 
             string selectIDquery = $"SELECT id FROM user WHERE name = '{name}'";
-
+             
             DataTable dt = conDB.GetData(selectIDquery);
             string user_id = dt.Rows[0]["id"].ToString();
 
 
-            string selectLocationIDquery = $"SELECT id FROM location WHERE location = '{location}'";
+            string selectLocationIDquery = $"SELECT id FROM location WHERE name = '{location}'";
+            DataTable dt = conDB.GetData(selectLocationIDquery);
             string locationID = dt.Rows[0]["id"].ToString();  
 
 
             string query = $"INSERT INTO device (user_id, location_id, IMEI, sim_card,  vehicle, status) " +
-                                       $"VALUES ('{user_id}', '{location}','{IMEI}',  '{sim_card}', '{vehicle}', '{status}')";
+                                       $"VALUES ('{user_id}', '{locationID}','{IMEI}',  '{sim_card}', '{vehicle}', '{status}')";
 
             string queryp = $"INSERT INTO sensor (device_id, type, serial_number, high_threshold, low_threshold,  status) " +
                    $"VALUES ( '1','pressure', '{p_no}', '{p_h}','{p_l}',  '{p_r}')";

@@ -2,7 +2,7 @@
 @using System.Data;
 @model DataTable
 @{
-    DataTable data = (DataTable)ViewData["deviceInfo"];
+    DataTable data = (DataTable)ViewData["device_Info"];
     var success = ViewData["success"];
 }
 
@@ -259,6 +259,12 @@
             });
             $('#rowDelete').click(function () {
                 //    table.row('.selected').remove().draw(false);
+            });
+            $('#device_add').click(function () {
+                window.location = "/device/addDevice";
+            });
+            $('#device_edit').click(function () {
+                window.location = "/device/addDevice";
             });
         });
     </script>

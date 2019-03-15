@@ -48,7 +48,7 @@ namespace DeviceSM1.Controllers
             //    return RedirectToAction("Login", "Customers");
             //}
         }
-        public IActionResult modal(int id)
+        public IActionResult Modal(int id)
         {
             DataTable user_Info = conDB.GetData( $"SELECT  name, email, address, company, contactperson FROM user WHERE id = {id};");
 
