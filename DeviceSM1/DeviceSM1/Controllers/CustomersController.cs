@@ -15,36 +15,54 @@ namespace DeviceSM1.Controllers
 
         public IActionResult Index()
         {
+
             DataTable userInfo = conDB.GetData($"SELECT id, name, email,address,company,contactperson FROM user");
             ViewData["userInfo"] = userInfo;
-            if (ChkLogin() == true)
-            {
-                string username = HttpContext.Session.GetString("username");
-                //ViewData["success"] = success;
-                ViewData["username"] = username;
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Login", "Customers");
-            }
+            return View();
+
+            //if (ChkLogin() == true)
+            //{
+            //    string username = HttpContext.Session.GetString("username");
+            //    //ViewData["success"] = success;
+            //    ViewData["username"] = username;
+
+
+
+            //    DataTable userInfo = conDB.GetData($"SELECT id, name, email,address,company,contactperson FROM user");
+            //    ViewData["userInfo"] = userInfo;
+            //    return View();
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Login", "Customers");
+            //}
         }
 
 
         public IActionResult Create(string success)
         {
-            
-            if (ChkLogin() == true)
-            {
-                string username = HttpContext.Session.GetString("username");
-                ViewData["username"] = username;
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Login", "Customers");
-            }
+
+            return View();
+            ////if (ChkLogin() == true)
+            ////{
+            ////    string username = HttpContext.Session.GetString("username");
+            ////    ViewData["username"] = username;
+            ////    return View();
+            ////}
+            ////else
+            ////{
+            ////    return RedirectToAction("Login", "Customers");
+            ////}
         }
+
+        public IActionResult Profile(string success)
+        {
+
+            return View();
+          
+        }
+
+
         public IActionResult Modal(int id)
         {
             DataTable user_Info = conDB.GetData( $"SELECT  name, email, address, company, contactperson FROM user WHERE id = {id};");
