@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using DeviceSM1.Models;
 
 namespace DeviceSM1.Controllers
@@ -12,7 +13,18 @@ namespace DeviceSM1.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+
+            if (ChkLogin() == true)
+            {
+                string username = HttpContext.Session.GetString("username");
+                ViewData["username"] = username;
+                return View();
+            }
+            else
+            {
+                //return RedirectToAction("Login", "Customers", new { area = "area" });
+                return RedirectToAction("Login", "Customers");
+            }
         }
 
         public IActionResult About()
@@ -38,6 +50,21 @@ namespace DeviceSM1.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private bool ChkLogin()
+        {
+            //bool result = false;
+            bool result = true;
+            if (HttpContext.Session.GetString("login") != null)
+            {
+                if (HttpContext.Session.GetString("login") == "1")
+                {
+                    result = true;
+                }
+            }
+
+            return result;
         }
     }
 }

@@ -1,20 +1,31 @@
 ﻿
+@using DeviceSM1.Mysqlconnect;
+@using System.Data;
+@model DataTable
 @{
-    ViewData["Title"] = "Device";
+    DataTable data = (DataTable)ViewData["userInfo"];
+    var success = ViewData["success"];
+
+  
 }
 
-<div class="container-fluid content-wrapper ">
+<script>
+    window._data_rows = @Html.Raw(Json.Serialize(data.Rows));
+    if (window._data_rows.length > 0) {
+        window._data_rows = window._data_rows[0]['table'];
+    }
+</script>
 
+<div class="container-fluid content-wrapper ">
     <div class="row justify-content-between m-lg-5">
         <div class="col-4">
             <h3 class="m-3" style="font-weight:500"> Customer<span style="opacity:0">0</span>List</h3>
         </div>
-
     </div>
     <div class="row my-3 m-lg-5 ">
         <div class="col-md-12 ">
             <div class="table-responsive">
-                <table id="admin-list" class="display table-sm table-bordered" style="width:100%">
+                <table id="customer-list" class="display table-sm table-bordered" style="width:100%">
                     <thead style="background:#209E93">
                         <tr>
                             <th></th>
@@ -27,63 +38,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td>1</td>
-                            <td>xiao</td>
-                            <td>xiao114@hotmail.com</td>
-                            <td>Hong Kong</td>
-                            <td>UITC</td>
-                            <td>axio</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td>2</td>
-                            <td>paulo</td>
-                            <td>paulo82116@outlook.com</td>
-                            <td>Hong Kong</td>
-                            <td>UITC</td>
-                            <td>axio</td>
-
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td>3</td>
-                            <td>xiao</td>
-                            <td>xiao114@hotmail.com</td>
-                            <td>Hong Kong</td>
-                            <td>UITC</td>
-                            <td>axio</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td>5</td>
-                            <td>paulo</td>
-                            <td>paulo82116@outlook.com</td>
-                            <td>Hong Kong</td>
-                            <td>UITC</td>
-                            <td>axio</td>
-
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td>5</td>
-                            <td>xiao</td>
-                            <td>xiao114@hotmail.com</td>
-                            <td>Hong Kong</td>
-                            <td>UITC</td>
-                            <td>gukyong</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" /></td>
-                            <td>6</td>
-                            <td>paulo</td>
-                            <td>paulo82116@outlook.com</td>
-                            <td>Hong Kong</td>
-                            <td>UITC</td>
-                            <td>chop</td>
-                        </tr>
-
+                        @foreach (DataRow item in data.Rows)
+                        {
+                            <tr>
+                                <td><input type="checkbox" /></td>
+                                <td>@item["id"]</td>
+                                <td>@item["name"]</td>
+                                <td>@item["email"]</td>
+                                <td>@item["address"]</td>
+                                <td>@item["company"]</td>
+                                <td>@item["contactperson"]</td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
@@ -92,28 +58,28 @@
 
     <div class="row justify-content-end mt-md-5  ">
         <div style="margin-right:5%">
-            <a href="/customers/create"> <button class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-plus-circle btn_i"></i>Add</button></a>
-            <span style="opacity:0">ertret</span>
-            <a href="/customers/create"><button id="device_edit" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-edit btn_i"></i>Edit</button></a>
-            <span style="opacity:0">ertret</span>
-            <button id="admin_delete" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-trash-alt btn_i"></i>Delete</button>
+            <button id="customers_add"  class="btn-other btn-sm btn-w" > <i class=" fa fa-plus-circle btn_i"></i>Add</button>
+            <span style="opacity:0">0000</span>
+            @*<button id="customers_edit" class="btn-other btn-sm btn-w"> <i class=" fa fa-edit btn_i"></i>Edit</button>*@
+            <span style="opacity:0">0000</span>
+            <button id="customers_delete" class="btn-other btn-sm btn-w"> <i class=" fa fa-trash-alt btn_i"></i>Delete</button>
         </div>
     </div>
 
 </div>
 
-<div id="myModal" class=" modal " role="dialog" >
+<div id="myModal" class=" modal " role="dialog">
     <div class="modal-dialog madiamodal">
         <!-- Modal content-->
         <div class="modal-content">
 
             <div class="modal-body">
                 <div class="table-responsive mt-5 mb-3">
-                    <table class="display table-sm table-bordered" style="width:100%;text-align:center">
+                    <table id="he"class="display table-sm table-bordered" style="width:100%;text-align:center">
 
                         <thead style="background:#209E93">
                             <tr>
-                                <th>UserName</th>
+                                <th>User Name</th>
                                 <th>E-mail</th>
                                 <th>Address</th>
                                 <th>Company</th>
@@ -121,13 +87,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>paulo</td>
-                                <td>paulo82116@outlook.com</td>
-                                <td>Hong Kong</td>
-                                <td>61UITC</td>
-                                <td>mochan</td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </div>
@@ -142,27 +102,20 @@
                                 <th>Location</th>
                                 <th>Vehicle</th>
                                 <th>Status</th>
-
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>12345</td>
-                                <td>353967</td>
-                                <td>Hong Kong</td>
-                                <td>Tracking</td>
-                                <td>Active</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>92345</td>
-                                <td>353967</td>
-                                <td>Hong Kong</td>
-                                <td>Tracking</td>
-                                <td>Active</td>
-                            </tr>
-                           
+                            @*@foreach (DataRow item in modal_data.Rows)
+                            {
+                                <tr>
+                                    <td>@item["id"]</td>
+                                    <td>@item["IMEI"]</td>
+                                    <td>@item["sim_card"]</td>
+                                    <td>@item["location"]</td>
+                                    <td>@item["vehicle"]</td>
+                                    <th>@item["status"]</th>
+                                </tr>
+                            }*@
                         </tbody>
                     </table>
                 </div>
@@ -178,10 +131,10 @@
     <div class="modal-dialog delete">
         <div class="modal-content">
             <div class="modal-header">
-                <h5>Remove customer</h5>
+                <h6>Remove customer</h6>
             </div>
             <div class="modal-body" style="padding:15px;">
-                <h4 style="text-align:center">Do you really want to remove customer?</h4>
+                <h5 style="text-align:center">Do you really want to remove customer?</h5>
             </div>
             <div class="modal-footer footer">
                 <button type="button" id="rowDelete" class="modal-btn" data-dismiss="modal">Yes</button>
@@ -190,11 +143,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
 
 @section Styles {
     <link href="~/plugins/dataTables/jquery.dataTables.min.css" rel="stylesheet" />
@@ -207,57 +155,108 @@
     <script src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            var table = $('#admin-list').DataTable({
+            var table = $('#customer-list').DataTable({
             });
-            
             var table = $('#customer-device').DataTable({
             });
 
-            $('#admin-list tbody').on('click', 'tr', function (event) {
+            $('#customer-list tbody').on('click', 'tr', function (event) {
+                var $tr = $(event.target).closest("tr");
+                var id = $tr.find("td:nth-child(2)").text();
+                var row_data = {};
+                for (var i = 0; i < window._data_rows.length; i++) {
+                    if (window._data_rows[i]["id"] != id) {
+                        continue;
+                    }
+                    else {
+                        row_data = window._data_rows[i];
+                        break;
+                    }
+                }
+                     
+                $.ajax({
+                    type: 'GET',
+                    url: '/customers/modal?id=' + id,
+                    success: function (xhr, status, response) {
+                         var user_data = xhr.user_Info;
+                         var tbody_str = "<tr>";
+                            tbody_str += "<td>" + user_data[0]["name"]+"</td>";
+                            tbody_str += "<td>" + user_data[0]["email"]+"</td>";
+                            tbody_str += "<td>" + user_data[0]["address"] + "</td>";
+                            tbody_str += "<td>" + user_data[0]["company"] + "</td>";
+                            tbody_str += "<td>" + user_data[0]["contactperson"] + "</td>";
+                         tbody_str += "</tr>";
+              
+                        $("#he tbody").html(tbody_str);
+                      
 
+                     var tbody_str = "";
+                        var device_data = xhr.device_Info;
+                    
+                        device_data.forEach(rows => {
+                            var tbody_strs = "<tr>";
+                            tbody_str += "<td>" + rows["id"] + "</td>";
+                            tbody_str += "<td>" + rows["IMBI"] + "</td>";
+                            tbody_str += "<td>" + rows["sim_card"] + "</td>";
+                            tbody_str += "<td>" + rows["location_id"] + "</td>";
+                            tbody_str += "<td>" + rows["vehicle"] + "</td>";
+                            tbody_str += "<td>" + rows["status"] + "</>";
+                            tbody_str += "</tr>";
+                        });
+                   
+                        $("#customer-device tbody").html(tbody_str);
+     
+                    }
+                });
                 event.preventDefault();
                 $("#myModal").modal();
-                //if ($(this).hasClass('selected')) {
-                //   $(this).removeClass('selected');
-                //}
-                //else {
-                //    table.$('tr.selected').removeClass('selected');
-                //    $(this).addClass('selected');
-                //}
-               
             });
-            
+
             $('input[type="checkbox"]').on('click', function (event) {
+                var $tr = $(event.target).closest("tr");
+                var id = $tr.find("td:nth-child(2)").text();
                 if (event.target.checked) {
-                    var $tb_customerList = $("table#admin-list");
+                    var $tb_customerList = $("table#customer-list");
                     var $checked_inputs = $tb_customerList.find("input[type='checkbox']:checked");
                     for (var i = 0; i < $checked_inputs.length; i++) {
                         if ($checked_inputs[i] == event.target) {
                             continue;
                         }
-
-                        $checked_inputs[i].checked = false;
+                       $checked_inputs[i].checked = false;
                     }
                 }
-
                 event.stopPropagation();
+                $('#rowDelete').click(function () {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/customers/Delecte?id=' + id,
+                        success: function (result) {
+
+                        }
+                    });
+                });
             });
-            $('#admin_delete').click(function () {
-                var $tb_customerList = $("table#admin-list");
+            $('#customers_delete').click(function () {
+                var $tb_customerList = $("table#customer-list");
                 var $checked_inputs = $tb_customerList.find("input[type='checkbox']:checked");
                 if ($checked_inputs.length == 0) {
                     alert("No customer is selected!");
                     return;
                 }
-
                 $("#deleteModal").modal();
-                //    table.row('.selected').remove().draw(false);
+
             });
-            $('#rowDelete').click(function () {
-                //    table.row('.selected').remove().draw(false);
+
+                       
+            $('#customers_add').click(function () {
+                window.location = "/customers/create";
             });
+            $('#customers_edit').click(function () {
+                window.location = "/customers/create";
+            });
+            
         });
+
     </script>
 
 }
-

@@ -26,13 +26,13 @@
             </div>
         </div>
         <div class="col-sm ml-sm-3 ml-lg-3  mr-lg-5 calendars" style="width:80%;">
-            <label class="col-form-label mr-1 ">
-                <i class="fas fa-calendar-alt " style="font-size:20px; color: green;"></i>
+            <label class="col-form-label  ">
+                <i class="fas fa-calendar-alt " style="font-size:19px; color: green;"></i>
             </label>
-            <label class="col-form-label" style="font-size:13px;">
-                From Date:
+            <label class="col-form-label" style="font-size:12px; margin-left:-4px;">
+                From
             </label>
-            <input type="date" id="start" name="trip-start" style="width:65%;height: 32px"
+            <input type="date" id="start" name="trip-start" style="width:65%;height: 32px;margin-left:-4px;"
                    value="2018-07-22"
                    min="2018-01-01" max="2018-12-31">
         </div>
@@ -41,9 +41,9 @@
                 <i class="fas fa-calendar-alt " style="font-size:20px; color: green;"></i>
             </label>
             <label class="col-form-label">
-                To Date:
+                To:
             </label>
-            <input type="date" id="start" name="trip-start" style="width:65%;height: 32px"
+            <input type="date" id="start" name="trip-start" style="width:65%;height: 32px;"
                    value="2018-07-22"
                    min="2018-01-01" max="2018-12-31">
         </div>
@@ -55,24 +55,31 @@
     <div class="row my-3 m-lg-5 ">
         <div class="col-md-12 ">
             <div class="table-responsive">
-                <table id="alert-list" class="display table-sm table-bordered" style="width:100%">
-                    <thead style="background:#209E93">
-                        <tr>
-                            <th width="" class="th-sm">Alert.No</th>
-                            <th class="th-sm">Location</th>
-                            <th class="th-sm">IMEI/Dvice Number</th>
-                            <th class="th-sm">Customer Name</th>
-                            <th class="th-sm">Time</th>
-                            <th class="th-sm alert_sensors" >
-                                <div style="display:inline-block;"><img src="~/images/box_icon1.png" width='25' height='25' alt="" /></div>
-                                <div style="display:inline-block;"><img src="~/images/box_icon2.png" width='27' height='27' alt="" /></div>
-                                <div style="display:inline-block"><img src="~/images/box_icon3.png" width='25' height='25' alt="" /></div>
-                                <div style="display:inline-block"><img src="~/images/box_icon4.png" width='25' height='25' alt="" /></div>
-                                <div style="display:inline-block"><img src="~/images/box_icon5.png" width='25' height='25' alt="" /></div>
-                                <div style="display:inline-block"><img src="~/images/box_icon6.png" width='25' height='25' alt="" /></div>
-                            </th>
-                            <th width="7%" class="th-sm">Device Status</th>
-                            <th class="th-sm">Alert Report</th>
+                <table id="alerts-list" class="display table-sm table-bordered" style="width:100%; text-align:center">
+                    <thead style="background:#209E93; ">
+                        <tr >
+                            <th class="alerts-tableHead">No.</th>
+                            <th class="alerts-tableHead">Location</th >
+                            <th class="alerts-tableHead">IMEI/Dvice Number</th>
+                            <th class="alerts-tableHead">Customer Name</th>
+                            <th class="alerts-tableHead">Time</th>
+                            @*<th class=" alert_sensors" >
+                                    <div style="display:inline-block;"><img src="~/images/box_icon1.png" width='25' height='25' alt="" /></div>
+                                    <div style="display:inline-block;"><img src="~/images/box_icon2.png" width='27' height='27' alt="" /></div>
+                                    <div style="display:inline-block"><img src="~/images/box_icon3.png" width='25' height='25' alt="" /></div>
+                                    <div style="display:inline-block"><img src="~/images/box_icon4.png" width='25' height='25' alt="" /></div>
+                                    <div style="display:inline-block"><img src="~/images/box_icon5.png" width='25' height='25' alt="" /></div>
+                                    <div style="display:inline-block"><img src="~/images/box_icon6.png" width='25' height='25' alt="" /></div>
+                                </th*@
+                            <th class="alerts-tableHead"><img src="~/images/box_icon1.png" width='25' height='25' alt="" /> </th>
+                            <th class="alerts-tableHead"><img src="~/images/box_icon2.png" width='25' height='25' alt="" /> </th>
+                            <th class="alerts-tableHead"><img src="~/images/box_icon3.png" width='25' height='25' alt="" /> </th>
+                            <th class="alerts-tableHead"><img src="~/images/box_icon4.png" width='25' height='25' alt="" /> </th>
+                            <th class="alerts-tableHead"><img src="~/images/box_icon5.png" width='25' height='25' alt="" /> </th>
+                            <th class="alerts-tableHead"><img src="~/images/box_icon6.png" width='25' height='25' alt="" /> </th>
+
+                            <th width="7%" class="alerts-tableHead">Device Status</th>
+                            <th class="alerts-tableHead">Alert Report</th>
                         </tr>
                     </thead>
                     <tbody class="teble-algin">
@@ -82,7 +89,12 @@
                             <td> <a href="#">123456789</a> </td>
                             <td> Name 1 </td>
                             <td>12:2:2:12</td>
-                            <td>Relay </td>
+                            <td>2 </td>
+                            <td>2 </td>
+                            <td>2 </td>
+                            <td>2 </td>
+                            <td>2 </td>
+                            <td>2 </td>
                             <td>
                                 <div class="red color-block rounded-circle z-depth-1 m-auto" style="width:20px;height:20px">
                                 </div>
@@ -96,7 +108,12 @@
                             <td> <a href="#">123456789</a> </td>
                             <td>  Name 1 </td>
                             <td> 12:2:2:12</td>
-                            <td> Relay    </td>
+                            <td>2 </td>
+                            <td>2 </td>
+                            <td>2 </td>
+                            <td>2 </td>
+                            <td>2 </td>
+                            <td>2 </td>
                             <td>
                                 <div class="blue-gradient color-block rounded-circle z-depth-1 m-auto" style="width:20px;height:20px">
                                 </div>
@@ -118,26 +135,25 @@
     <div class=" d-flex justify-content-end mt-lg-3 ">
         <button type="submit" class="btn-other btn-sm " style=" margin-right:7%; ">Download</button>
     </div>
-    @section Styles {
-        <link href="~/plugins/dataTables/jquery.dataTables.min.css" rel="stylesheet" />
 
-    }
+</div>
+@section Styles {
+
+    <link href="~/plugins/dataTables/jquery.dataTables.min.css" rel="stylesheet" />
+
+}
 
 
-    @section Scripts {
-        <script src="~/plugins/jquery3.3.1/dist/jquery.min.js"></script>
-        <script src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                var table = $('#alert-list').DataTable({
-                });
-
-               
+@section Scripts {
+    <script src="~/plugins/jquery3.3.1/dist/jquery.min.js"></script>
+    <script src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $('#alerts-list').DataTable({
             });
-        </script>
-
-    }
-
+        });
+    </script>
+}
 
 
 

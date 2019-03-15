@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "bootstrap-table": "^1.13.4",
-    "mdbootstrap": "^4.7.2",
-    "table": "^5.2.3"
-  }
-}

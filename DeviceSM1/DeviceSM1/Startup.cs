@@ -33,7 +33,12 @@ namespace DeviceSM1
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-           
+
+            services.AddSession(option =>
+            {
+                option.IdleTimeout = TimeSpan.FromMinutes(30);
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +56,7 @@ namespace DeviceSM1
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseCookiePolicy();
 
             app.UseMvc(routes =>
@@ -58,6 +64,7 @@ namespace DeviceSM1
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
             });
         }
     }

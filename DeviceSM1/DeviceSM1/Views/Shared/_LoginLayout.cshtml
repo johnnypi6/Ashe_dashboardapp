@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -7,23 +7,26 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Sapphire - Login</title>
+     @RenderSection("Styles", required: false)
     <!-- Bootstrap core CSS-->
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template-->
-    <link href="~/vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template-->
-    <link href="~/css/sb-admin.css" rel="stylesheet">
-    <link href="~/css/login.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+   
 </head>
 <body class="bg-dark">
     <div class="container">
         @RenderBody()
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="~/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="~/plugins/jquery/dist/jquery.easing.min.js"></script>
+    <script src="~/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="~/lib/jquery/dist/jquery.easing.min.js"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

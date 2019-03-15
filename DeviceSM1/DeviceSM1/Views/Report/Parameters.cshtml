@@ -11,83 +11,94 @@
         </div>
     </div>
     <div class="row ml-lg-5 mt-3">
-        <div class="col-sm ml-sm-3 ml-lg-5 mr-lg-5 shadow" style="width:80%;">
-            <select class="form-control form-control-sm location-select ">
+        <div class="col-sm ml-sm-3 ml-lg-5 mr-lg-5 " style="width:80%;">
+            <select class="form-control form-control-sm location-select dash-shadow ">
                 <option>Customer</option>
             </select>
         </div>
         <div class="col-sm ml-sm-3 ml-lg-3 mr-lg-5" style="width:80%;">
-            <select class="form-control form-control-sm location-select shadow">
+            <select class="form-control form-control-sm location-select dash-shadow">
                 <option>Device</option>
             </select>
         </div>
         <div class="col-sm ml-sm-3 ml-lg-3 mr-lg-5" style="width:80%;">
-            <select class="form-control form-control-sm location-select shadow">
+            <select class="form-control form-control-sm location-select dash-shadow">
 
                 <option>Location</option>
             </select>
         </div>
         <div class="col-sm  ml-lg-3 mr-lg-5">
-            <button type="submit" class="btn  btn-sm shadow search-btn">Search</button>
+            <button type="submit" class="btn  btn-sm dash-shadow search-btn">Search</button>
         </div>
     </div>
 
-    <div class="row" style="margin:5%">
-        <div class="col-md-3 " style="margin-right:5%">
-            <div class="shadow" style="width:420px; height:220px;">
-                <div> <canvas id="myBarChart"></canvas>  </div>
+    <div>
+        <div class="row">
+            <div class="col-md-4" style="padding:5%;height: 145px; ">
+                <div class="dash-shadow">
+                    <div> <canvas id="pressure"></canvas>  </div>
 
+                </div>
+                <div style="text-align:center"><label>Pressure</label></div>
             </div>
-            <div style="text-align:center"><label>Pressure</label></div>
-        </div>
-        <div class="col-md-3" style="margin-left:5%;margin-right:5%">
-            <div class="shadow" style="width:420px; height:220px;">
-                <div> <canvas id="myAreaChart"></canvas>  </div>
+
+            <div class="col-md-4" style="padding:5%;height: 227px;">
+                <div class="dash-shadow">
+                    <div> <canvas id="c"></canvas>  </div>
+                </div>
+                <div style="text-align:center"><label>CO2</label></div>
             </div>
-            <div style="text-align:center"><label>Liquid Flow</label></div>
-        </div>
-        <div class="col-md-3" style="margin-left:5%">
-            <div class="shadow" style="width:420px; height:220px;">
-                <div> <canvas id="myChart"></canvas>  </div>
+
+            <div class="col-md-4" style="padding:5% ;height: 227px;">
+                <div class="dash-shadow">
+                    <div> <canvas id="liquid"></canvas>  </div>
+                </div>
+                <div style="text-align:center"><label>Liquid Flow</label></div>
             </div>
-            <div style="text-align:center"><label>CO2</label></div>
         </div>
+        <div class="row">
+            <div class="col-md-4" style="padding:5%;height: 145px; ">
+                <div class="dash-shadow">
+                    <div> <canvas id="temperature"></canvas>  </div>
+
+                </div>
+                <div style="text-align:center"><label>Temperature </label></div>
+            </div>
+
+            <div class="col-md-4" style="padding:5%;height: 227px;">
+                <div class="dash-shadow">
+                    <div> <canvas id="humidify"></canvas>  </div>
+                </div>
+                <div style="text-align:center"><label>Humidify</label></div>
+            </div>
+
+            <div class="col-md-4" style="padding:5% ;height: 227px;">
+                <div class="dash-shadow">
+                    <div> <canvas id="moisture"></canvas>  </div>
+                </div>
+                <div style="text-align:center"><label>Moisture</label></div>
+            </div>
+        </div>
+
+
     </div>
-    <div class="row" style="margin:5% ;margin-right:5%">
-        <div class="col-md-3 ">
-            <div class="shadow" style="width:420px; height:220px;">
-                <div> <canvas id="myPieChart"></canvas>  </div>
-
-            </div>
-            <div style="text-align:center"><label>Temperature</label></div>
-        </div>
-        <div class="col-md-3" style="margin-left:10%; margin-right:5%">
-            <div class="shadow" style="width:420px; height:220px;">
-                <div style=" width:60%"> <canvas id="device_canvas"></canvas>  </div>
-            </div>
-            <div style="text-align:center"><label>Humidity</label></div>
-        </div>
-        <div class="col-md-3" style="margin-left:5%;margin-right:5%">
-            <div class="shadow" style="width:420px; height:220px;">
-                <div> <canvas id="moistured"></canvas>  </div>
-            </div>
-            <div style="text-align:center"><label>Moisture</label></div>
-        </div>
-    </div>
-
-
 
 
 
 </div>
 
 @section Scripts {
-    <script src="~/js/demo/chart-area-demo.js"></script>
-    <script src="~/js/demo/chart-bar-demo.js"></script>
-    <script src="~/js/demo/co2.js"></script>
-    <script src="~/js/demo/moistured-chart.js"></script>
-    <script src="~/js/Home/index.js"></script>
-    <script src="~/js/demo/chart-pie-demo.js"></script>
+    <script src="~/plugins/jquery3.3.1/dist/jquery.min.js"></script>
+    <script src="~/js/Chart.min.js"></script>
+    <script src="~/js/chart/pressure.js"></script>
+    <script src="~/js/chart/c.js"></script>
+    <script src="~/js/chart/liquid.js"></script>
+    <script src="~/js/chart/moisture.js"></script>
+    <script src="~/js/chart/humidify.js"></script>
+    <script src="~/js/chart/temperature .js"></script>
+    <script type="text/javascript">
+
+    </script>
 
 }
 
