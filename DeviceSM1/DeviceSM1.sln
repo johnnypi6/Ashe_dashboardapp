@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceSM1", "DeviceSM1\DeviceSM1.csproj", "{486C68D2-3894-43F3-81AE-C17AB5CD6D5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeviceSM1", "DeviceSM1\DeviceSM1.csproj", "{486C68D2-3894-43F3-81AE-C17AB5CD6D5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TCPServer", "TCPServer\TCPServer.csproj", "{1AB7E640-5797-4221-98C0-E0ECEE2581F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonClassLibs", "CommonClassLibs\CommonClassLibs.csproj", "{982ABBFD-9569-4725-AEAD-5BB75DC18A7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{486C68D2-3894-43F3-81AE-C17AB5CD6D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{486C68D2-3894-43F3-81AE-C17AB5CD6D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{486C68D2-3894-43F3-81AE-C17AB5CD6D5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AB7E640-5797-4221-98C0-E0ECEE2581F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AB7E640-5797-4221-98C0-E0ECEE2581F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AB7E640-5797-4221-98C0-E0ECEE2581F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AB7E640-5797-4221-98C0-E0ECEE2581F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{982ABBFD-9569-4725-AEAD-5BB75DC18A7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{982ABBFD-9569-4725-AEAD-5BB75DC18A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{982ABBFD-9569-4725-AEAD-5BB75DC18A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{982ABBFD-9569-4725-AEAD-5BB75DC18A7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

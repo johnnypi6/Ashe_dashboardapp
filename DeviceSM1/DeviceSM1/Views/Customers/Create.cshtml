@@ -32,7 +32,7 @@
             }
         }*@
     <div class="profile row ml-0">
-        <form asp-controller="Customers" asp-action="RegisterUser" class="needs-validation col-lg-12 ml-0 ml-lg-5" novalidate>
+        <form asp-controller="Customers" asp-action="RegisterUser" id="customer_form" class="needs-validation col-lg-12 ml-0 ml-lg-5" novalidate>
             <div class="form-group md-form row m-lg-3">
                 <label class="col-form-label"><i class="fas fa-user profile-icon"></i></label>
                 <div class="col-lg-5">
@@ -112,24 +112,46 @@
 
 @section Styles {
     <link href="~/plugins/mdbootstrap/css/mdb.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/formValidation.min.css">
 
 
 }
 
-@*@section Scripts {
+@section Scripts {
     <script src="~/plugins/jquery3.3.1/dist/jquery.min.js"></script>
+    <script src="~/plugins/bootstrap_3.3.7/dist/js/bootstrap.min.js"></script>
+
     <script src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
+    <script src="~/js/formValidation.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#customer_save').click(function () {
-                window.location = "/customers/index";
+            $('#customer_form').formValidation({
+                message: 'This value is not valid',
+                err: {
+                    container: '#errors'
+                },
+                icon: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+
+                    email: {
+                        validators: {
+                            emailAddress: {
+                                message: 'The input is not a valid email address'
+                            }
+                        }
+                    },
+                  
+
+                }
             });
-            $('#customer_cancel').click(function () {
-                window.location = "/customers/index";
-            });
+
 
         });
 
     </script>
 
-}*@
+}

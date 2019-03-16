@@ -56,7 +56,7 @@ namespace DeviceSM1.Controllers
                 string query = $"INSERT INTO user (company, contactperson, address, email, phone, mobile, name, password, role) " +
                                        $"VALUES ('{company}', '{contactperson}', '{address}', '{email}', '{phone}', '{mobile}', '{name}', '{password}', 'user')";
                 conDB.ExecuteQuery(query);
-                return RedirectToAction("create", "Customers", new { success = "true" });
+                return RedirectToAction("index", "Customers", new { success = "true" });
             }
         }
 

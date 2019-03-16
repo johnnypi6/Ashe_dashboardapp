@@ -35,8 +35,10 @@ namespace DeviceSM1
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddSession(option =>
-            {
-                option.IdleTimeout = TimeSpan.FromMinutes(30);
+            {                
+                option.IdleTimeout = TimeSpan.FromMinutes(1440);
+                option.Cookie.HttpOnly = true;
+                option.Cookie.IsEssential = true;
             });
 
         }

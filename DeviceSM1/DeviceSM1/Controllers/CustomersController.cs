@@ -15,68 +15,34 @@ namespace DeviceSM1.Controllers
 
         public IActionResult Index()
         {
-
             DataTable userInfo = conDB.GetData($"SELECT id, name, email,address,company,contactperson FROM user");
             ViewData["userInfo"] = userInfo;
             return View();
-
-            //if (ChkLogin() == true)
-            //{
-            //    string username = HttpContext.Session.GetString("username");
-            //    //ViewData["success"] = success;
-            //    ViewData["username"] = username;
-
-
-
-            //    DataTable userInfo = conDB.GetData($"SELECT id, name, email,address,company,contactperson FROM user");
-            //    ViewData["userInfo"] = userInfo;
-            //    return View();
-            //}
-            //else
-            //{
-            //    return RedirectToAction("Login", "Customers");
-            //}
         }
-
 
         public IActionResult Create(string success)
         {
-
             return View();
-            ////if (ChkLogin() == true)
-            ////{
-            ////    string username = HttpContext.Session.GetString("username");
-            ////    ViewData["username"] = username;
-            ////    return View();
-            ////}
-            ////else
-            ////{
-            ////    return RedirectToAction("Login", "Customers");
-            ////}
         }
 
-        public IActionResult Profile(string success)
+        public IActionResult Profile(int id)
         {
-
+            DataTable profile_Info = conDB.GetData($"SELECT  name, email,password, address, company, contactperson,phone,mobile FROM user WHERE id = 1;");
+            ViewData["profile_Info"] = profile_Info;
             return View();
-          
         }
 
 
         public IActionResult Modal(int id)
         {
             DataTable user_Info = conDB.GetData( $"SELECT  name, email, address, company, contactperson FROM user WHERE id = {id};");
-
             DataTable device_Info = conDB.GetData($"SELECT id,location_id, IMEI,sim_card,vehicle,status FROM device WHERE user_id = {id};");
-
             return new JsonResult(new
             {
                 user_Info = user_Info,
                 device_Info = device_Info
             });
-            ////return View();
         }
-
 
         public IActionResult Delecte(int id)
         {
@@ -101,6 +67,7 @@ namespace DeviceSM1.Controllers
             {
                 HttpContext.Session.SetString("login", "1");
                 HttpContext.Session.SetString("username", username);
+                HttpContext.Session.SetString("role", "100");                
                 return RedirectToAction("Index", "Home");
             }
 
@@ -110,8 +77,14 @@ namespace DeviceSM1.Controllers
                 if (dt.Rows[0]["password"].ToString() ==
                     EncodeString.EncodeTo64(password))
                 {
+                    var role = dt.Rows[0]["role"];
+                    var id = dt.Rows[0]["id"];
+
                     HttpContext.Session.SetString("login", "1");
                     HttpContext.Session.SetString("username", username);
+                    HttpContext.Session.SetString("role", role.ToString());
+                    HttpContext.Session.SetString("id", id.ToString());
+
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -134,7 +107,7 @@ namespace DeviceSM1.Controllers
                 string query = $"INSERT INTO user (company, contactperson, address, email, phone, mobile, name, password, role) " +
                                        $"VALUES ('{company}', '{contactperson}', '{address}', '{email}', '{phone}', '{mobile}', '{name}', '{password}', 'user')";
                 conDB.ExecuteQuery(query);
-                return RedirectToAction("create", "Customers", new { success = "true" });
+                return RedirectToAction("index", "Customers", new { success = "true" });
             }
         }
 

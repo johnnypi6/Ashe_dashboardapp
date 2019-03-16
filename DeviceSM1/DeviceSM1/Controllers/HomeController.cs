@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using DeviceSM1.Models;
+using DeviceSM1.Mysqlconnect;
 
 namespace DeviceSM1.Controllers
 {
     public class HomeController : Controller
     {
         public IActionResult Index()
-        {
-
+        {            
             if (ChkLogin() == true)
             {
                 string username = HttpContext.Session.GetString("username");
@@ -52,10 +52,10 @@ namespace DeviceSM1.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        private bool ChkLogin()
+        public bool ChkLogin()
         {
-            //bool result = false;
-            bool result = true;
+            bool result = false;
+
             if (HttpContext.Session.GetString("login") != null)
             {
                 if (HttpContext.Session.GetString("login") == "1")
