@@ -1,6 +1,5 @@
 ﻿@{
     ViewData["Title"] = "create";
-    var success = ViewData["success"];
 }
 
 <div class="container-fluid content-wrapper">
@@ -10,34 +9,16 @@
         </div>
     </div>
 
-    @*@if (success != null)
-        {
-            @if (success.ToString() == "true")
-            {
-                <div class="alert alert-success alert-dismissible fade show mt-4 m-alert m-alert--square m-alert--air" role="alert" style="font-size : 20px">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
-                    <strong>
-                        <strong>Create Success!</strong>
-                    </strong>
-                </div>
-            }
-            else
-            {
-                <div class="alert alert-danger alert-dismissible fade show mt-4 m-alert m-alert--square m-alert--air" role="alert" style="font-size : 20px">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
-                    <strong>
-                        <strong>Create Fail!</strong>
-                    </strong>
-                </div>
-            }
-        }*@
     <div class="profile row ml-0">
         <form asp-controller="Customers" asp-action="RegisterUser" id="customer_form" class="needs-validation col-lg-12 ml-0 ml-lg-5" novalidate>
             <div class="form-group md-form row m-lg-3">
                 <label class="col-form-label"><i class="fas fa-user profile-icon"></i></label>
                 <div class="col-lg-5">
                     <div class="md-form ml-5">
-                        <input name="name" type="text" class="form-control" placeholder="User Name" required="required" aria-describedby="inputGroupPrepend " autofocus="autofocus">
+                        <input name="name" type="text" class="form-control" placeholder="User Name" autofocus="autofocus" required>
+                        <div class="invalid-feedback">
+                            Please choose a username.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -45,7 +26,10 @@
                 <label class="col-form-label"><i class="fas fa-lock profile-icon"></i></label>
                 <div class="col-lg-5">
                     <div class="md-form ml-5">
-                        <input name="password" type="password" class="form-control" placeholder="Password" required="required">
+                        <input name="password" id="password" type="password" class="form-control" placeholder="Password" required>
+                        <div class="invalid-feedback">
+                            Please choose a password.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -53,7 +37,7 @@
                 <label for="create_companyName" class="col-form-label "><i class="fas fa-building profile-icon"></i></label>
                 <div class="col-lg-5">
                     <div class="md-form ml-5">
-                        <input name="company" type="text" class="form-control" placeholder="Company Name" required="required">
+                        <input name="company" id="company" type="text" class="form-control" placeholder="Company Name">
                     </div>
                 </div>
                 <div class="invalid-feedback">
@@ -61,10 +45,10 @@
                 </div>
             </div>
             <div class="form-group md-form row m-lg-3">
-                <label class="col-form-label "> <i class="fas fa-user profile-icon"></i></label>
+                <label class="col-form-label "> <i class="fas fa-user-friends profile-icon"></i></label>
                 <div class="col-lg-5">
                     <div class="md-form ml-5">
-                        <input name="contactperson" type="text" class="form-control" placeholder="Contact Person" required="required">
+                        <input name="contactperson" id="contact" type="text" class="form-control" placeholder="Contact Person">
                     </div>
                 </div>
             </div>
@@ -72,7 +56,7 @@
                 <label class="col-form-label "><i class="fas fa-map-marker-alt profile-icon"></i></label>
                 <div class="col-lg-5">
                     <div class="md-form ml-5">
-                        <input name="address" type="text" class="form-control" placeholder="Address" required="required">
+                        <input name="address" id="address" type="text" class="form-control" placeholder="Address">
                     </div>
                 </div>
             </div>
@@ -80,7 +64,7 @@
                 <label class="col-form-label"><i class="fas fa-envelope profile-icon"></i></label>
                 <div class="col-lg-5">
                     <div class="md-form ml-5">
-                        <input name="email" type="email" class="form-control" placeholder="Email" required="required">
+                        <input name="email" id="email" type="email" class="form-control" placeholder="Email">
                     </div>
                 </div>
             </div>
@@ -88,7 +72,7 @@
                 <label class="col-form-label"><i class="fas fa-phone profile-icon"></i></label>
                 <div class="col-lg-5">
                     <div class="md-form ml-5">
-                        <input name="phone" type="text" class="form-control" placeholder="Phone" required="required">
+                        <input name="phone" type="text" class="form-control" placeholder="Phone">
                     </div>
                 </div>
             </div>
@@ -96,62 +80,48 @@
                 <label class="col-form-label"><i class="fas fa-mobile-alt profile-icon"></i></label>
                 <div class="col-lg-5">
                     <div class="md-form ml-5">
-                        <input name="mobile" type="text" class="form-control" placeholder="Mobile" required="required">
+                        <input name="mobile" type="text" class="form-control" placeholder="Mobile">
                     </div>
                 </div>
             </div>
             <div class="form-group  d-flex justify-content-end mr-6 ">
-                <button id="customer_save" class="btn-other btn-sm btn-w"><i class=" fa fa-save btn_i"></i>Save</button>
+                <button type="submit" id="customer_save" class="btn-other btn-sm btn-w"><i class=" fa fa-save btn_i"></i>Save</button>
                 <span style="opacity:0">0000</span>
-                <button id="customer_cancel" class="btn-other btn-sm btn-w"> <i class=" fa fa-eraser btn_i"></i>Cancel</button>
+                <button type="button" id="customer_cancel" class="btn-other btn-sm btn-w"> <i class=" fa fa-eraser btn_i"></i>Cancel</button>
             </div>
         </form>
     </div>
 </div>
 
-
 @section Styles {
-    <link href="~/plugins/mdbootstrap/css/mdb.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/formValidation.min.css">
-
-
+    <link href="~/plugins/mdbootstrap/css/mdb.min.css" rel="stylesheet" />
 }
 
 @section Scripts {
-    <script src="~/plugins/jquery3.3.1/dist/jquery.min.js"></script>
-    <script src="~/plugins/bootstrap_3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="~/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="~/plugins/mdbootstrap/js/mdb.min.js"></script>
 
-    <script src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
-    <script src="~/js/formValidation.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#customer_form').formValidation({
-                message: 'This value is not valid',
-                err: {
-                    container: '#errors'
-                },
-                icon: {
-                    valid: 'glyphicon glyphicon-ok',
-                    invalid: 'glyphicon glyphicon-remove',
-                    validating: 'glyphicon glyphicon-refresh'
-                },
-                fields: {
-
-                    email: {
-                        validators: {
-                            emailAddress: {
-                                message: 'The input is not a valid email address'
-                            }
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
                         }
-                    },
-                  
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
 
-                }
-            });
-
-
-        });
-
+        $("#customer_cancel").click(function () {
+            location.href = "/Customers";
+        })
     </script>
-
 }

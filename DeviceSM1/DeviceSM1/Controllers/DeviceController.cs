@@ -3,26 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using DeviceSM1.Mysqlconnect;
+using DeviceSM1.Models;
 using System.Data;
+using Microsoft.AspNetCore.Http;
 
 namespace DeviceSM1.Controllers
 {
     public class DeviceController : Controller
     {
-        private ConDB conDB = new ConDB();
+        private DBConnecter conDB = new DBConnecter();
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult index()
         {
+            string user_role = HttpContext.Session.GetString("role");
 
-            //$"SELECT id,user_id,location_id,IMEI,sim_card,vehicle,STATUS FROM device"
-            //string selectIDquery = $"SELECT name FROM user WHERE id = '{user_id}'";
-            //string selectLocationIDquery = $"SELECT name FROM location WHERE location = '{location_id}'";
-
-            DataTable device_Info = conDB.GetData($"SELECT id,user_id,location_id,IMEI,sim_card,vehicle,STATUS FROM device");
-            ViewData["device_Info"] = device_Info;
-            return View();
+            if (user_role != "user")
+            {
+                DataTable device_Info = conDB.GetData($"SELECT id,user_id,location_id,IMEI,sim_card,vehicle,STATUS FROM device");
+                ViewData["device_Info"] = device_Info;
+                    return View();
+            }
+            else {
+                int id = Convert.ToInt32(HttpContext.Session.GetString("id"));
+                DataTable device_Info = conDB.GetData($"SELECT id,user_id,location_id,IMEI,sim_card,vehicle,STATUS FROM device WHERE user_id = {id};");
+                ViewData["device_Info"] = device_Info;
+                return View();
+            }
         }
+
         public IActionResult addDevice()
         {
             return View();
@@ -42,15 +50,16 @@ namespace DeviceSM1.Controllers
             string user_id = dt.Rows[0]["id"].ToString();
 
 
-            string selectLocationIDquery = $"SELECT id FROM location WHERE name = '{location}'";
-            DataTable dt1 = conDB.GetData(selectLocationIDquery);
-            string locationID = dt1.Rows[0]["id"].ToString();  
+            //string selectLocationIDquery = $"SELECT id FROM location WHERE name = '{location}'";
+            //DataTable dt1 = connector.GetData(selectLocationIDquery);
+            //string locationID = dt1.Rows[0]["id"].ToString();  
 
 
             string query = $"INSERT INTO device (user_id, location_id, IMEI, sim_card,  vehicle, status) " +
-                                       $"VALUES ('{user_id}', '{locationID}','{IMEI}',  '{sim_card}', '{vehicle}', '{status}')";
+                                       $"VALUES ('{user_id}', '{location}','{IMEI}',  '{sim_card}', '{vehicle}', '{status}')";
 
-            string selectDevice_id = $"SELECT id FROM device ORDER BY id DESC LIMIT 1";
+
+            string selectDevice_id = $"SELECT id FROM device WHERE id like '%es'";
             DataTable dtDevice = conDB.GetData(selectDevice_id);
             string device_id = dtDevice.Rows[0]["id"].ToString();
 
@@ -72,7 +81,7 @@ namespace DeviceSM1.Controllers
             string queryc = $"INSERT INTO sensor (device_id, type, serial_number, high_threshold, low_threshold, relay_operation, status) " +
                    $"VALUES ( '{device_id}','CO2', '{c_no}', '{c_h}','{c_l}',  '{c_r}')";
             conDB.ExecuteQuery(query);
-               return RedirectToAction("create", "Customers", new { success = "true" });
+               return RedirectToAction("index", "Device", new { success = "true" });
 
            
 

@@ -12,28 +12,7 @@
             <h3 class="" style="font-weight: 500;">Device<span style="opacity:0">0</span>Detail</h3>
         </div>
     </div>
-    @*@if (success != null)
-        {
-            @if (success.ToString() == "true")
-            {
-                <div class="alert alert-success alert-dismissible fade show mt-4 m-alert m-alert--square m-alert--air" role="alert" style="font-size : 20px">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
-                    <strong>
-                        <strong>Create Success!</strong>
-                    </strong>
-                </div>
-            }
-            else
-            {
-                <div class="alert alert-danger alert-dismissible fade show mt-4 m-alert m-alert--square m-alert--air" role="alert" style="font-size : 20px">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
-                    <strong>
-                        <strong>Create Fail!</strong>
-                    </strong>
-                </div>
-            }
-        }*@
-    <form asp-controller="Device" asp-action="RegisterDevice" class="needs-validation" novalidate>
+    <form asp-controller="Device" asp-action="RegisterDevice" id="add_device" class="needs-validation" novalidate>
         <div class="profile row ml-0 mt-3 ml-sm-5">
             <div class="col-md-12 col-sm-10 ">
                 <div class="row mt-sm-1">
@@ -85,15 +64,11 @@
                         <div class="form-group row m-lg-3">
                             <label class="col-form-labels"><i class="fas fa-arrow-circle-right profile-icon"></i></label>
                             <div class="col-7">
-                                <div class="md-form ">
-                                    <select class="select_type" name="vehicle" required="required">
-                                        <option value="1">tracking</option>
-                                        <option value="2">M2M</option>
-                                        <option value="3">G.H</option>
-
-                                    </select>
-
-                                </div>
+                                <select class="mdb-select" name="vehicle">
+                                    <option value="1">tracking</option>
+                                    <option value="2">M2M</option>
+                                    <option value="3">G.H</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -170,25 +145,21 @@
 </div>
 
 @section Styles {
-    <link href="~/plugins/mdbootstrap/css/mdb.css" rel="stylesheet" />
-
+    <link href="~/plugins/mdbootstrap/css/mdb.min.css" rel="stylesheet" />
 }
 
 
 @section Scripts {
-    <script src="~/plugins/jquery3.3.1/dist/jquery.min.js"></script>
-    @*<script src="~/plugins/bootstrap_3.3.7/dist/js/bootstrap.min.js"></script>*@
+    <script src="~/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="~/plugins/mdbootstrap/js/mdb.min.js"></script>
+    <script src="~/plugins/mdbootstrap/js/modules/material-select.js"></script>
+
     <script src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-           
-            $('#device_Save').click(function () {
-                window.location = "/device/index";
-            });
-            $('#device_Cancel').click(function () {
-                window.location = "/device/index";
-            });
+            $('.mdb-select').material_select();
         });
+
     </script>
 
 }

@@ -5,20 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>@ViewData["Title"] - WebApplication3</title>
-
-    @RenderSection("Styles", required: false)
-
+    @using Microsoft.AspNetCore.Http;
     <link href="~/plugins/font-awesome.min.css" type="text/css" rel="stylesheet" />
-    @*<link href="~/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />*@
-    <!--end::Page Vendors -->
     <link href="~/css/vendors.bundle.css" rel="stylesheet" type="text/css" />
     <link href="~/css/style.bundle.css" rel="stylesheet" type="text/css" />
-    <!--end::Base Styles -->
     <link href="~/css/style.css" rel="stylesheet" />
     <link href="~/plugins/fontawesome-free/css/all.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="~/css/right_slide_menu.css">
-    
+    <link href="~/css/right_slide_menu.css" rel="stylesheet">
 
+    @RenderSection("Styles", required: false)
 </head>
 <body style="font-family:Verdana">
     <div>
@@ -174,17 +169,7 @@
                                             </span>
                                         </a>
                                     </li>
-                                    @*<li class="m-menu__item " aria-haspopup="true">
-                                            <a href="/customers/profile" class="m-menu__link ">
-                                                <i class="m-menu__link-bullet m-menu__link-bullet">
-                                                    <span></span>
-                                                </i>
-                                                <span class="m-menu__link-text">
-                                                    <span>Customer</span><span style="opacity:0">1</span><span> Profile</span>
 
-                                                </span>
-                                            </a>
-                                        </li>*@
                                 </ul>
                             </div>
                             <div style="border-bottom: 1px solid #1c7563;"></div>
@@ -253,43 +238,47 @@
                             </div>
                             <div style="border-bottom: 1px solid #1c7563;"></div>
                         </li>
-                        <li class="m-menu__item  m-menu__item--submenu " aria-haspopup="true" m-menu-submenu-toggle="hover">
-                            <a href="javascript:;" class="m-menu__link m-menu__toggle">
-                                <i class="m-menu__link-icon fa fa-address-card"></i>
-                                <span class="m-menu__link-text">
-                                    <span>Manage</span><span style="opacity:0">0</span><span>Admin</span>
-                                </span>
-                                <i class="m-menu__ver-arrow fa fa-angle-right" style="color:forestgreen"></i>
-                            </a>
-                            <div class="m-menu__submenu ">
-                                <span class="m-menu__arrow"></span>
-                                <ul class="m-menu__subnav">
-                                    <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="/admin/index" class="m-menu__link ">
-                                            <i class="m-menu__link-bullet m-menu__link-bullet">
-                                                <span></span>
-                                            </i>
-                                            <span class="m-menu__link-text">
-                                                Admin
-                                            </span>
-                                        </a>
-                                    </li>
+                        @if (Context.Session.GetString("role") != "user")
+                        {
+                            <li class="m-menu__item  m-menu__item--submenu " aria-haspopup="true" m-menu-submenu-toggle="hover">
+                                <a href="javascript:;" class="m-menu__link m-menu__toggle">
+                                    <i class="m-menu__link-icon fa fa-address-card"></i>
+                                    <span class="m-menu__link-text">
+                                        <span>Admin</span>
+                                    </span>
+                                    <i class="m-menu__ver-arrow fa fa-angle-right" style="color:forestgreen"></i>
+                                </a>
+                                <div class="m-menu__submenu ">
+                                    <span class="m-menu__arrow"></span>
+                                    <ul class="m-menu__subnav">
+                                        <li class="m-menu__item " aria-haspopup="true">
+                                            <a href="/admin/index" class="m-menu__link ">
+                                                <i class="m-menu__link-bullet m-menu__link-bullet">
+                                                    <span></span>
+                                                </i>
+                                                <span class="m-menu__link-text">
+                                                    Admin
+                                                </span>
+                                            </a>
+                                        </li>
 
-                                    <li class="m-menu__item " aria-haspopup="true">
-                                        <a href="/admin/composeMail" class="m-menu__link ">
-                                            <i class="m-menu__link-bullet m-menu__link-bullet">
-                                                <span></span>
-                                            </i>
-                                            <span class="m-menu__link-text">
-                                                Compose Mail
-                                            </span>
-                                        </a>
-                                    </li>
+                                        <li class="m-menu__item " aria-haspopup="true">
+                                            <a href="/admin/composeMail" class="m-menu__link ">
+                                                <i class="m-menu__link-bullet m-menu__link-bullet">
+                                                    <span></span>
+                                                </i>
+                                                <span class="m-menu__link-text">
+                                                    Compose Mail
+                                                </span>
+                                            </a>
+                                        </li>
 
-                                </ul>
-                            </div>
-                            <div style="border-bottom: 1px solid #1c7563;"></div>
-                        </li>
+                                    </ul>
+                                </div>
+                                <div style="border-bottom: 1px solid #1c7563;"></div>
+                            </li>
+                        }
+
                         <li class="m-menu__item  m-menu__item--submenu " aria-haspopup="true" m-menu-submenu-toggle="hover">
                             <a href="javascript:;" class="m-menu__link m-menu__toggle">
                                 <i class="m-menu__link-icon fa fa-map-marker-alt" style="font-size:25px;"></i>
@@ -360,21 +349,19 @@
             <!-- END: Left Aside -->
             <div class="container-fluid body-content" style="background-image: linear-gradient(to bottom, #ffffff, #f0f3fa, #dae9f4, #c2e1e8, #add8d6);height:900px;">
                 @RenderBody()
-
             </div>
         </div>
     </div>
 
     <partial name="_CookieConsentPartial" />
 
-    <script src="~/plugins/jquery3.3.1/dist/jquery.min.js"></script>
+    <script src="~/plugins/jquery/dist/jquery.min.js"></script>
     <script src="~/js/vendors.bundle.js" type="text/javascript"></script>
     <script src="~/js/scripts.bundle.js" type="text/javascript"></script>
-   
+    <script src="~/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 
-    <script src="~/plugins/bootstrap_3.3.7/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

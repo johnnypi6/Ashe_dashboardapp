@@ -20,6 +20,7 @@ namespace WebApplication3.Controllers
 
         public IActionResult Create(string success)
         {
+
             if (ChkLogin() == true)
             {
                 string username = HttpContext.Session.GetString("username");
@@ -28,7 +29,7 @@ namespace WebApplication3.Controllers
                 return View();
             }
             else
-            {            
+            {
                 return RedirectToAction("Login", "Customers");
             }
         }

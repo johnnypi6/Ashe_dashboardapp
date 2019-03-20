@@ -1,133 +1,157 @@
-﻿@using DeviceSM1.Mysqlconnect;
-    @using System.Data;
-    @model DataTable
-    @{
-        DataTable data = (DataTable) ViewData["userInfo"];
-        var success = ViewData["success"];
-    }
-        <div class="container-fluid content-wrapper ">
-            <div class="row justify-content-between m-lg-5">
-                <div class="col-4">
-                    <h3 class="m-3" style="font-weight:500">Administrator<span style="opacity:0">0</span>List</h3>
-                </div>
-            </div>
-            <div class="row my-3 m-lg-5 ">
-                <div class="col-md-12 ">
-                    <div class="table-responsive">
-                        <table id="admin-list" class="display table-sm table-bordered" style="width:100%">
-                            <thead style="background:#209E93">
-                                <tr>
-                                    <th></th>
-                                    <th>No.</th>
-                                    <th>User Name</th>
-                                    <th>E-mail</th>
-                                    <th>Address</th>
-                                    <th>Company</th>
-                                    <th>Contact Person</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (DataRow item in data.Rows)
-                                {
-                                    <tr>
-                                        <td><input type="checkbox" /></td>
-                                        <td>@item["id"]</td>
-                                        <td>@item["name"]</td>
-                                        <td>@item["email"]</td>
-                                        <td>@item["address"]</td>
-                                        <td>@item["company"]</td>
-                                        <td>@item["contactperson"]</td>
-                                    </tr>
-                                 }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-end mt-md-5  ">
-                <div style="margin-right:5%">
-                    <button id="admin_add" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-plus-circle btn_i"></i>Add</button>
-                    <span style="opacity:0">0000</span>
-                    @*<button id="admin_edit" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-edit btn_i"></i>Edit</button>*@
-                    <span style="opacity:0">ertret</span>
-                    <button id="admin_delete" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-trash-alt btn_i"></i>Delete</button>
-                </div>
-            </div>
-
+﻿@using DeviceSM1.Models;
+@using System.Data;
+@model DataTable
+@{
+    DataTable data = (DataTable)ViewData["userInfo"];
+    var success = ViewData["success"];
+}
+<div class="container-fluid content-wrapper ">
+    <div class="row justify-content-between m-lg-5">
+        <div class="col-4">
+            <h3 class="m-3" style="font-weight:500">Administrator<span style="opacity:0">0</span>List</h3>
         </div>
-
-        <div class="modal " id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
-            <div class="modal-dialog delete">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h6>Remove customer</h6>
-                    </div>
-                    <div class="modal-body" style="padding:15px;">
-                        <h5 style="text-align:center">Do you really want to remove device?</h5>
-                    </div>
-                    <div class="modal-footer footer">
-                        <button type="button" id="rowDelete" class="modal-btn" data-dismiss="modal">Yes</button>
-                        <button type="button" class="modal-btn" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
+    </div>
+    <div class="row my-3 m-lg-5 ">
+        <div class="col-md-12 ">
+            <div class="table-responsive">
+                <table id="admin-list" class="display table-sm table-bordered" style="width:100%">
+                    <thead style="background:#209E93">
+                        <tr>
+                            <th></th>
+                            <th>No.</th>
+                            <th>User Name</th>
+                            <th>E-mail</th>
+                            <th>Address</th>
+                            <th>Company</th>
+                            <th>Contact Person</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (DataRow item in data.Rows)
+                        {
+                            <tr data-id="@item["id"]">
+                                <td><input type="checkbox" /></td>
+                                <td></td>
+                                <td>@item["name"]</td>
+                                <td>@item["email"]</td>
+                                <td>@item["address"]</td>
+                                <td>@item["company"]</td>
+                                <td>@item["contactperson"]</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
 
-        @section Styles {
-            <link href="~/plugins/dataTables/jquery.dataTables.min.css" rel="stylesheet" />
-        }
+    <div class="row justify-content-end mt-md-5  ">
+        <div style="margin-right:5%">
+            <button id="admin_add" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-plus-circle btn_i"></i>Add</button>
+            <span style="opacity:0">0000</span>
+            <button id="admin_edit" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-edit btn_i"></i>Edit</button>
+            <span style="opacity:0">ertret</span>
+            <button id="admin_delete" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-trash-alt btn_i"></i>Delete</button>
+        </div>
+    </div>
 
-        @section Scripts {
-            <script src="~/plugins/jquery3.3.1/dist/jquery.min.js"></script>
-            <script src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    var table = $('#admin-list').DataTable({
-                    });
-                    $('input[type="checkbox"]').on('click', function (event) {
-                        var $tr = $(event.target).closest("tr");
-                        var id = $tr.find("td:nth-child(2)").text();11111
-                        if (event.target.checked) {
-                            var $tb_customerList = $("table#admin-list");
-                            var $checked_inputs = $tb_customerList.find("input[type='checkbox']:checked");
-                            for (var i = 0; i < $checked_inputs.length; i++) {
-                                if ($checked_inputs[i] == event.target) {
-                                    continue;
-                                }
-                                $checked_inputs[i].checked = false;
-                            }
-                        }
-                        event.stopPropagation();
-                        $('#rowDelete').click(function() {
-                            $.ajax({
-                                type: 'POST',
-                                url: '/admin/Delecte?id=' + id,
-                                success: function (result) {
+</div>
 
-                                }
-                            });
-                            $tr.remove();
-                        });
-                    });
-                    $('#admin_delete').click(function () {
-                        var $tb_customerList = $("table#admin-list");
-                        var $checked_inputs = $tb_customerList.find("input[type='checkbox']:checked");
-                        if ($checked_inputs.length == 0) {
-                            alert("No customer is selected!");
-                            return;
-                        }
-                        $("#deleteModal").modal();
+<div class="modal " id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+    <div class="modal-dialog delete">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6>Remove customer</h6>
+            </div>
+            <div class="modal-body" style="padding:15px;">
+                <h5 style="text-align:center">Do you really want to remove administrator?</h5>
+            </div>
+            <div class="modal-footer footer">
+                <button type="button" id="rowDelete" class="modal-btn" data-dismiss="modal">Yes</button>
+                <button type="button" class="modal-btn" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-                    });
-                    $('#admin_add').click(function () {
-                        window.location = "/admin/addadmin";
-                    });
-                    $('#admin_edit').click(function () {
-                        window.location = "/admin/addadmin";
-                    });
+@section Styles {
+    <link href="~/plugins/dataTables/jquery.dataTables.min.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
+    <script src="~/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $dt_adminList = $('table#admin-list').DataTable({
+                "columnDefs": [{
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": 0
+                }],
+                "order": [[1, 'asc']]
+            });
+
+            $dt_adminList.on('order.dt search.dt', function () {
+                $dt_adminList.column(1, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
                 });
-            </script>
+            }).draw();
 
-        }
+            $('input[type="checkbox"]').on('click', function (event) {
+                var $tr = $(event.target).closest("tr");
+                var id = $tr.data("id");
+                if (event.target.checked) {
+                    var $tb_adminList = $("table#admin-list");
+                    var $checked_inputs = $tb_adminList.find("input[type='checkbox']:checked");
+                    for (var i = 0; i < $checked_inputs.length; i++) {
+                        if ($checked_inputs[i] == event.target) {
+                            continue;
+                        }
+                        $checked_inputs[i].checked = false;
+                    }
+                }
+                event.stopPropagation();
+                $('#rowDelete').click(function () {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/admin/delete?id=' + id,
+                        success: function (result) {
+
+                        }
+                    });
+                    $dt_adminList.row($tr).remove().draw();
+                });
+            });
+
+            $('#admin_add').click(function () {
+                window.location = "/admin/create";
+            });
+
+            $('#admin_edit').click(function () {
+                var $tb_adminList = $("table#admin-list");
+                var $checked_inputs = $tb_adminList.find("input[type='checkbox']:checked").closest("tr");
+                if ($checked_inputs.length == 0) {
+                    alert("No customer is selected!");
+                    return;
+                }
+
+                var admin_id = $checked_inputs.data("id");
+                window.location = "/admin/update/" + admin_id;
+            });
+            
+            $('#admin_delete').click(function () {
+                var $tb_adminList = $("table#admin-list");
+                var $checked_inputs = $tb_adminList.find("input[type='checkbox']:checked");
+                if ($checked_inputs.length == 0) {
+                    alert("No customer is selected!");
+                    return;
+                }
+                $("#deleteModal").modal();
+            });
+        });
+    </script>
+
+}
 

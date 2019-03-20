@@ -24,16 +24,17 @@ namespace WebApplication3.Controllers
         }
         public IActionResult AddAdmin()
         {
-            if (ChkLogin() == true)
-            {
-                string username = HttpContext.Session.GetString("username");
-                ViewData["username"] = username;
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Login", "Customers");
-            }
+            return View();
+            //if (ChkLogin() == true)
+            //{
+            //    string username = HttpContext.Session.GetString("username");
+            //    ViewData["username"] = username;
+            //    return View();
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Login", "Customers");
+            //}
         }
 
         public IActionResult AdminList()

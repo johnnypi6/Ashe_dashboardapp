@@ -1,0 +1,27 @@
+// FORMS PRO
+// hide default radio / checkbox
+%hide-radio-checkbox {
+  position: absolute;
+  left: -9999px;
+  visibility: hidden;
+}
+
+%base-radio-checkbox-label {
+  position: relative;
+  padding-left: $base-radio-checkbox-label-pl;
+  cursor: pointer;
+  display: inline-block;
+  height: $base-radio-checkbox-label-height;
+  line-height: $base-radio-checkbox-label-line-height;
+  font-size: $base-radio-checkbox-label-font-size;
+}
+
+.form-header {
+  box-shadow: $z-depth-1-half;
+  color: $form-header-color;
+  text-align: center;
+  margin-top: $form-header-mt;
+  margin-bottom: $form-header-mb;
+  padding: $form-header-padding;
+  border-radius: $form-header-border-radius;
+}

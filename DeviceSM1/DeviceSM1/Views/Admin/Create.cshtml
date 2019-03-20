@@ -1,0 +1,142 @@
+﻿@{
+    ViewData["Title"] = "create";
+    var success = ViewData["success"];
+}
+
+<div class="container-fluid content-wrapper">
+    <div class="mt-5">
+        <div class="m-sm-5">
+            <div class="d-flex justify-content-start ml-sm-3 ">
+                <h3 class="" style="font-weight: 500;"> Administrator<span style="opacity:0">0</span>Detail</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="profile row ml-0">
+        <form asp-controller="Admin" asp-action="RegisterAdmin" class="needs-validation col-lg-12 ml-0 ml-lg-5" novalidate>
+            <div class="form-group md-form row m-lg-3">
+                <label class="col-form-label"><i class="fas fa-user profile-icon"></i></label>
+                <div class="col-lg-5">
+                    <div class="md-form ml-5">
+                        <input name="name" type="text" class="form-control" id="create_userName" placeholder="User Name" autofocus="autofocus" required />
+                        <div class="invalid-feedback">
+                            Please choose a username.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group md-form row m-lg-3">
+                <label class="col-form-label"><i class="fas fa-lock profile-icon"></i></label>
+                <div class="col-lg-5">
+                    <div class="md-form ml-5">
+                        <input name="password" type="password" class="form-control" id="create_password" placeholder="Password" required />
+                        <div class="invalid-feedback">
+                            Please choose a username.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group md-form row m-lg-3">
+                <label for="create_companyName" class="col-form-label "><i class="fas fa-building profile-icon"></i></label>
+                <div class="col-lg-5">
+                    <div class="md-form ml-5">
+                        <input name="company" type="text" class="form-control" id="create_companyName" placeholder="Company Name">
+                    </div>
+                </div>
+                <div class="invalid-feedback">
+                    Please provide a company name.
+                </div>
+            </div>
+
+            <div class="form-group md-form row m-lg-3">
+                <label class="col-form-label "> <i class="fas fa-user-friends f profile-icon"></i></label>
+                <div class="col-lg-5">
+                    <div class="md-form ml-5">
+                        <input name="contactperson" type="text" class="form-control" id="create_contactPerson" placeholder="Contact Person">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group md-form row m-lg-3">
+                <label class="col-form-label "><i class="fas fa-map-marker-alt profile-icon"></i></label>
+                <div class="col-lg-5">
+                    <div class="md-form ml-5">
+                        <input name="address" type="text" class="form-control" id="create_address" placeholder="Address">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group md-form row m-lg-3">
+                <label class="col-form-label"><i class="fas fa-envelope profile-icon"></i></label>
+                <div class="col-lg-5">
+                    <div class="md-form ml-5">
+                        <input name="email" type="email" class="form-control" id="create_email" placeholder="Email">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group md-form row m-lg-3">
+                <label class="col-form-label"><i class="fas fa-phone profile-icon"></i></label>
+                <div class="col-lg-5">
+                    <div class="md-form ml-5">
+                        <input name="phone" type="text" class="form-control" placeholder="phone" id="create_phone">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group md-form row m-lg-3">
+                <label class="col-form-label"><i class="fas fa-mobile-alt profile-icon"></i></label>
+                <div class="col-lg-5">
+                    <div class="md-form ml-5">
+                        <input name="mobile" type="text" class="form-control" id="create_mobile" placeholder="Mobile">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group  d-flex justify-content-end mr-6 ">
+                <button type="submit" id="admin_save" class="btn-other btn-sm btn-w"><i class=" fa fa-save btn_i"></i>Save</button>
+                <span style="opacity:0">0000</span>
+                <button type="button" id="admin_cancel" class="btn-other btn-sm btn-w"> <i class=" fa fa-eraser btn_i"></i>Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Styles {
+    <link href="~/plugins/mdbootstrap/css/mdb.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="~/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="~/plugins/mdbootstrap/js/mdb.min.js"></script>
+
+    <script type="text/javascript">
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+
+        $("#admin_cancel").click(function () {
+            location.href = "/Admin";
+        })
+    </script>
+
+
+}
+

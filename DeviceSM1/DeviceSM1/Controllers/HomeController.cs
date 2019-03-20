@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using DeviceSM1.Models;
-using DeviceSM1.Mysqlconnect;
 
 namespace DeviceSM1.Controllers
 {

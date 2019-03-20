@@ -7,9 +7,6 @@
   .mask {
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -73,6 +70,5 @@ $patterns: (
 @each $no, $filename in $patterns {
   .pattern-#{$no} {
     background: url("#{$image-path}/overlays/#{$filename}.png");
-    background-attachment: fixed;
   }
 }

@@ -30,9 +30,19 @@ CREATE TABLE `device` (
   `vehicle` varchar(256) DEFAULT NULL,
   `status` int(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 /*Data for the table `device` */
+
+insert  into `device`(`id`,`user_id`,`location_id`,`IMEI`,`sim_card`,`type`,`vehicle`,`status`) values 
+(8,1,1,'1234','1234567890',NULL,'1',0),
+(9,1,1,'1234','1234567890',NULL,'1',0),
+(10,1,1,'1234','1234567890',NULL,'1',0),
+(11,1,1,'1234','1234567890',NULL,'1',0),
+(13,51,1,'1234','1234567890',NULL,'1',0),
+(14,51,1,'1234','1234567890',NULL,'1',0),
+(15,51,1,'1234','1234567890',NULL,'1',0),
+(16,51,1,'1234','1234567890',NULL,'1',0);
 
 /*Table structure for table `location` */
 
@@ -44,9 +54,12 @@ CREATE TABLE `location` (
   `latitude` varchar(256) DEFAULT NULL,
   `longitude` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `location` */
+
+insert  into `location`(`id`,`name`,`latitude`,`longitude`) values 
+(1,'Hong Kong',NULL,NULL);
 
 /*Table structure for table `sensor` */
 
@@ -85,13 +98,21 @@ CREATE TABLE `user` (
   `contactperson` varchar(256) DEFAULT NULL,
   `role` enum('admin','superadmin','user') DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
 
 insert  into `user`(`id`,`name`,`password`,`email`,`phone`,`mobile`,`address`,`company`,`contactperson`,`role`) values 
-(1,'paulo','admin821116','paulo82116@outlook.com','1953501668','1913501668','Hong Kong','UITC','xiao','user'),
-(2,'xiao','11111','xiao114@hotmail.com','1953501668','1913501668','Hong Kong','UITC','paulo','user');
+(50,'xiao','MQAyADMANAA1AA==','xiao114@hotmail.com','1953501668','1913501668','Hong Kong','UITC','paulo','user'),
+(51,'paulo','11111','paulo82116@outlook.com','1234567','098765','Hong kong','uitc','xiao','user'),
+(53,'qqq','qqq','paulo82116@outlook.com','1234567','098765','Hong kong','uitc','dasdasd','user'),
+(54,'','','','','','','','','user'),
+(55,'sdfsdf','sdfsdf','sdfsdfs','sdfsdf','sdfsdfsdf','sdfsdf','sdfsdf','sdfsdf','user'),
+(56,'aaa','aaa','aaa@outlook.com','1953501668','1913501668','aaa','aaa','aaa','user'),
+(57,'aaa','aaa','aaa@outlook.com','1953501668','1913501668','aaa','aaa','aaa','user'),
+(58,'aaaa','aaaa','aaa@outlook.com','aaaa','aaaaa','aaaa','aaaa','aaaa','user'),
+(59,'ccc','YwBjAGMA','xiao114@hotmail.com','1953501668','aaaaa','Hong Kong','ccc','ccc','user'),
+(60,'zzz','egB6AHoA','zzz@outlook.com','zzz','zzz','zzz','zzz','zzz','admin');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
