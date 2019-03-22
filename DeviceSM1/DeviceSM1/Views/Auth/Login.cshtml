@@ -9,7 +9,7 @@
             <img src="~/images/login_page_top.png" class="img-fluid" alt="Responsive image">
         </div>
         <div class="card-body">
-            <form asp-controller="Customers" asp-action="Login" method="post">
+            <form asp-controller="Auth" asp-action="Login" method="post">
                 <div class="form-group">
                     <div class="form-label-group">
                         <input name="username" type="text" id="inputUserName" class="form-control" placeholder="User Name" required="required" autofocus="autofocus">
@@ -29,7 +29,7 @@
                 <div class="form-group py-2">
                     <div class="checkbox d-flex justify-content-center mt-3">
                         <label class="remember_password">
-                            <input type="checkbox" value="remember-me">
+                            <input name="remember" type="checkbox" value="remember-me">
                             Remember Username
                         </label>
                     </div>

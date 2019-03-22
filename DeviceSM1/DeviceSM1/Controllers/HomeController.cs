@@ -6,24 +6,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using DeviceSM1.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DeviceSM1.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()
-        {            
-            if (ChkLogin() == true)
-            {
-                string username = HttpContext.Session.GetString("username");
-                ViewData["username"] = username;
-                return View();
-            }
-            else
-            {
-                //return RedirectToAction("Login", "Customers", new { area = "area" });
-                return RedirectToAction("Login", "Customers");
-            }
+        {
+            return View();
         }
 
         public IActionResult About()
@@ -49,21 +41,6 @@ namespace DeviceSM1.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public bool ChkLogin()
-        {
-            bool result = false;
-
-            if (HttpContext.Session.GetString("login") != null)
-            {
-                if (HttpContext.Session.GetString("login") == "1")
-                {
-                    result = true;
-                }
-            }
-
-            return result;
         }
     }
 }
