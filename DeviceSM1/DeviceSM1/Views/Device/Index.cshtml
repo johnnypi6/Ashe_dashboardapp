@@ -1,10 +1,7 @@
-﻿@using DeviceSM1.Models;
-@using System.Data;
-@using Microsoft.AspNetCore.Http;
-@model DataTable
+﻿@using DeviceSM1.Models.Table;
+@model List<Device>
 @{
-    DataTable data = (DataTable)ViewData["device_Info"];
-    var success = ViewData["success"];
+    ViewData["Title"] = "Device List";
 }
 
 <div class="container-fluid content-wrapper ">
@@ -32,17 +29,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (DataRow item in data.Rows)
+                        @foreach (var Device in Model)
                         {
-                            <tr>
+                            <tr data-id="@Device.Id">
                                 <td><input type="checkbox" /></td>
-                                <td>@item["id"]</td>
-                                <td>@item["IMEI"]</td>
-                                <td>@item["user_id"]</td>
-                                <td>@item["sim_card"]</td>
-                                <td>@item["location_id"]</td>
-                                <td>@item["vehicle"]</td>
-                                <td>@item["status"]</td>
+                                <td></td>
+                                <td>@Device.IMEI</td>
+                                <td>@Device.User.UserName</td>
+                                <td>@Device.SIMCard</td>
+                                <td>@Device.Location.Name</td>
+                                <td>@Device.Vehicle</td>
+                                <td>@Device.Status</td>
                             </tr>
                         }
                     </tbody>
@@ -50,19 +47,15 @@
             </div>
         </div>
     </div>
-    @if (Context.Session.GetString("role") !="user") {
 
     <div class="row justify-content-end mt-md-5  ">
         <div style="margin-right:5%">
             <button id="device_add" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-plus-circle btn_i"></i>Add</button>
             <span style="opacity:0">0000</span>
-            @*<button id="device_edit" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-edit btn_i"></i>Edit</button>*@
             <span style="opacity:0">0000</span>
             <button id="device_delete" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-trash-alt btn_i"></i>Delete</button>
         </div>
     </div>
-    }
-    
 
 </div>
 
@@ -128,10 +121,6 @@
         </div>
     </div>
 </div>
-
-
-
-
 
 @section Styles {
     <link href="~/plugins/dataTables/jquery.dataTables.min.css" rel="stylesheet" />

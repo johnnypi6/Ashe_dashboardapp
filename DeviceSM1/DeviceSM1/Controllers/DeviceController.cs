@@ -6,30 +6,52 @@ using Microsoft.AspNetCore.Mvc;
 using DeviceSM1.Models;
 using System.Data;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using DeviceSM1.Models.Identity;
+using DeviceSM1.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeviceSM1.Controllers
 {
+    [Authorize]
     public class DeviceController : Controller
     {
-        //private DBConnecter conDB = new DBConnecter();
-        //[HttpGet]
-        //public IActionResult index()
-        //{
-        //    string user_role = HttpContext.Session.GetString("role");
+        private readonly UserManager<ApplicationUser> _userManager;
+        private ApplicationDbContext _appDbContext;
 
-        //    if (user_role != "user")
-        //    {
-        //        DataTable device_Info = conDB.GetData($"SELECT id,user_id,location_id,IMEI,sim_card,vehicle,STATUS FROM device");
-        //        ViewData["device_Info"] = device_Info;
-        //            return View();
-        //    }
-        //    else {
-        //        int id = Convert.ToInt32(HttpContext.Session.GetString("id"));
-        //        DataTable device_Info = conDB.GetData($"SELECT id,user_id,location_id,IMEI,sim_card,vehicle,STATUS FROM device WHERE user_id = {id};");
-        //        ViewData["device_Info"] = device_Info;
-        //        return View();
-        //    }
-        //}
+        public DeviceController(UserManager<ApplicationUser> userManager,
+            ApplicationDbContext appDbContext)
+        {
+            _userManager = userManager;
+            _appDbContext = appDbContext;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            var devices = _appDbContext.Devices
+                .Include(c => c.User)
+                .Include(c => c.Location)
+                .AsNoTracking();
+
+            return View(await devices.ToListAsync());
+            //string user_role = HttpContext.Session.GetString("role");
+
+            //if (user_role != "user")
+            //{
+            //    DataTable device_Info = conDB.GetData($"SELECT id,user_id,location_id,IMEI,sim_card,vehicle,STATUS FROM device");
+            //    ViewData["device_Info"] = device_Info;
+            //    return View();
+            //}
+            //else
+            //{
+            //    int id = Convert.ToInt32(HttpContext.Session.GetString("id"));
+            //    DataTable device_Info = conDB.GetData($"SELECT id,user_id,location_id,IMEI,sim_card,vehicle,STATUS FROM device WHERE user_id = {id};");
+            //    ViewData["device_Info"] = device_Info;
+            //    return View();
+            //}
+        }
 
         //public IActionResult addDevice()
         //{
@@ -42,10 +64,10 @@ namespace DeviceSM1.Controllers
         //  int h_no, int h_h, int h_l, int h_r, int m_no, int m_h, int m_l, int m_r,
         //  int l_no, int l_h, int l_l, int l_r, int c_no, int c_h, int c_l, int c_r)
         //{
-         
+
 
         //    string selectIDquery = $"SELECT id FROM user WHERE name = '{name}'";
-             
+
         //    DataTable dt = conDB.GetData(selectIDquery);
         //    string user_id = dt.Rows[0]["id"].ToString();
 
@@ -83,7 +105,7 @@ namespace DeviceSM1.Controllers
         //    conDB.ExecuteQuery(query);
         //       return RedirectToAction("index", "Device", new { success = "true" });
 
-           
+
 
         //}
         //public IActionResult Modal(int id)

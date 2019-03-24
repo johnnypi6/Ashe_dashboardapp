@@ -7,155 +7,125 @@ using Microsoft.AspNetCore.Http;
 using DeviceSM1.Models;
 using System.Data;
 using Microsoft.AspNetCore.Authorization;
+using DeviceSM1.Data;
+using DeviceSM1.Models.Identity;
+using Microsoft.AspNetCore.Identity;
+using DeviceSM1.Models.ViewModel;
+using System.Security.Claims;
 
 namespace DeviceSM1.Controllers
 {
     [Authorize]
     public class CustomersController : Controller
     {
-        public IActionResult Index()
+        private readonly UserManager<ApplicationUser> _userManager;
+        private ApplicationDbContext _appDbContext;
+
+        public CustomersController(UserManager<ApplicationUser> userManager, 
+            ApplicationDbContext appDbContext)
         {
-            string user_role = HttpContext.Session.GetString("role");
-            int user_id = Convert.ToInt32(HttpContext.Session.GetString("id"));
-            if (user_role != "user")
+            _userManager = userManager;
+            _appDbContext = appDbContext;
+        }
+        
+        public async Task<IActionResult> Index()
+        {
+            if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
             {
-                DataTable userInfo = connector.GetData($"SELECT id, name, email,address,company,contactperson FROM user WHERE role = 'user'");
-                ViewData["userInfo"] = userInfo;
-                return View();
+                var userList = await _userManager.GetUsersInRoleAsync("Customer");
+                return View(userList);
             }
-            else
+            else if (User.IsInRole("Customer"))
             {
-                return RedirectToAction("Profile", "Customers", new { id = user_id });
+                var id = User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                return RedirectToAction("Profile", "Customers", new { id = id });
             }
+
+            return RedirectToAction("Login", "Auth");
         }
 
-        //    public IActionResult Create(string success)
-        //    {
-        //        return View();
-        //    }
+        [Authorize(Roles = "Admin, SuperAdmin")]
+        public IActionResult Create(string success)
+        {
+            return View();
+        }
 
-        //    public IActionResult Profile(int id)
-        //    {
-        //        DataTable profile_Info = connector.GetData($"SELECT name, password, email, address, company, contactperson, phone, mobile FROM user WHERE id = {id};");
-        //        ViewData["profile_Info"] = profile_Info;
-        //        return View();
-        //    }
+        public async Task<IActionResult> Profile(int id)
+        {
+            var user = await _userManager.FindByIdAsync(Convert.ToString(id));
 
-        //    public IActionResult Modal(int id)
-        //    {
-        //        DataTable user_Info = connector.GetData( $"SELECT name, email, address, company, contactperson FROM user WHERE id = {id};");
-        //        DataTable device_Info = connector.GetData($"SELECT id,location_id, IMEI,sim_card,vehicle,status FROM device WHERE user_id = {id};");
-        //        return new JsonResult(new
-        //        {
-        //            user_Info = user_Info,
-        //            device_Info = device_Info
-        //        });
-        //    }
+            return View(user);
+        }
 
-        //    public IActionResult Update(int id)
-        //    {
-        //        DataTable profile_Info = connector.GetData($"SELECT id, name, email, password, address, company, contactperson, phone, mobile FROM user WHERE id = {id};");
-        //        ViewData["profile_Info"] = profile_Info;
-        //        return View();
-        //    }
+        public async Task<IActionResult> Modal(int id)
+        {
+            var user = await _userManager.FindByIdAsync(Convert.ToString(id));
 
-        //    public IActionResult Delete(int id)
-        //    {
-        //        connector.ExecuteQuery($"DELETE FROM user WHERE id = {id};");
+            return new JsonResult(user);
+        }
 
-        //        return new JsonResult(new
-        //        {
-        //            success = "success"
-        //        });
-        //    }
+        [Authorize(Roles = "Admin, SuperAdmin")]
+        public async Task<IActionResult> Update(int id)
+        {
+            var user = await _userManager.FindByIdAsync(Convert.ToString(id));
+            return View(user);
+        }
 
-        //    public IActionResult Login()
-        //    {
-        //        return View();
-        //    }
+        [Authorize(Roles = "Admin, SuperAdmin")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var user = await _userManager.FindByIdAsync(Convert.ToString(id));
+            var result = _userManager.DeleteAsync(user).Result;
+            return new JsonResult(new
+            {
+                success = result.Succeeded
+            });
+        }
 
-        //    [HttpPost]
-        //    public IActionResult Login(string username, string password)
-        //    {
-        //        string superpassword = "superadmin";
-        //        string superusername = "superadmin";
+        [HttpPost]
+        [Authorize(Roles = "Admin, SuperAdmin")]
+        public async Task<IActionResult> RegisterUser(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _userManager.CreateAsync(model, model.Password);
 
-        //        if (password == superpassword && username == superusername)
-        //        {
-        //            HttpContext.Session.SetString("login", "1");
-        //            HttpContext.Session.SetString("username", username);
-        //            HttpContext.Session.SetString("role", "100");                
-        //            return RedirectToAction("Index", "Home");
-        //        }
+                if (result.Succeeded)
+                {
+                    var registerUser = _appDbContext.Users.Where(a => a.UserName == model.UserName).ToList()[0];
+                    await _userManager.AddToRoleAsync(registerUser, "Customer");
 
-        //        DataTable dt = connector.GetData($"SELECT * FROM user WHERE name = '{username}';");
-        //        if (dt.Rows.Count > 0)
-        //        {
-        //            if (dt.Rows[0]["password"].ToString() ==
-        //                EncodeString.EncodeTo64(password))
-        //            {
-        //                var role = dt.Rows[0]["role"];
-        //                var id = dt.Rows[0]["id"];
+                    return RedirectToAction("Index");
+                }
+            }
 
-        //                HttpContext.Session.SetString("login", "1");
-        //                HttpContext.Session.SetString("username", username);
-        //                HttpContext.Session.SetString("role", role.ToString());
-        //                HttpContext.Session.SetString("id", id.ToString());
+            return RedirectToAction("Create");
+        }
 
-        //                return RedirectToAction("Index", "Home");
-        //            }
-        //        }
-        //        return View();
-        //    }
+        [Authorize(Roles = "Admin, SuperAdmin")]
+        public async Task<IActionResult> UpdateUser(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByNameAsync(model.UserName);
 
-        //    [HttpPost]
-        //    public IActionResult RegisterUser(string name, string password, string company, string contactperson,
-        //        string address, string email, string phone, string mobile)
-        //    {
-        //        password = EncodeString.EncodeTo64(password);
-        //        DataTable dt = connector.GetData($"SELECT * FROM user WHERE name = '{name}';");
-        //        if (dt.Rows.Count > 0)
-        //        {
-        //            return RedirectToAction("create", "Customers", new { success = "false" });
-        //        }
-        //        else
-        //        {
-        //            string query = $"INSERT INTO user (company, contactperson, address, email, phone, mobile, name, password, role) " +
-        //                                   $"VALUES ('{company}', '{contactperson}', '{address}', '{email}', '{phone}', '{mobile}', '{name}', '{password}', 'user')";
-        //            connector.ExecuteQuery(query);
-        //            return RedirectToAction("index", "Customers", new { success = "true" });
-        //        }
-        //    }
+                user.Email = model.Email;
+                user.Company = model.Company;
+                user.ContactPerson = model.ContactPerson;
+                user.Phone = model.Phone;
+                user.Mobile = model.Mobile;
 
-        //    [HttpPost]
-        //    public IActionResult UpdateUser(string name, string password, string company, string contactperson,
-        //        string address, string email, string phone, string mobile)
-        //    {
-        //        string query = $"UPDATE user SET company='{company}', contactperson='{contactperson}', " +
-        //            $"address='{address}', email='{email}', phone='{phone}', mobile='{mobile}' WHERE name='{name}'";
-        //        connector.ExecuteQuery(query);
-        //        return RedirectToAction("index", "Customers", new { success = "true" });
-        //    }
+                var result = await _userManager.UpdateAsync(user);
 
-        //    [HttpGet]
-        //    public IActionResult Logout()
-        //    {
-        //        HttpContext.Session.Clear();
-        //        return View("Login");
-        //    }
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
 
-        //    private bool ChkLogin()
-        //    {
-        //        bool result = false;
-        //        if (HttpContext.Session.GetString("login") != null)
-        //        {
-        //            if (HttpContext.Session.GetString("login") == "1")
-        //            {
-        //                result = true;
-        //            }
-        //        }
+            var id = await _userManager.GetUserIdAsync(model);
 
-        //        return result;
-        //    }
+            return RedirectToAction("Update", new { id = id });
+        }
     }
 }

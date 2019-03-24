@@ -69,6 +69,9 @@ namespace DeviceSM1.Data.Migrations
                 b.Property<string>("Email")
                     .HasMaxLength(256);
 
+                b.Property<string>("NormalizedEmail")
+                    .HasMaxLength(256);
+
                 b.Property<string>("NormalizedUserName")
                     .HasMaxLength(256);
 
@@ -99,10 +102,10 @@ namespace DeviceSM1.Data.Migrations
                     .HasName("UserNameIndex")
                     .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                //b.HasIndex("NormalizedEmail")
-                //    .IsUnique()
-                //    .HasName("UserEmailIndex")
-                //    .HasFilter("[NormalizedEmail] IS NOT NULL");
+                b.HasIndex("NormalizedEmail")
+                    .IsUnique()
+                    .HasName("UserEmailIndex")
+                    .HasFilter("[NormalizedEmail] IS NOT NULL");
 
                 b.ToTable("User");
             });

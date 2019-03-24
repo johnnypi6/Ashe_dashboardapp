@@ -35,8 +35,6 @@ namespace DeviceSM1.Data
                 b.Property(u => u.SecurityStamp).HasMaxLength(256);
 
                 b.Ignore(u => u.AccessFailedCount)
-                    .Ignore(u => u.Email)
-                    .Ignore(u => u.NormalizedEmail)
                     .Ignore(u => u.EmailConfirmed)
                     .Ignore(u => u.PhoneNumber)
                     .Ignore(u => u.PhoneNumberConfirmed)
@@ -58,8 +56,8 @@ namespace DeviceSM1.Data
             });
         }
 
-        public DbSet<TblDevice> DeviceList { get; set; }
-        public DbSet<TblSensor> SensorList { get; set; }
-        public DbSet<TblLocation> LocationList { get; set; }
+        public DbSet<Device> Devices { get; set; }
+        public DbSet<Sensor> Sensors { get; set; }
+        public DbSet<Location> Locations { get; set; }
     }
 }

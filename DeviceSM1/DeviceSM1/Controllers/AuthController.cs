@@ -50,13 +50,21 @@ namespace DeviceSM1.Controllers
                 if (result.Succeeded)
                 {
                     var user = await _userManager.FindByNameAsync(model.UserName);
-                    HttpContext.Session.SetString("UserName", user.UserName);
-                    
+                    var role = await _userManager.GetRolesAsync(user);
+
                     return RedirectToAction("Index", "Home");
                 }
             }
 
             return RedirectToAction("Login");
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction(nameof(AuthController.Login), "Auth");
         }
     }
 }

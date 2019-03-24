@@ -1,17 +1,8 @@
-﻿@using System.Data;
-@model DataTable
+﻿@using DeviceSM1.Models.Identity;
+@model IList<ApplicationUser>
 @{
-    DataTable data = (DataTable)ViewData["userInfo"];
-    var success = ViewData["success"];
+    ViewData["Title"] = "Customer List";
 }
-
-<script>
-    window._data_rows = @Html.Raw(Json.Serialize(data.Rows));
-    if (window._data_rows.length > 0) {
-        window._data_rows = window._data_rows[0]['table'];
-    }
-</script>
-
 <div class="container-fluid content-wrapper ">
     <div class="row justify-content-between m-lg-5">
         <div class="col-4">
@@ -34,16 +25,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (DataRow item in data.Rows)
+                        @foreach (var User in Model)
                         {
-                            <tr data-id="@item["id"]">
+                            <tr data-id="@User.Id">
                                 <td><input type="checkbox" /></td>
                                 <td></td>
-                                <td>@item["name"]</td>
-                                <td>@item["email"]</td>
-                                <td>@item["address"]</td>
-                                <td>@item["company"]</td>
-                                <td>@item["contactperson"]</td>
+                                <td>@User.UserName</td>
+                                <td>@User.Email</td>
+                                <td>@User.Address</td>
+                                <td>@User.Company</td>
+                                <td>@User.ContactPerson</td>
                             </tr>
                         }
                     </tbody>
@@ -70,7 +61,7 @@
 
             <div class="modal-body">
                 <div class="table-responsive mt-5 mb-3">
-                    <table id="customer-detail"class="display table-sm table-bordered" style="width:100%;text-align:center">
+                    <table id="customer-detail" class="display table-sm table-bordered" style="width:100%;text-align:center">
 
                         <thead style="background:#209E93">
                             <tr>
@@ -81,9 +72,7 @@
                                 <th>Contact Person</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
 
@@ -99,9 +88,7 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
-                        <tbody>
-                          
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
                 <div class="modal-footer">
@@ -131,140 +118,11 @@
 
 @section Styles {
     <link href="~/plugins/dataTables/jquery.dataTables.min.css" rel="stylesheet" />
-
 }
-
 
 @section Scripts {
     <script src="~/plugins/jquery/dist/jquery.min.js"></script>
     <script src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
     <script src="~/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var $dt_customerList = $('table#customer-list').DataTable({
-                    "columnDefs": [{
-                        "searchable": false,
-                        "orderable": false,
-                        "targets": 0
-                    }],
-                    "order": [[1, 'asc']]
-            });
-
-            // var dt_customer_detail = $('#customer-detail').DataTable({
-            // });
-
-            var dt_customer_device = $('#customer-device').DataTable({
-            });
-
-            $('#customer-list tbody').on('click', 'tr', function (event) {
-                var $tr = $(event.target).closest("tr");
-                var id = $tr.data("id");
-                var row_data = {};
-                for (var i = 0; i < window._data_rows.length; i++) {
-                    if (window._data_rows[i]["id"] != id) {
-                        continue;
-                    }
-                    else {
-                        row_data = window._data_rows[i];
-                        break;
-                    }
-                }
-                     
-                $.ajax({
-                    type: 'GET',
-                    url: '/customers/modal?id=' + id,
-                    success: function (xhr, status, response) {
-                         var user_data = xhr.user_Info;
-                         var tbody_str = "<tr>";
-                            tbody_str += "<td>" + user_data[0]["name"]+"</td>";
-                            tbody_str += "<td>" + user_data[0]["email"]+"</td>";
-                            tbody_str += "<td>" + user_data[0]["address"] + "</td>";
-                            tbody_str += "<td>" + user_data[0]["company"] + "</td>";
-                            tbody_str += "<td>" + user_data[0]["contactperson"] + "</td>";
-                         tbody_str += "</tr>";
-              
-                        $("#customer-detail tbody").html(tbody_str);
-                      
-                        var tbody_str = "";
-                        var device_data = xhr.device_Info;
-                    
-                        device_data.forEach(rows => {
-                            var tbody_strs = "<tr>";
-                            tbody_str += "<td>" + rows["id"] + "</td>";
-                            tbody_str += "<td>" + rows["IMBI"] + "</td>";
-                            tbody_str += "<td>" + rows["sim_card"] + "</td>";
-                            tbody_str += "<td>" + rows["location_id"] + "</td>";
-                            tbody_str += "<td>" + rows["vehicle"] + "</td>";
-                            tbody_str += "<td>" + rows["status"] + "</>";
-                            tbody_str += "</tr>";
-                        });
-                   
-                        $("#customer-device tbody").html(tbody_str);
-     
-                    }
-                });
-                event.preventDefault();
-                $("#detailModal").modal();
-            });
-
-            $dt_customerList.on('order.dt search.dt', function () {
-                $dt_customerList.column(1, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
-                    cell.innerHTML = i + 1;
-                });
-            }).draw();
-
-            $('input[type="checkbox"]').on('click', function (event) {
-                var $tr = $(event.target).closest("tr");
-                var id = $tr.data("id");
-                if (event.target.checked) {
-                    var $tb_customerList = $("table#customer-list");
-                    var $checked_inputs = $tb_customerList.find("input[type='checkbox']:checked");
-                    for (var i = 0; i < $checked_inputs.length; i++) {
-                        if ($checked_inputs[i] == event.target) {
-                            continue;
-                        }
-                       $checked_inputs[i].checked = false;
-                    }
-                }
-                event.stopPropagation();
-                $('#rowDelete').click(function () {
-                    $.ajax({
-                        type: 'POST',
-                        url: '/customers/Delete?id=' + id,
-                        success: function (result) {
-
-                        }
-                    });
-                    $dt_customerList.row($tr).remove().draw();
-                });
-            });
-            
-            $('#customers_add').click(function () {
-                window.location = "/customers/create";
-            });
-
-            $('#customers_edit').click(function () {
-                var $tb_customerList = $("table#customer-list");
-                var $checked_inputs = $tb_customerList.find("input[type='checkbox']:checked").closest("tr");
-                if ($checked_inputs.length == 0) {
-                    alert("No customer is selected!");
-                    return;
-                }
-
-                var customer_id = $checked_inputs.data("id");
-                window.location = "/customers/update/" + customer_id;
-            });
-            
-            $('#customers_delete').click(function () {
-                var $tb_customerList = $("table#customer-list");
-                var $checked_inputs = $tb_customerList.find("input[type='checkbox']:checked");
-                if ($checked_inputs.length == 0) {
-                    alert("No customer is selected!");
-                    return;
-                }
-                $("#deleteModal").modal();
-            });
-        });
-
-    </script>
+    <script src="~/js/Customers/index.js"></script>
 }

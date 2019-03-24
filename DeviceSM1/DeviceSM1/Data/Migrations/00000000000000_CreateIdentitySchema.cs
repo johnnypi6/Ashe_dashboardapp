@@ -17,9 +17,8 @@ namespace DeviceSM1.Data.Migrations
                     UserName = table.Column<string>(maxLength: 256, nullable: false),
                     NormalizedUserName = table.Column<string>(maxLength: 256, nullable: false),
                     PasswordHash = table.Column<string>(maxLength: 256, nullable: false),
-                    //Email = table.Column<string>(maxLength: 256, nullable: true),
-                    //EmailConfirmed = table.Column<bool>(nullable: true),
-                    //NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
+                    Email = table.Column<string>(maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(maxLength: 256, nullable: true),
                     Phone = table.Column<string>(maxLength: 256, nullable: true),
                     Mobile = table.Column<string>(maxLength: 256, nullable: true),
                     Address = table.Column<string>(maxLength: 256, nullable: true),
@@ -233,12 +232,12 @@ namespace DeviceSM1.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL"
                 );
 
-            //migrationBuilder.CreateIndex(
-            //    name: "UserEmailIndex",
-            //    table: "User",
-            //    column: "NormalizedEmail",
-            //    unique: true,
-            //    filter: "[NormalizedEmail] IS NOT NULL");
+            migrationBuilder.CreateIndex(
+                name: "UserEmailIndex",
+                table: "User",
+                column: "NormalizedEmail",
+                unique: true,
+                filter: "[NormalizedEmail] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

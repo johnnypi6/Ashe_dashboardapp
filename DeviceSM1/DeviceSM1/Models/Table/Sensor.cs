@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace DeviceSM1.Models.Table
 {
-    [Table("Device")]
-    public class TblDevice
+    [Table("Sensor")]
+    public class Sensor
     {
         [Key]
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public int LocationId { get; set; }
-        public string IMEI { get; set; }
-        public string SIMCard { get; set; }
+        public int DeviceId { get; set; }
         public int Type { get; set; }
-        public string Vehicle { get; set; }
+        public string SerialNumber { get; set; }
+        public string HighThreshold { get; set; }
+        public string LowThreshold { get; set; }
+        public int RelayOperation { get; set; }
         public int Status { get; set; }
+        public Device Device { get; set; }
     }
 }

@@ -11,30 +11,7 @@ namespace DeviceSM1.Controllers
     {
         public IActionResult Index()
         {
-            if (ChkLogin() == true)
-            {
-                string username = HttpContext.Session.GetString("username");
-                ViewData["username"] = username;
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Login", "Customers");
-            }
-        }
-
-        private bool ChkLogin()
-        {
-            bool result = false;
-            if (HttpContext.Session.GetString("login") != null)
-            {
-                if (HttpContext.Session.GetString("login") == "1")
-                {
-                    result = true;
-                }
-            }
-
-            return result;
+            return View();
         }
     }
 }

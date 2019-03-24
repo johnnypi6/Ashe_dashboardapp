@@ -34,6 +34,24 @@ namespace DeviceSM1
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.Configure<IdentityOptions>(options =>
+            {
+                //options.Password.RequireDigit = true;
+                //options.Password.RequireLowercase = true;
+                //options.Password.RequireNonAlphanumeric = true;
+                //options.Password.RequireUppercase = true;
+                //options.Password.RequiredLength = 6;
+                //options.Password.RequiredUniqueChars = 1;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 0;
+                options.Password.RequiredUniqueChars = 0;
+            });
+
+            services.AddDistributedMemoryCache();
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -48,7 +66,7 @@ namespace DeviceSM1
 
             services.AddSession(option =>
             {                
-                option.IdleTimeout = TimeSpan.FromMinutes(1440);
+                option.IdleTimeout = TimeSpan.FromMinutes(86400);
                 option.Cookie.HttpOnly = true;
                 option.Cookie.IsEssential = true;
             });
@@ -94,7 +112,7 @@ namespace DeviceSM1
             if (!roleCheck)
             {
                 var role = new ApplicationRole();
-                role.Id = 0;
+                role.Id = 1;
                 role.Name = "Customer";
                 role.DisplayName = "Customer";
                 await RoleManager.CreateAsync(role);
@@ -105,7 +123,7 @@ namespace DeviceSM1
             if (!roleCheck)
             {
                 var role = new ApplicationRole();
-                role.Id = 1;
+                role.Id = 2;
                 role.Name = "Admin";
                 role.DisplayName = "Administrator";
                 await RoleManager.CreateAsync(role);
@@ -120,26 +138,28 @@ namespace DeviceSM1
                 role.Name = "SuperAdmin";
                 role.DisplayName = "Super Administrator";
                 await RoleManager.CreateAsync(role);
-            }
+                
+                //Here we create a Admin super user who will maintain the website
+                var user = new ApplicationUser
+                {
+                    UserName = "SuperAdmin",
+                    Email = "super@gamil.com",
+                    Phone = "1+38382930",
+                    Mobile = "324-2343-2342",
+                    Address = "CA",
+                    Company = "Google",
+                    ContactPerson = "Ashe"
+                };
+                string password = "SuperAdmin";
 
-            //Here we create a Admin super user who will maintain the website
-            var user = new ApplicationUser {
-                UserName = "SuperAdmin",
-                Phone = "1+38382930",
-                Mobile = "324-2343-2342",
-                Address = "CA",
-                Company = "Google",
-                ContactPerson = "Ashe"
-            };
-            string password = "123Admin!@#";
+                IdentityResult chkUser = await UserManager.CreateAsync(user, password);
 
-            IdentityResult chkUser = await UserManager.CreateAsync(user, password);
-
-            //Add default User to Role Admin    
-            if (chkUser.Succeeded)
-            {
-                await UserManager.AddToRoleAsync(user, "SuperAdmin");
-                await UserManager.AddToRoleAsync(user, "Admin");
+                //Add default User to Role Admin    
+                if (chkUser.Succeeded)
+                {
+                    await UserManager.AddToRoleAsync(user, "SuperAdmin");
+                    await UserManager.AddToRoleAsync(user, "Admin");
+                }
             }
         }
     }

@@ -1,11 +1,7 @@
-﻿@using DeviceSM1.Models;
-@using System.Data;
-@model DataTable
+﻿@using DeviceSM1.Models.Identity;
+@model ApplicationUser
 @{
-    DataTable data = (DataTable)ViewData["profile_Info"];
-    var success = ViewData["success"];
-
-
+    ViewData["Title"] = "Administrator Profile";
 }
 <div class="container-fluid content-wrapper ">
     <div class="m-sm-5">
@@ -22,7 +18,7 @@
                         <label class="col-form-label" style="width:50px;"><i class="fas fa-user profile-icon"></i></label>
                         <div class="col-7">
                             <div class="md-form mt-3">
-                                <input type="text" value="@data.Rows[0]["name"]" class="form-control" disabled>
+                                <input type="text" value="@Model.UserName" class="form-control" disabled>
                             </div>
                         </div>
                     </div>
@@ -32,7 +28,7 @@
                         <label class="col-form-label" style="width:50px;"><i class="fas fa-envelope profile-icon"></i></label>
                         <div class="col-7">
                             <div class="md-form mt-3">
-                                <input type="text" value="@data.Rows[0]["email"]" class="form-control" disabled>
+                                <input type="text" value="@Model.Email" class="form-control" disabled>
                             </div>
                         </div>
                     </div>
@@ -42,7 +38,7 @@
                         <label class="col-form-label" style="width:50px;"><i class="fas fa-mobile-alt profile-icon"></i></label>
                         <div class="col-7">
                             <div class="md-form mt-3">
-                                <input type="text" value="@data.Rows[0]["mobile"]" class="form-control" disabled>
+                                <input type="text" value="@Model.Mobile" class="form-control" disabled>
                             </div>
                         </div>
                     </div>
@@ -55,7 +51,7 @@
                         <label class="col-form-label" style="width:50px;"><i class="fas fa-user-friends profile-icon"></i></label>
                         <div class="col-7">
                             <div class="md-form mt-3">
-                                <input type="text" value="@data.Rows[0]["contactperson"]" class="form-control" disabled>
+                                <input type="text" value="@Model.ContactPerson" class="form-control" disabled>
                             </div>
                         </div>
                     </div>
@@ -65,7 +61,7 @@
                         <label class="col-form-label" style="width:50px;"><i class="fas fa-phone profile-icon"></i></label>
                         <div class="col-7">
                             <div class="md-form mt-3">
-                                <input type="text" value="@data.Rows[0]["phone"]" class="form-control" disabled>
+                                <input type="text" value="@Model.Phone" class="form-control" disabled>
                             </div>
                         </div>
                     </div>
@@ -75,7 +71,7 @@
                         <label class="col-form-label" style="width:50px;"><i class="fas fa-building profile-icon"></i></label>
                         <div class="col-7">
                             <div class="md-form mt-3">
-                                <input type="text" value="@data.Rows[0]["company"]" class="form-control" disabled>
+                                <input type="text" value="@Model.Company" class="form-control" disabled>
                             </div>
                         </div>
                     </div>
@@ -87,7 +83,7 @@
                         <label class="col-form-label" style="width:50px;"><i class="fas fa-map-marker-alt profile-icon"></i></label>
                         <div class="col-7">
                             <div class="md-form mt-3">
-                                <input type="text" value="@data.Rows[0]["address"]" class="form-control" disabled>
+                                <input type="text" value="@Model.Address" class="form-control" disabled>
                             </div>
                         </div>
                     </div>
@@ -104,11 +100,8 @@
     </div>
 </div>
 
-
 @section Styles {
     <link href="~/plugins/mdbootstrap/css/mdb.css" rel="stylesheet" />
-
-
 }
 
 
