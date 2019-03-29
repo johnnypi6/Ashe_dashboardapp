@@ -24,7 +24,6 @@
                             <th>Customer</th>
                             <th>Sim Card</th>
                             <th>Location</th>
-                            <th>Vehicle</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -38,7 +37,6 @@
                                 <td>@Device.User.UserName</td>
                                 <td>@Device.SIMCard</td>
                                 <td>@Device.Location.Name</td>
-                                <td>@Device.Vehicle</td>
                                 <td>@Device.Status</td>
                             </tr>
                         }
@@ -50,10 +48,11 @@
 
     <div class="row justify-content-end mt-md-5  ">
         <div style="margin-right:5%">
-            <button id="device_add" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-plus-circle btn_i"></i>Add</button>
+            <button id="device_add" class="btn-other btn-sm btn-w"> <i class=" fa fa-plus-circle btn_i"></i>Add</button>
             <span style="opacity:0">0000</span>
+            <button id="device_edit" class="btn-other btn-sm btn-w"> <i class=" fa fa-edit btn_i"></i>Edit</button>
             <span style="opacity:0">0000</span>
-            <button id="device_delete" class="btn-other btn-sm" style="width:135px;"> <i class=" fa fa-trash-alt btn_i"></i>Delete</button>
+            <button id="device_delete" class="btn-other btn-sm btn-w"> <i class=" fa fa-trash-alt btn_i"></i>Delete</button>
         </div>
     </div>
 
@@ -61,7 +60,6 @@
 
 <div id="detailModal" class=" modal " role="dialog">
     <div class="modal-dialog madiamodal">
-        <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-body">
                 <div class="table-responsive mt-5 mb-3">
@@ -69,10 +67,10 @@
                         <thead style="background:#209E93">
                             <tr>
                                 <th>IMEI</th>
-                                <th>Coutomer</th>
+                                <th>Customer</th>
                                 <th>Sim Card</th>
                                 <th>Location</th>
-                                <th>Vehicle</th>
+                                <th>Type</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -81,11 +79,11 @@
                 </div>
 
                 <div class="table-responsive">
-                    <table di="sensor_list" class="display table-sm table-bordered" style="width:100%;text-align:center">
+                    <table id="sensor_list" class="display table-sm table-bordered" style="width:100%;text-align:center">
                         <thead style="background:#209E93">
                             <tr>
                                 <th>No</th>
-                                <th>Type Of Sensor</th>
+                                <th>Sensor Type</th>
                                 <th>Serial Number</th>
                                 <th>High Threshold</th>
                                 <th>Low Threshold</th>
@@ -129,101 +127,6 @@
 @section Scripts {
     <script src="~/plugins/jquery/dist/jquery.min.js"></script>
     <script src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var table = $('#device-list').DataTable({
-            });
-            var table = $('#sensor_list').DataTable({
-            });
-            $('#device-list tbody').on('click', 'tr', function (event) {
-                var $tr = $(event.target).closest("tr");
-                var id = $tr.find("td:nth-child(2)").text();
-
-                $.ajax({
-                    type: 'GET',
-                    url: '/device/Modal?id=' + id,
-                    success: function (xhr, status, response) {
-                        var device_data = xhr.device_Info;
-                        var tbody_str = "<tr>";
-                        tbody_str += "<td>" + device_data[0]["imei"] + "</td>";
-                        tbody_str += "<td>" + device_data[0]["user_id"] + "</td>";
-                        tbody_str += "<td>" + device_data[0]["sim_card"] + "</td>";
-                        tbody_str += "<td>" + device_data[0]["location"] + "</td>";
-                        tbody_str += "<td>" + device_data[0]["vehicle"] + "</td>";
-                        tbody_str += "<td>" + device_data[0]["status"] + "</td>";
-                        tbody_str +=
-
-                            $("#device_head tbody").html(tbody_str);
-
-
-                        var tbody_str = "";
-                        var sensor_data = xhr.sensor_Info;
-
-                        sensor_data.forEach(rows => {
-                            var tbody_strs = "<tr>";
-                            tbody_str += "<td>" + rows["id"] + "</td>";
-                            tbody_str += "<td>" + rows["type"] + "</td>";
-                            tbody_str += "<td>" + rows["serial_number"] + "</td>";
-                            tbody_str += "<td>" + rows["high threshold"] + "</td>";
-                            tbody_str += "<td>" + rows["low threshold"] + "</td>";
-                            tbody_str += "<td>" + rows["status"] + "</>";
-                            tbody_str += "</tr>";
-                        });
-
-                        $("#sensor_list tbody").html(tbody_str);
-                    }
-                });
-                event.preventDefault();
-                $("#detailModal").modal();
-            });
-
-
-            $('input[type="checkbox"]').on('click', function (event) {
-                var $tr = $(event.target).closest("tr");
-                var id = $tr.find("td:nth-child(2)").text();
-                if (event.target.checked) {
-                    var $tb_deviceList = $("table#device-list");
-                    var $checked_inputs = $tb_deviceList.find("input[type='checkbox']:checked");
-                    for (var i = 0; i < $checked_inputs.length; i++) {
-                        if ($checked_inputs[i] == event.target) {
-                            continue;
-                        }
-
-                        $checked_inputs[i].checked = false;
-                    }
-                }
-
-                event.stopPropagation();
-                $('#rowDelete').click(function () {
-                    $.ajax({
-                        type: 'POST',
-                        url: '/device/Delecte?id=' + id,
-                        success: function (result) {
-
-                        }
-                    });
-                    $tr.remove();
-                });
-            });
-
-            $('#device_delete').click(function () {
-                var $tb_deviceList = $("table#device-list");
-                var $checked_inputs = $tb_deviceList.find("input[type='checkbox']:checked");
-                if ($checked_inputs.length == 0) {
-                    alert("No device is selected!");
-                    return;
-                }
-
-                $("#deleteModal").modal();
-
-            });
-            $('#device_add').click(function () {
-                window.location = "/device/addDevice";
-            });
-            $('#device_edit').click(function () {
-                window.location = "/device/addDevice";
-            });
-        });
-    </script>
-
+    <script src="~/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/Device/index.js"></script>
 }

@@ -54,12 +54,26 @@ namespace DeviceSM1.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(maxLength: 256, nullable: false),
-                    Latitude = table.Column<double>(nullable: false),
-                    Longitude = table.Column<double>(nullable: false)
+                    Latitude = table.Column<double>(nullable: true),
+                    Longitude = table.Column<double>(nullable: true),
+                    Country = table.Column<string>(maxLength: 256, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Location", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DeviceType",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(maxLength: 256, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DeviceType", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -70,10 +84,9 @@ namespace DeviceSM1.Data.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<int>(nullable: false),
                     LocationId = table.Column<int>(nullable: false),
-                    IMEI = table.Column<string>(maxLength: 256, nullable: false),
+                    IMEI = table.Column<string>(maxLength: 256, nullable: true),
                     SIMCard = table.Column<string>(maxLength: 256, nullable: true),
-                    Type = table.Column<int>(nullable: true),
-                    Vehicle = table.Column<string>(maxLength: 256, nullable: true),
+                    DeviceTypeId = table.Column<int>(nullable: true),
                     Status = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -91,6 +104,25 @@ namespace DeviceSM1.Data.Migrations
                         principalTable: "Location",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Device_DeviceTypeId",
+                        column: x => x.DeviceTypeId,
+                        principalTable: "DeviceType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SensorType",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(maxLength: 256, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SensorType", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -100,10 +132,10 @@ namespace DeviceSM1.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     DeviceId = table.Column<int>(nullable: false),
-                    Type = table.Column<int>(nullable: false),
+                    SensorTypeId = table.Column<int>(nullable: false),
                     SerialNumber = table.Column<string>(maxLength: 256, nullable: true),
-                    HighThreshold = table.Column<string>(maxLength: 256, nullable: true),
-                    LowThreshold = table.Column<string>(maxLength: 256, nullable: true),
+                    HighThreshold = table.Column<double>(nullable: true),
+                    LowThreshold = table.Column<double>(nullable: true),
                     RelayOperation = table.Column<int>(nullable: true),
                     Status = table.Column<int>(nullable: true)
                 },
@@ -114,6 +146,12 @@ namespace DeviceSM1.Data.Migrations
                         name: "FK_Sensor_Device_Id",
                         column: x => x.DeviceId,
                         principalTable: "Device",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Sensor_SensorType_Id",
+                        column: x => x.SensorTypeId,
+                        principalTable: "SensorType",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -270,10 +308,21 @@ namespace DeviceSM1.Data.Migrations
                 column: "LocationId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Device_DeviceTypeId",
+                table: "Device",
+                column: "DeviceTypeId"
+                );
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Location_Name",
                 table: "Location",
                 column: "Name",
-                unique: true,
+                filter: "[Name] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Location_Country",
+                table: "Location",
+                column: "Country",
                 filter: "[Name] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
@@ -282,9 +331,9 @@ namespace DeviceSM1.Data.Migrations
                 column: "DeviceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Sensor_Type",
+                name: "IX_Sensor_SensorTypeId",
                 table: "Sensor",
-                column: "Type");
+                column: "SensorTypeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -303,6 +352,12 @@ namespace DeviceSM1.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "SensorType");
+
+            migrationBuilder.DropTable(
+                name: "DeviceType");
 
             migrationBuilder.DropTable(
                 name: "Sensor");

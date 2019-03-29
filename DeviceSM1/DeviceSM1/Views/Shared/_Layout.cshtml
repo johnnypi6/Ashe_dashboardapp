@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>@ViewData["Title"] - WebApplication3</title>
-    @using Microsoft.AspNetCore.Http;
     <link href="~/plugins/font-awesome.min.css" type="text/css" rel="stylesheet" />
     <link href="~/css/vendors.bundle.css" rel="stylesheet" type="text/css" />
     <link href="~/css/style.bundle.css" rel="stylesheet" type="text/css" />
@@ -14,6 +13,7 @@
     <link href="~/css/right_slide_menu.css" rel="stylesheet">
 
     @RenderSection("Styles", required: false)
+
 </head>
 <body style="font-family:Verdana">
     <div>
@@ -77,19 +77,16 @@
                                     <li class="m-nav__item m-topbar__quick-actions m-topbar__quick-actions--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
                                         <a href="#" class="m-nav__link m-dropdown__toggle">
                                             <span class="m-nav__link-badge m-badge m-badge--dot m-badge--info m--hide"></span>
-                                            @{
-                                                var username = ViewData["username"];
-                                            }
-                                            @if (username != null)
+                                            @if (String.IsNullOrEmpty(User.Identity.Name))
                                             {
-                                                <span class="m-nav__link-icon">
-                                                    @username.ToString()
+                                                <span class="m-nav__link-icon" style="width: 100px;">
+                                                    Anonymous
                                                 </span>
                                             }
                                             else
                                             {
-                                                <span class="m-nav__link-icon" style="width: 100px;">
-                                                    No name
+                                                <span class="m-nav__link-icon">
+                                                    @User.Identity.Name
                                                 </span>
                                             }
                                         </a>
@@ -238,7 +235,7 @@
                             </div>
                             <div style="border-bottom: 1px solid #1c7563;"></div>
                         </li>
-                        @if (Context.Session.GetString("role") != "user")
+                        @if (User.IsInRole("SuperAdmin") || User.IsInRole("Admin"))
                         {
                             <li class="m-menu__item  m-menu__item--submenu " aria-haspopup="true" m-menu-submenu-toggle="hover">
                                 <a href="javascript:;" class="m-menu__link m-menu__toggle">

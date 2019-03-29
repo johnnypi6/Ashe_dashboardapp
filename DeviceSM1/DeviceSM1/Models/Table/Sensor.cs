@@ -11,14 +11,18 @@ namespace DeviceSM1.Models.Table
     public class Sensor
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [Required]
         public int DeviceId { get; set; }
-        public int Type { get; set; }
+        [Required]
+        public int SensorTypeId { get; set; }
         public string SerialNumber { get; set; }
-        public string HighThreshold { get; set; }
-        public string LowThreshold { get; set; }
-        public int RelayOperation { get; set; }
+        public double HighThreshold { get; set; }
+        public double LowThreshold { get; set; }
+        public bool RelayOperation { get; set; }
         public int Status { get; set; }
         public Device Device { get; set; }
+        public SensorType SensorType { get; set; }
     }
 }

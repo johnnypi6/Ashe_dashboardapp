@@ -62,7 +62,11 @@ namespace DeviceSM1
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Auth/LogIn");
             services.ConfigureApplicationCookie(options => options.AccessDeniedPath = "/Auth/LogIn");
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddJsonOptions(
+                    options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                );
 
             services.AddSession(option =>
             {                

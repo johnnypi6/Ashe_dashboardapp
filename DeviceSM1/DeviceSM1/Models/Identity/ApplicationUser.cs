@@ -11,8 +11,8 @@ namespace DeviceSM1.Models.Identity
 {
     public class ApplicationUser : IdentityUser<int>
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public override int Id { get; set; }
         [Required]
         [DataType(DataType.Text)]

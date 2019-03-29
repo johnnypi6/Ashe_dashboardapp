@@ -9,10 +9,7 @@
         "order": [[1, 'asc']]
     });
 
-    // var dt_customer_detail = $('#customer-detail').DataTable({
-    // });
-
-    var dt_customer_device = $('#customer-device').DataTable({
+    var $dt_customer_device = $('#customer-device').DataTable({
     });
 
     $('#customer-list tbody').on('click', 'tr', function (event) {
@@ -33,22 +30,19 @@
 
                     $("#customer-detail tbody").html(tbody_str);
 
-                    //var tbody_str = "";
-                    //var device_data = xhr.device_Info;
-
-                    //device_data.forEach(rows => {
-                    //    var tbody_strs = "<tr>";
-                    //    tbody_str += "<td>" + rows["id"] + "</td>";
-                    //    tbody_str += "<td>" + rows["IMBI"] + "</td>";
-                    //    tbody_str += "<td>" + rows["sim_card"] + "</td>";
-                    //    tbody_str += "<td>" + rows["location_id"] + "</td>";
-                    //    tbody_str += "<td>" + rows["vehicle"] + "</td>";
-                    //    tbody_str += "<td>" + rows["status"] + "</>";
-                    //    tbody_str += "</tr>";
-                    //});
-
-                    //$("#customer-device tbody").html(tbody_str);
-                    $("#customer-device tbody").html("");
+                    $dt_customer_device.clear();
+                    var devices = xhr.devices;
+                    devices.forEach(device => {
+                        $dt_customer_device.row.
+                            add([
+                                null,
+                                device.imei,
+                                device.simCard,
+                                device.location.name,
+                                device.deviceType.name,
+                                device.status
+                            ]).draw(false);
+                    });
                 }
             }
         });
@@ -58,6 +52,12 @@
 
     $dt_customerList.on('order.dt search.dt', function () {
         $dt_customerList.column(1, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+            cell.innerHTML = i + 1;
+        });
+    }).draw();
+
+    $dt_customer_device.on('order.dt search.dt', function () {
+        $dt_customer_device.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
             cell.innerHTML = i + 1;
         });
     }).draw();
@@ -81,10 +81,9 @@
                 type: 'POST',
                 url: '/customers/Delete?id=' + id,
                 success: function (result) {
-
+                    $dt_customerList.row($tr).remove().draw();
                 }
             });
-            $dt_customerList.row($tr).remove().draw();
         });
     });
 
@@ -105,13 +104,12 @@
     });
 
     $('#customers_delete').click(function () {
-        var $tb_customerList = $("table#customer-list");
-        var $checked_inputs = $tb_customerList.find("input[type='checkbox']:checked");
+        var $dt_customerList = $("table#customer-list");
+        var $checked_inputs = $dt_customerList.find("input[type='checkbox']:checked");
         if ($checked_inputs.length == 0) {
             alert("No customer is selected!");
             return;
         }
         $("#deleteModal").modal();
     });
-
 });

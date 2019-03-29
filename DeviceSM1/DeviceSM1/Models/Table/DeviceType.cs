@@ -7,17 +7,14 @@ using System.Threading.Tasks;
 
 namespace DeviceSM1.Models.Table
 {
-    [Table("Location")]
-    public class Location
+    [Table("DeviceType")]
+    public class DeviceType
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
-        public string Country { get; set; }
-        public Device Device { get; set; }
+        public ICollection<Device> Devices { get; set; }
     }
 }

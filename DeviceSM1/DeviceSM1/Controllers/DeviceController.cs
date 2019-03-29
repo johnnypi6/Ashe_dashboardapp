@@ -11,6 +11,10 @@ using Microsoft.AspNetCore.Identity;
 using DeviceSM1.Models.Identity;
 using DeviceSM1.Data;
 using Microsoft.EntityFrameworkCore;
+using DeviceSM1.Models.Table;
+using System.Security.Claims;
+using System.Dynamic;
+using DeviceSM1.Models.ViewModel;
 
 namespace DeviceSM1.Controllers
 {
@@ -30,107 +34,155 @@ namespace DeviceSM1.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var devices = _appDbContext.Devices
-                .Include(c => c.User)
-                .Include(c => c.Location)
-                .AsNoTracking();
+            IQueryable<Device> devices;
+
+            if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+            {
+                devices = _appDbContext.Devices
+                    .Include(c => c.User)
+                    .Include(c => c.Location)
+                    .AsNoTracking();
+            }
+            else if (User.IsInRole("Customer"))
+            {
+                var id = Convert.ToInt32(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+                devices = _appDbContext.Devices
+                   .Where(d => d.UserId == id)
+                   .Include(d => d.User)
+                   .Include(d => d.Location)
+                   .AsNoTracking();
+            }
+            else
+            {
+                devices = Enumerable.Empty<Device>().AsQueryable();
+            }
 
             return View(await devices.ToListAsync());
-            //string user_role = HttpContext.Session.GetString("role");
-
-            //if (user_role != "user")
-            //{
-            //    DataTable device_Info = conDB.GetData($"SELECT id,user_id,location_id,IMEI,sim_card,vehicle,STATUS FROM device");
-            //    ViewData["device_Info"] = device_Info;
-            //    return View();
-            //}
-            //else
-            //{
-            //    int id = Convert.ToInt32(HttpContext.Session.GetString("id"));
-            //    DataTable device_Info = conDB.GetData($"SELECT id,user_id,location_id,IMEI,sim_card,vehicle,STATUS FROM device WHERE user_id = {id};");
-            //    ViewData["device_Info"] = device_Info;
-            //    return View();
-            //}
         }
 
-        //public IActionResult addDevice()
-        //{
-        //    return View();
-        //}
+        public async Task<IActionResult> Create()
+        {
+            var Users = await _userManager.GetUsersInRoleAsync("Customer");
+            var DeviceTypes = await _appDbContext.DeviceTypes.ToListAsync();
+            var Locations = await _appDbContext.Locations.Take(5).ToListAsync();
 
-        //[HttpPost]
-        //public IActionResult RegisterDevice(string IMEI, string name, string sim_card, string location, string vehicle, int status,
-        //  int p_no, int p_h, int p_l, int p_r, int t_no, int t_h, int t_l, int t_r,
-        //  int h_no, int h_h, int h_l, int h_r, int m_no, int m_h, int m_l, int m_r,
-        //  int l_no, int l_h, int l_l, int l_r, int c_no, int c_h, int c_l, int c_r)
-        //{
+            dynamic model = new ExpandoObject();
+            model.Users = Users;
+            model.DeviceTypes = DeviceTypes;
+            model.Locations = Locations;
 
+            return View(model);
+        }
 
-        //    string selectIDquery = $"SELECT id FROM user WHERE name = '{name}'";
+        public async Task<IActionResult> Update(int id)
+        {
+            var Device = await _appDbContext.Devices
+                .Where(d => d.Id == id)
+                .Include(d => d.User)
+                .Include(d => d.Location)
+                .Include(d => d.DeviceType)
+                .Include(d => d.Sensors)
+                    .ThenInclude(s => s.SensorType)
+                .SingleAsync();
+            var Users = await _userManager.GetUsersInRoleAsync("Customer");
+            var DeviceTypes = await _appDbContext.DeviceTypes.ToListAsync();
+            var Locations = await _appDbContext.Locations.Take(5).ToListAsync();
 
-        //    DataTable dt = conDB.GetData(selectIDquery);
-        //    string user_id = dt.Rows[0]["id"].ToString();
+            dynamic model = new ExpandoObject();
+            model.Device = Device;
+            model.Users = Users;
+            model.DeviceTypes = DeviceTypes;
+            model.Locations = Locations;
 
+            return View(model);
+        }
 
-        //    //string selectLocationIDquery = $"SELECT id FROM location WHERE name = '{location}'";
-        //    //DataTable dt1 = connector.GetData(selectLocationIDquery);
-        //    //string locationID = dt1.Rows[0]["id"].ToString();  
+        public async Task<IActionResult> Delete(int id)
+        {
+            var device = _appDbContext.Devices
+                .Where(d => d.Id == id)
+                .Single();
 
+            var result = _appDbContext.Devices.Remove(device);
 
-        //    string query = $"INSERT INTO device (user_id, location_id, IMEI, sim_card,  vehicle, status) " +
-        //                               $"VALUES ('{user_id}', '{location}','{IMEI}',  '{sim_card}', '{vehicle}', '{status}')";
+            if (result.State == EntityState.Deleted) {
+                await _appDbContext.SaveChangesAsync();
+                return new JsonResult(new {
+                    state = true
+                });
+            }
 
+            return new JsonResult(new
+            {
+                state = false
+            });
+        }
 
-        //    string selectDevice_id = $"SELECT id FROM device WHERE id like '%es'";
-        //    DataTable dtDevice = conDB.GetData(selectDevice_id);
-        //    string device_id = dtDevice.Rows[0]["id"].ToString();
+        [HttpPost]
+        public async Task<IActionResult> RegisterDevice(Device device)
+        {
+            var result = _appDbContext.Devices.Add(device);
 
-        //    string queryp = $"INSERT INTO sensor (device_id, type, serial_number, high_threshold, low_threshold,  status) " +
-        //           $"VALUES ( '{device_id}','1', '{p_no}', '{p_h}','{p_l}',  '{p_r}')";
+            if (result.State == EntityState.Added)
+            {
+                await _appDbContext.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
 
-        //    string queryt = $"INSERT INTO sensor (device_id, type, serial_number, high_threshold, low_threshold, relay_operation, status) " +
-        //           $"VALUES ( '{device_id}','Temperature', '{t_no}', '{t_h}','{t_l}',  '{t_r}')";
+            return RedirectToAction("Create");
+        }
 
-        //    string queryh = $"INSERT INTO sensor (device_id, type, serial_number, high_threshold, low_threshold, relay_operation, status) " +
-        //           $"VALUES ( '{device_id}','Humidity', '{h_no}', '{h_h}','{h_l}',  '{h_r}')";
+        public async Task<IActionResult> UpdateDevice(Device device)
+        {
+            if (ModelState.IsValid)
+            {
+                var newDevice = await _appDbContext.Devices
+                    .Where(d => d.Id == device.Id)
+                    .Include(d => d.Sensors)
+                    .SingleAsync();
 
-        //    string querym = $"INSERT INTO sensor (device_id, type, serial_number, high_threshold, low_threshold, relay_operation, status) " +
-        //           $"VALUES ( '{device_id}','Moisture', '{m_no}', '{m_h}','{m_l}',  '{m_r}')";
+                newDevice.IMEI = device.IMEI;
+                newDevice.UserId = device.UserId;
+                newDevice.LocationId = device.LocationId;
+                newDevice.SIMCard = device.SIMCard;
+                newDevice.DeviceTypeId = device.DeviceTypeId;
+                newDevice.Status = device.Status;
+                
+                for (int i = 0; i < Constant.SENSOR_NUMBER; i++)
+                {
+                    Sensor newSensor = newDevice.Sensors[i];
+                    Sensor sensor = device.Sensors[i];
 
-        //    string queryl = $"INSERT INTO sensor (device_id, type, serial_number, high_threshold, low_threshold, relay_operation, status) " +
-        //           $"VALUES ( '{device_id}','Liquid Flow', '{l_no}', '{l_h}','{l_l}',  '{l_r}')";
+                    newSensor.SerialNumber = sensor.SerialNumber;
+                    newSensor.HighThreshold = sensor.HighThreshold;
+                    newSensor.LowThreshold = sensor.LowThreshold;
+                    newSensor.RelayOperation = sensor.RelayOperation;
+                }
 
-        //    string queryc = $"INSERT INTO sensor (device_id, type, serial_number, high_threshold, low_threshold, relay_operation, status) " +
-        //           $"VALUES ( '{device_id}','CO2', '{c_no}', '{c_h}','{c_l}',  '{c_r}')";
-        //    conDB.ExecuteQuery(query);
-        //       return RedirectToAction("index", "Device", new { success = "true" });
+                var result = _appDbContext.Devices.Update(newDevice);
 
+                if (result.State == EntityState.Modified)
+                {
+                    await _appDbContext.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+            }
+            
+            return RedirectToAction("Update", new { id = device.Id });
+        }
 
-
-        //}
-        //public IActionResult Modal(int id)
-        //{
-        //    DataTable device_Info = conDB.GetData($"SELECT  IMEI, user_id, sim_card, location_id,vehicle, status FROM device WHERE id = {id};");
-
-
-        //    DataTable sensor_Info = conDB.GetData($"SELECT id,type, serial_number,high_threshold,low_threshold,status FROM sensor WHERE device_id = {id};");
-
-        //    return new JsonResult(new
-        //    {
-        //        device_Info = device_Info,
-        //        sensor_Info = sensor_Info
-        //    });
-        //    //return View();
-        //}
-
-
-        //public IActionResult Delecte(int id)
-        //{
-        //    DataTable device_Delect = conDB.GetData($"DELETE  FROM device WHERE id = {id};");
-        //    ViewData["device_Delect"] = device_Delect;
-
-        //    return View();
-        //}
-
+        public async Task<IActionResult> Modal(int id)
+        {
+            var device = _appDbContext.Devices
+                .Where(d => d.Id == id)
+                .Include(d => d.User)
+                .Include(d => d.Location)
+                .Include(d => d.DeviceType)
+                .Include(d => d.Sensors)
+                    .ThenInclude(s => s.SensorType);
+            
+            return new JsonResult(await device.SingleAsync());
+        }
     }
 }

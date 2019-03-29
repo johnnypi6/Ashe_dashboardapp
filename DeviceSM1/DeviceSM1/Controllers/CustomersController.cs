@@ -12,6 +12,7 @@ using DeviceSM1.Models.Identity;
 using Microsoft.AspNetCore.Identity;
 using DeviceSM1.Models.ViewModel;
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 
 namespace DeviceSM1.Controllers
 {
@@ -59,8 +60,14 @@ namespace DeviceSM1.Controllers
 
         public async Task<IActionResult> Modal(int id)
         {
-            var user = await _userManager.FindByIdAsync(Convert.ToString(id));
-
+            var user = await _userManager.Users
+                .Include(u => u.Devices)
+                    .ThenInclude(d => d.Location)
+                .Include(u => u.Devices)
+                    .ThenInclude(d => d.DeviceType)
+                .Where(u => u.Id == id)
+                .FirstAsync();
+            
             return new JsonResult(user);
         }
 
@@ -75,7 +82,7 @@ namespace DeviceSM1.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var user = await _userManager.FindByIdAsync(Convert.ToString(id));
-            var result = _userManager.DeleteAsync(user).Result;
+            var result = await _userManager.DeleteAsync(user);
             return new JsonResult(new
             {
                 success = result.Succeeded

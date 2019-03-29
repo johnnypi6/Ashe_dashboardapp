@@ -59,5 +59,7 @@ namespace DeviceSM1.Data
         public DbSet<Device> Devices { get; set; }
         public DbSet<Sensor> Sensors { get; set; }
         public DbSet<Location> Locations { get; set; }
+        public DbSet<DeviceType> DeviceTypes { get; set; }
+        public DbSet<SensorType> SensorTypes { get; set; }
     }
 }
