@@ -7,7 +7,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Net;
 
-namespace TCPServer
+namespace DeviceSM1.TCPServer
 {
     /// <summary>
     /// A class that listens on a port for client connections, sends and recieves messages from connected clients,
@@ -484,7 +484,7 @@ namespace TCPServer
                 {
                     string mess = "CONNECTION BOOTED for reason other than 10054: code = " + se.ErrorCode.ToString() + ",   " + se.Message;
                     Console.WriteLine(mess);
-                    ToFile(mess);
+                    //ToFile(mess);
                 }
             }
         }
@@ -512,36 +512,36 @@ namespace TCPServer
             }
         }
 
-        private void ToFile(string message)
-        {
-            string AppPath = CommonClassLibs.GeneralFunction.GetAppPath;//Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);//System.Windows.Forms.Application.StartupPath;
+        //private void ToFile(string message)
+        //{
+        //    string AppPath = CommonClassLibs.GeneralFunction.GetAppPath;//Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);//System.Windows.Forms.Application.StartupPath;
 
-            System.IO.StreamWriter sw = null;
-            try
-            {
-                sw = System.IO.File.AppendText(System.IO.Path.Combine(AppPath, "ServerSocketIssue.txt"));
-                string logLine = System.String.Format("{0:G}: {1}.", System.DateTime.Now, message);
-                sw.WriteLine(logLine);
-            }
-            catch// (Exception ex)
-            {
-                //Console.WriteLine("\n\nError in ToFile:\n" + message + "\n" + ex.Message + "\n\n");
-                // System.Windows.Forms.MessageBox.Show("ERROR:\n\n" + ex.Message, "Possible Permissions Issue!");
-            }
-            finally
-            {
-                try
-                {
-                    if (sw != null)
-                    {
-                        sw.Close();
-                        sw.Dispose();
-                    }
-                }
-                catch
-                { }
-            }
-        }
+        //    System.IO.StreamWriter sw = null;
+        //    try
+        //    {
+        //        sw = System.IO.File.AppendText(System.IO.Path.Combine(AppPath, "ServerSocketIssue.txt"));
+        //        string logLine = System.String.Format("{0:G}: {1}.", System.DateTime.Now, message);
+        //        sw.WriteLine(logLine);
+        //    }
+        //    catch// (Exception ex)
+        //    {
+        //        //Console.WriteLine("\n\nError in ToFile:\n" + message + "\n" + ex.Message + "\n\n");
+        //        // System.Windows.Forms.MessageBox.Show("ERROR:\n\n" + ex.Message, "Possible Permissions Issue!");
+        //    }
+        //    finally
+        //    {
+        //        try
+        //        {
+        //            if (sw != null)
+        //            {
+        //                sw.Close();
+        //                sw.Dispose();
+        //            }
+        //        }
+        //        catch
+        //        { }
+        //    }
+        //}
     }
 
     public class PingStatsClass

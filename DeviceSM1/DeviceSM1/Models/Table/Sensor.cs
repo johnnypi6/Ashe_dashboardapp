@@ -22,6 +22,7 @@ namespace DeviceSM1.Models.Table
         public double LowThreshold { get; set; }
         public bool RelayOperation { get; set; }
         public int Status { get; set; }
+
         public Device Device { get; set; }
         public SensorType SensorType { get; set; }
     }

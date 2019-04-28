@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using DeviceSM1.Data;
 using DeviceSM1.Models.Identity;
+using DeviceSM1.SocketServer;
+using DeviceSM1.TCPServer;
+using DeviceSM1.TCPWS;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -55,9 +58,15 @@ namespace DeviceSM1
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseMySql(
                     Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<TCPDbContext>(options =>
+                options.UseMySql(
+                    Configuration.GetConnectionString("DefaultConnection")), ServiceLifetime.Singleton);
             services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddWebSocketManager();
+            services.AddTCPSocketManager();
 
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Auth/LogIn");
             services.ConfigureApplicationCookie(options => options.AccessDeniedPath = "/Auth/LogIn");
@@ -94,6 +103,10 @@ namespace DeviceSM1
             app.UseSession();
             app.UseCookiePolicy();
             app.UseAuthentication();
+
+            // Add websocket middleware
+            app.UseWebSockets();
+            app.MapWebSocketManager("/ws", services.GetService<AlertMessageHandler>());
 
             app.UseMvc(routes =>
             {

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DeviceSM1.Models.Table.Device">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Property Name="DeviceType" Hidden="true" />
+      <Property Name="Location" Hidden="true" />
+      <Property Name="Sensors" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>IAAPAAIEAAAAAAAAAAIAAAgAAAAAIAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Table\Device.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeviceSM1.Models.Identity.ApplicationUser">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAABAAAAAAAQAAAAACCAQAAJAAAAAA=</HashCode>
+      <FileName>Models\Identity\ApplicationUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeviceSM1.Models.Table.Sensor">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <Members>
+      <Property Name="AlertSensors" Hidden="true" />
+      <Property Name="Device" Hidden="true" />
+      <Property Name="SensorType" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAACBAAEAgAEAgCAAAAAAAAAAAEAAAAAEAAAAAABIAA=</HashCode>
+      <FileName>Models\Table\Sensor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

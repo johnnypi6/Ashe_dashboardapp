@@ -105,7 +105,7 @@ namespace DeviceSM1.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Device_DeviceTypeId",
+                        name: "FK_Device_DeviceType_DeviceTypeId",
                         column: x => x.DeviceTypeId,
                         principalTable: "DeviceType",
                         principalColumn: "Id",
@@ -152,6 +152,62 @@ namespace DeviceSM1.Data.Migrations
                         name: "FK_Sensor_SensorType_Id",
                         column: x => x.SensorTypeId,
                         principalTable: "SensorType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Log",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Timestamp = table.Column<DateTime>(nullable: true),
+                    IMEI = table.Column<string>(nullable: true, maxLength: 255),
+                    Strength = table.Column<double>(nullable: true),
+                    Voltage = table.Column<double>(nullable: true),
+                    Latitude = table.Column<double>(nullable: true),
+                    Longitude = table.Column<double>(nullable: true),
+                    SensorValue1 = table.Column<double>(nullable: true),
+                    SensorValue2 = table.Column<double>(nullable: true),
+                    SensorValue3 = table.Column<double>(nullable: true),
+                    SensorValue4 = table.Column<double>(nullable: true),
+                    SensorValue5 = table.Column<double>(nullable: true),
+                    SensorValue6 = table.Column<double>(nullable: true),
+                    SensorStatus1 = table.Column<int>(nullable: true),
+                    SensorStatus2 = table.Column<int>(nullable: true),
+                    SensorStatus3 = table.Column<int>(nullable: true),
+                    SensorStatus4 = table.Column<int>(nullable: true),
+                    SensorStatus5 = table.Column<int>(nullable: true),
+                    SensorStatus6 = table.Column<int>(nullable: true),
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Log", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Alert",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    SensorId = table.Column<int>(nullable: false),
+                    LogId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Alert", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Alert_Sensor_SensorId",
+                        column: x => x.SensorId,
+                        principalTable: "Sensor",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Alert_Log_LogId",
+                        column: x => x.LogId,
+                        principalTable: "Log",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -334,6 +390,16 @@ namespace DeviceSM1.Data.Migrations
                 name: "IX_Sensor_SensorTypeId",
                 table: "Sensor",
                 column: "SensorTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Alert_SensorId",
+                table: "Alert",
+                column: "SensorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Alert_LogId",
+                table: "Alert",
+                column: "LogId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -355,6 +421,12 @@ namespace DeviceSM1.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "SensorType");
+
+            migrationBuilder.DropTable(
+                name: "Alert");
+
+            migrationBuilder.DropTable(
+                name: "Log");
 
             migrationBuilder.DropTable(
                 name: "DeviceType");

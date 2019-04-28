@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using DeviceSM1.Models.Identity;
+﻿using DeviceSM1.Models.Identity;
 using DeviceSM1.Models.Table;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace DeviceSM1.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, int>
+    public partial class TCPDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, int>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public TCPDbContext(DbContextOptions<TCPDbContext> options)
             : base(options)
         {
         }
@@ -58,9 +58,6 @@ namespace DeviceSM1.Data
 
         public DbSet<Device> Devices { get; set; }
         public DbSet<Sensor> Sensors { get; set; }
-        public DbSet<Location> Locations { get; set; }
-        public DbSet<DeviceType> DeviceTypes { get; set; }
-        public DbSet<SensorType> SensorTypes { get; set; }
         public DbSet<Log> Logs { get; set; }
         public DbSet<Alert> Alerts { get; set; }
     }

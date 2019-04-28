@@ -11,7 +11,7 @@
             <h3 class="" style="font-weight: 500;">Device<span style="opacity:0">0</span>Detail</h3>
         </div>
     </div>
-    <form asp-controller="Device" asp-action="RegisterDevice" id="add_device" class="needs-validation" novalidate>
+    <form asp-controller="Device" asp-action="RegisterDevice" method="post" id="add_device" class="needs-validation" novalidate>
         <div id="device-detail-wrapper" class="row ml-0 mt-3 ml-sm-5">
             <div class="col-md-12 col-sm-10 ">
                 <div class="row mt-sm-1">
@@ -84,7 +84,7 @@
                             <label class="col-form-label "><i class="fas fa-toggle-on profile-icon"></i></label>
                             <div class="col-7">
                                 <div class="md-form mt-3">
-                                    <input type="number" asp-for="@device.Status" class="form-control" id="device_status" placeholder="Status" required="required">
+                                    <input type="number" asp-for="@device.Status" class="form-control" id="device_status" placeholder="Status">
                                 </div>
                             </div>
                         </div>

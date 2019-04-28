@@ -36,6 +36,8 @@ namespace DeviceSM1.Models.Identity
         [DataType(DataType.Text)]
         [Display(Name = "contactperson")]
         public string ContactPerson { get; set; }
+
         public ICollection<Device>  Devices { get; set; }
     }
 }
+
