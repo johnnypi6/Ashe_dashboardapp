@@ -1,6 +1,4 @@
-﻿@using DeviceSM1.Models.Table;
-@model List<Alert>
-@{
+﻿@{
     ViewData["Title"] = "Rapphie";
 }
 
@@ -155,19 +153,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var Alert in Model)
-                            {
-                                <tr id="@Alert.Id">
-                                    <td></td>
-                                    <td>@Alert.Sensor.Device.Location.Name</td>
-                                    <td>@Alert.Log.IMEI</td>
-                                    <td>@Alert.Sensor.Device.User.UserName</td>
-                                    <td>@Alert.Log.Timestamp</td>
-                                    <td>@Alert.Sensor.SensorType.Name</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            }
                         </tbody>
                     </table>
                 </div>

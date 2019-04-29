@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using DeviceSM1.Data;
 using DeviceSM1.Models.Identity;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace DeviceSM1.Controllers
 {
@@ -29,8 +30,15 @@ namespace DeviceSM1.Controllers
 
         public IActionResult Index()
         {
-            var alerts = _appDbContext.Alerts
-                .OrderByDescending(a => a.Id)
+            return View();
+        }
+
+        public IActionResult Alert(int? id)
+        {
+            if (id == null)
+            {
+                var alerts = _appDbContext.Alerts
+                .OrderBy(a => a.Id)
                 .Take(Constant.MAX_ALERT_COUNT)
                 .Include(a => a.Sensor)
                     .ThenInclude(s => s.Device)
@@ -42,11 +50,13 @@ namespace DeviceSM1.Controllers
                     .ThenInclude(s => s.SensorType)
                 .Include(a => a.Log).ToList();
 
-            return View(alerts);
-        }
+                return new JsonResult(alerts, new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                    DateFormatString = "M/d/yyyy h:mm:ss tt"
+                });
+            }
 
-        public IActionResult Alert(int? id)
-        {
             var alert = _appDbContext.Alerts
                 .Where(a => a.Id == id)
                 .Include(a => a.Log)

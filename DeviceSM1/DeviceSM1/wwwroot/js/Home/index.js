@@ -36,13 +36,37 @@ var Index = function () {
             type: 'GET',
             url: '/home/alert?id=' + id,
             success: function (xhr, status, response) {
-                debugger;
                 $('#pressure_value').text(xhr.log.sensorValue1);
                 $('#temperature_value').text(xhr.log.sensorValue2);
                 $('#humidity_value').text(xhr.log.sensorValue3);
                 $('#moisture_value').text(xhr.log.sensorValue4);
                 $('#liquid_value').text(xhr.log.sensorValue5);
                 $('#co2_value').text(xhr.log.sensorValue6);
+            }
+        });
+    }
+
+    var showAllAlerts = function () {
+        $.ajax({
+            type: 'GET',
+            url: '/home/alert',
+            success: function (xhr, status, response) {
+                var i = 0;
+                for (var i in xhr) {
+                    var alert = xhr[i];
+                    var row = {
+                        DT_RowId: alert.Id,
+                        index: null,
+                        location: alert.Sensor.Device.Location.Name,
+                        imei: alert.Log.IMEI,
+                        user: alert.Sensor.Device.User.UserName,
+                        timestamp: alert.Log.Timestamp,
+                        sensor: alert.Sensor.SensorType.Name,
+                        command: null,
+                        reply: null
+                    }
+                    prepend(row);
+                }
             }
         });
     }
@@ -76,6 +100,8 @@ var Index = function () {
                     cell.innerHTML = i + 1;
                 });
             }).draw();
+
+            showAllAlerts();
         },
         connect: function () {
             socket = new WebSocket(uri);
