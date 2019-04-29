@@ -50,6 +50,7 @@ var Index = function () {
     return {
         
         init: function () {
+            $.fn.DataTable.ext.pager.numbers_length = 5;
             $tblAlert = $('#tblAlert').DataTable({
                 select: true,
                 lengthMenu: [5],
