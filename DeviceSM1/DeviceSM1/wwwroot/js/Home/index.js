@@ -1,6 +1,6 @@
 ﻿
 var Index = function () {
-    var protocol = location.protocol === "https:" ? "wss:" : "ws";
+    var protocol = location.protocol === "https:" ? "wss:" : "ws:";
     var uri = protocol + "//" + window.location.host + "/ws";
     var $tblAlert = null;
 
